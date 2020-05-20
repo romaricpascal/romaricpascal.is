@@ -37,8 +37,41 @@ Compile markdown
 npm i metalsmith-in-place jstransformer-remark
 ```
 
-Then
+Then add to the pipeline
 
 ```js
+.use(inPlace())
+```
 
+Templating
+===
+
+```sh
+npm i metalsmith-layouts jstransformer-pug
+```
+
+Pug because it allows arbitrary blocks of JavaScript to be run within the template (and doesn't force their syntax, you can write plain HTML if you want)
+
+Add a `layouts/site.pug` file
+
+```pug
+<!doctype html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+  body
+    != contents
+
+```
+
+Then add to `index.js`
+
+```js
+.use(
+  layouts({
+    default: 'site.pug'
+  })
+)
 ```

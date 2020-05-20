@@ -47,9 +47,11 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "jstransformer-pug": "^0.3.0",
     "jstransformer-remark": "^7.0.0",
     "metalsmith": "^2.3.0",
-    "metalsmith-in-place": "^4.4.1"
+    "metalsmith-in-place": "^4.4.1",
+    "metalsmith-layouts": "^2.3.1"
   },
   "ava": {
     "files": [
