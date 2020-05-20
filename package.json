@@ -7,6 +7,8 @@
     "node": ">=8.12.0"
   },
   "scripts": {
+    "watch": "nodemon",
+    "serve": "browser-sync start -s site",
     "lint": "eslint '**/*.js'",
     "test": "nyc --reporter=text ava",
     "docs": "(cd src && npx docco -o ../docs index.js)",

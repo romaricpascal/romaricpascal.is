@@ -75,3 +75,10 @@ Then add to `index.js`
   })
 )
 ```
+
+Browser reload
+---
+
+Shorten feedback when developing.
+
+browser-sync as a server, triggered by nodemon's exit event (rather than it watching `site` which proved unreliable on my machine).
