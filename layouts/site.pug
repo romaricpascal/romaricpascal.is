@@ -1,8 +1,15 @@
 <!doctype html>
-html(lang="en")
+html(lang=`${language || 'en'}`)
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Document
   body
-    != contents
+    header
+      nav(aria-labelledby="languageSwitcherHeading")
+        h2#languageSwitcherHeading(hidden="") Languages
+        a(href="/fr", hreflang="fr") Francais
+        a(href="/") English
+        
+    main
+      != contents
