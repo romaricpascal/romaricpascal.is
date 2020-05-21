@@ -1,5 +1,5 @@
 {
-  "ext": "js,pug,md,json",
+  "ext": "js,pug,md,json,css",
   "ignore": [
     "site"
   ],

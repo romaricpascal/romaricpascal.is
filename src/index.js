@@ -9,6 +9,7 @@ metalsmith(process.cwd())
   .use(inPlace())
   .use(
     layouts({
+      pattern: ['*', '**/*', '!*.css'],
       default: 'site.pug'
     })
   )
