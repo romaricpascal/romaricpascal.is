@@ -35,3 +35,17 @@ And one that has a very long line:
 ```css
 font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 ```
+
+Images
+---
+
+On their own:
+
+<img src="face-your-fears.jpg" alt="" />
+
+Inside a figure
+
+<figure>
+  <img src="face-your-fears.jpg" alt="" />
+  <figcaption>An image inside a figure</figcaption>
+</figure>

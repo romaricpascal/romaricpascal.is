@@ -1,8 +1,15 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 body {
   margin: 0;
   line-height: 1.5;
   /* System font stack from https://css-tricks.com/snippets/css/system-font-stack/ */
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  color: #111;
+  background: #fafafa;
 }
 
 main > * {
@@ -17,11 +24,26 @@ main > pre {
   font-size: 1.2em;
 }
 
+main > figure {
+  max-width: 50rem;
+}
+
+figcaption {
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+figure > img,
+main > img {
+  display: block;
+  max-width: 50rem;
+}
+
 pre > code {
   display: block;
   padding: 0.5rem;
-  background-color: black;
-  color: white;
+  background-color: #111;
+  color: #fafafa;
   overflow: auto;
 }
 
