@@ -54,7 +54,8 @@
     "jstransformer-remark": "^7.0.0",
     "metalsmith": "^2.3.0",
     "metalsmith-in-place": "^4.4.1",
-    "metalsmith-layouts": "^2.3.1"
+    "metalsmith-layouts": "^2.3.1",
+    "metalsmith-permalinks": "^2.2.0"
   },
   "ava": {
     "files": [

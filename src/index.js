@@ -2,6 +2,7 @@
 const metalsmith = require('metalsmith');
 const inPlace = require('metalsmith-in-place');
 const layouts = require('metalsmith-layouts');
+const permalinks = require('metalsmith-permalinks');
 
 metalsmith(process.cwd())
   .source('./content')
@@ -13,6 +14,7 @@ metalsmith(process.cwd())
       default: 'site.pug'
     })
   )
+  .use(permalinks())
   .build(function(err) {
     if (err) throw err;
   });
