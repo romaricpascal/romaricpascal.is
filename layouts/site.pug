@@ -9,8 +9,9 @@ html(lang=`${language || 'en'}`)
     header
       nav(aria-labelledby="languageSwitcherHeading")
         h2#languageSwitcherHeading(hidden="") Languages
-        a(href="/fr", hreflang="fr") Francais
-        a(href="/") English
+        a(href="/fr", hreflang="fr", aria-current=(language == 'fr' ? 'true' : null)) Francais
+        | !{' '}
+        a(href="/", aria-current=(language != 'fr' ? 'true' : null)) English
         
     main
       != contents
