@@ -5,6 +5,7 @@ const layouts = require('metalsmith-layouts');
 const permalinks = require('metalsmith-permalinks');
 const pathInfo = require('./plugins/pathInfo');
 const detectLanguage = require('./plugins/detectLanguage');
+const rewrite = require('./plugins/rewrite');
 
 metalsmith(process.cwd())
   .source('./content')
@@ -24,6 +25,7 @@ metalsmith(process.cwd())
       default: 'site.pug'
     })
   )
+  .use(rewrite())
   .use(permalinks())
   .build(function(err) {
     if (err) throw err;
