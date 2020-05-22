@@ -1,5 +1,5 @@
 <!doctype html>
-html(lang=`${language || 'en'}`)
+html(lang=`${i18n.language || defaultLanguage}`)
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -9,9 +9,9 @@ html(lang=`${language || 'en'}`)
     header
       nav(aria-labelledby="languageSwitcherHeading")
         h2#languageSwitcherHeading(hidden="") Languages
-        a(href="/fr", hreflang="fr", aria-current=(language == 'fr' ? 'true' : null)) Francais
+        a(href="/fr", hreflang="fr", aria-current=(i18n.language == 'fr' ? 'true' : null)) Francais
         | !{' '}
-        a(href="/", aria-current=(language != 'fr' ? 'true' : null)) English
+        a(href="/", aria-current=(i18n.language == 'en' ? 'true' : null)) English
         
     main
       != contents
