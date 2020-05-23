@@ -1,4 +1,4 @@
-const { extname } = require('path');
+const { extname, basename, dirname } = require('path');
 
 module.exports = function rewrite() {
   return function(files, metalsmith) {
@@ -15,8 +15,13 @@ module.exports = function rewrite() {
 };
 
 function newOutputPath(file, extension) {
+  console.log(file.slug);
+  const slug = file.slug || basename(file.i18n.key);
+
   if (extension) {
-    return `${file.i18n.language}/${file.i18n.key}${extension}`;
+    return `${file.i18n.language}/${dirname(
+      file.i18n.key
+    )}/${slug}${extension}`;
   }
   return `${file.i18n.language}/${file.i18n.key}.html`;
 }

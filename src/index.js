@@ -26,7 +26,13 @@ metalsmith(process.cwd())
     })
   )
   .use(rewrite())
-  .use(permalinks())
+  .use(
+    permalinks({
+      // Prevent copying the images linked in the content
+      // to place them next to the `index.html` file
+      relative: false
+    })
+  )
   .build(function(err) {
     if (err) throw err;
   });
