@@ -6,6 +6,7 @@ const permalinks = require('metalsmith-permalinks');
 const pathInfo = require('./plugins/pathInfo');
 const detectLanguage = require('./plugins/detectLanguage');
 const rewrite = require('./plugins/rewrite');
+const group = require('./plugins/group');
 
 metalsmith(process.cwd())
   .source('./content')
@@ -18,6 +19,7 @@ metalsmith(process.cwd())
   })
   .use(pathInfo())
   .use(detectLanguage())
+  .use(group())
   .use(inPlace())
   .use(
     layouts({
