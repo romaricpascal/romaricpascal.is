@@ -15,7 +15,6 @@ module.exports = function rewrite() {
 };
 
 function newOutputPath(file, extension) {
-  console.log(file.slug);
   const slug = file.slug || basename(file.i18n.key);
 
   if (extension) {
