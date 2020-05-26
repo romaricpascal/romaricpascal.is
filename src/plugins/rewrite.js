@@ -3,8 +3,8 @@ const { extname, basename, dirname } = require('path');
 module.exports = function rewrite() {
   return function(files, metalsmith) {
     Object.entries(files).forEach(([outputPath, file]) => {
-      const { i18n } = metalsmith.metadata();
-      if (file.i18n.language !== i18n.defaultLanguage) {
+      const { defaultLanguage } = metalsmith.metadata();
+      if (file.i18n.language !== defaultLanguage) {
         // Start with deletion in case the new output path
         // is the same as the current one
         delete files[outputPath];

@@ -7,11 +7,17 @@ html(lang=`${i18n.language || defaultLanguage}`)
     title= title
   body
     header
+      = permalink
       nav(aria-labelledby="languageSwitcherHeading")
         h2#languageSwitcherHeading(hidden="") Languages
-        a(href="/fr", hreflang="fr", aria-current=(i18n.language == 'fr' ? 'true' : null)) Francais
-        | !{' '}
-        a(href="/", aria-current=(i18n.language == 'en' ? 'true' : null)) English
+        each language in languages
+          - href= language === defaultLanguage ? '/' : `/${language}`
+          - currentAttr = i18n.language === language ? 'true' : null
+          | !{' '}
+          a(href=href, 
+            hreflang=language, 
+            aria-current=currentAttr)
+            = messages.languageSwitcher[language]
         
     main
       != contents

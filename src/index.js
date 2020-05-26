@@ -12,9 +12,13 @@ metalsmith(process.cwd())
   .source('./content')
   .destination('./site')
   .metadata({
-    i18n: {
-      defaultLanguage: 'en',
-      languages: ['en', 'fr']
+    defaultLanguage: 'en',
+    languages: ['en', 'fr'],
+    messages: {
+      languageSwitcher: {
+        en: 'English',
+        fr: 'Francais'
+      }
     }
   })
   .use(pathInfo())
