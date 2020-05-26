@@ -1,0 +1,18 @@
+nav(aria-labelledby="languageSwitcherHeading")
+  h2#languageSwitcherHeading(hidden="") Languages
+  each language in languages
+    - 
+      const translationUrl = get(groups.byKeyByLanguage, [i18n.key, language, 'outputUrl']);
+      let href;
+      if (translationUrl) { 
+        href = translationUrl
+      } else {
+        href = language === defaultLanguage ? '/' : `/${language}`  
+      }
+
+      currentAttr = i18n.language === language ? 'true' : null
+    | !{' '}
+    a(href=href, 
+      hreflang=language, 
+      aria-current=currentAttr)
+      = messages.languageSwitcher[language]
