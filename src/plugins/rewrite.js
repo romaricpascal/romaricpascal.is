@@ -31,7 +31,7 @@ function newOutputPath(file) {
   const path = dirname(file.i18n.key);
   const extension = file.pathInfo.extensionList[0];
 
-  if (extension == 'md' || extension == 'html') {
+  if (extension == 'md' || extension == 'html' || extension == 'pug') {
     if (slug === 'index') {
       return `${path}/index.html`;
     } else {
