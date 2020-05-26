@@ -18,7 +18,8 @@ metalsmith(process.cwd())
         en: 'English',
         fr: 'Francais'
       }
-    }
+    },
+    get: require('lodash/get')
   })
   .use(pathInfo())
   .use(detectLanguage())

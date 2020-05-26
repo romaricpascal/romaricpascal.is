@@ -12,9 +12,10 @@ html(lang=`${i18n.language || defaultLanguage}`)
         h2#languageSwitcherHeading(hidden="") Languages
         each language in languages
           - 
+            const translationUrl = get(groups.byKeyByLanguage, [i18n.key, language, 'outputUrl']);
             let href;
-            if (groups.byKeyByLanguage[i18n.key][language]) { 
-              href = groups.byKeyByLanguage[i18n.key][language].outputUrl
+            if (translationUrl) { 
+              href = translationUrl
             } else {
               href = language === defaultLanguage ? '/' : `/${language}`  
             }
