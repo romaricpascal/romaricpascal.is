@@ -2,10 +2,9 @@
 const metalsmith = require('metalsmith');
 const inPlace = require('metalsmith-in-place');
 const layouts = require('metalsmith-layouts');
-const permalinks = require('metalsmith-permalinks');
 const pathInfo = require('./plugins/pathInfo');
 const detectLanguage = require('./plugins/detectLanguage');
-const rewrite = require('./plugins/rewrite');
+const { computeOutputPath, move } = require('./plugins/rewrite');
 const group = require('./plugins/group');
 
 metalsmith(process.cwd())
@@ -24,6 +23,7 @@ metalsmith(process.cwd())
   .use(pathInfo())
   .use(detectLanguage())
   .use(group())
+  .use(computeOutputPath())
   .use(inPlace())
   .use(
     layouts({
@@ -31,14 +31,7 @@ metalsmith(process.cwd())
       default: 'site.pug'
     })
   )
-  .use(rewrite())
-  .use(
-    permalinks({
-      // Prevent copying the images linked in the content
-      // to place them next to the `index.html` file
-      relative: false
-    })
-  )
+  .use(move())
   .build(function(err) {
     if (err) throw err;
   });

@@ -1,26 +1,44 @@
-const { extname, basename, dirname } = require('path');
+const { basename, dirname } = require('path');
 
-module.exports = function rewrite() {
+exports.computeOutputPath = function rewrite() {
   return function(files, metalsmith) {
-    Object.entries(files).forEach(([outputPath, file]) => {
+    Object.values(files).forEach(file => {
       const { defaultLanguage } = metalsmith.metadata();
+      let outputPath = newOutputPath(file);
       if (file.i18n.language !== defaultLanguage) {
-        // Start with deletion in case the new output path
-        // is the same as the current one
-        delete files[outputPath];
-        files[newOutputPath(file, extname(outputPath) || 'html')] = file;
+        outputPath = `${file.i18n.language}/${outputPath}`;
+      }
+      // Store the output path and url on the file
+      file.outputPath = outputPath;
+      file.outputUrl = outputPath.replace('index.html', '');
+    });
+  };
+};
+
+exports.move = function move() {
+  return function(files) {
+    Object.entries(files).forEach(([currentPath, file]) => {
+      if (file.outputPath) {
+        delete files[currentPath];
+        files[file.outputPath] = file;
       }
     });
   };
 };
 
-function newOutputPath(file, extension) {
+function newOutputPath(file) {
   const slug = file.slug || basename(file.i18n.key);
+  const path = dirname(file.i18n.key);
+  const extension = file.pathInfo.extensionList[0];
 
-  if (extension) {
-    return `${file.i18n.language}/${dirname(
-      file.i18n.key
-    )}/${slug}${extension}`;
+  if (extension == 'md' || extension == 'html') {
+    if (slug === 'index') {
+      return `${path}/index.html`;
+    } else {
+      return `${path}/${slug}/index.html`;
+    }
+  } else if (extension) {
+    return `${path}/${slug}.${extension}`;
   }
-  return `${file.i18n.language}/${file.i18n.key}.html`;
+  return `${path}/${slug}`;
 }
