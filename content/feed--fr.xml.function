@@ -1,0 +1,22 @@
+---
+layout: false
+---
+const RSS = require('rss');
+
+const feed = new RSS({
+  title: this.title,
+  site_url: this.siteUrl,
+  feed_url: `${this.siteUrl}${this.outputUrl}`,
+  author: 'Romaric Pascal',
+  language: this.i18n.language
+})
+
+const posts = this.groups.byLanguageByType[this.i18n.language]['post'];
+posts.forEach(post => {
+  feed.item({
+    title: post.title,
+    url: `${this.siteUrl}${post.outputUrl}`
+  })
+})
+
+return feed.xml();

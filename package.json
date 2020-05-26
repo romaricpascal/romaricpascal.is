@@ -50,13 +50,15 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "jstransformer-function": "^1.0.1",
     "jstransformer-pug": "^0.3.0",
     "jstransformer-remark": "^7.0.0",
     "lodash": "^4.17.15",
     "metalsmith": "^2.3.0",
     "metalsmith-in-place": "^4.4.1",
     "metalsmith-layouts": "^2.3.1",
-    "metalsmith-permalinks": "^2.2.0"
+    "metalsmith-permalinks": "^2.2.0",
+    "rss": "^1.2.2"
   },
   "ava": {
     "files": [
