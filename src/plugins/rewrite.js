@@ -10,7 +10,7 @@ exports.computeOutputPath = function rewrite() {
       }
       // Store the output path and url on the file
       file.outputPath = outputPath;
-      file.outputUrl = outputPath.replace('index.html', '');
+      file.outputUrl = '/' + outputPath.replace('index.html', '');
     });
   };
 };

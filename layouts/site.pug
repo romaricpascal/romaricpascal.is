@@ -11,8 +11,15 @@ html(lang=`${i18n.language || defaultLanguage}`)
       nav(aria-labelledby="languageSwitcherHeading")
         h2#languageSwitcherHeading(hidden="") Languages
         each language in languages
-          - href= language === defaultLanguage ? '/' : `/${language}`
-          - currentAttr = i18n.language === language ? 'true' : null
+          - 
+            let href;
+            if (groups.byKeyByLanguage[i18n.key][language]) { 
+              href = groups.byKeyByLanguage[i18n.key][language].outputUrl
+            } else {
+              href = language === defaultLanguage ? '/' : `/${language}`  
+            }
+
+            currentAttr = i18n.language === language ? 'true' : null
           | !{' '}
           a(href=href, 
             hreflang=language, 
