@@ -4,7 +4,7 @@ exports.computeOutputPath = function rewrite() {
   return function(files, metalsmith) {
     Object.values(files).forEach(file => {
       const { defaultLanguage } = metalsmith.metadata();
-      let outputPath = newOutputPath(file);
+      let outputPath = newOutputPath(file).replace(/^\.\//, '');
       if (file.i18n.language !== defaultLanguage) {
         outputPath = `${file.i18n.language}/${outputPath}`;
       }
