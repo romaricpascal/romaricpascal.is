@@ -1,6 +1,3 @@
----
-title: 'Test'
----
 Blah blah
 ===
 

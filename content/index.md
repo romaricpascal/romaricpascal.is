@@ -1,6 +1,3 @@
----
-title: 'Romaric Pascal'
----
 Homepage
 ===
 

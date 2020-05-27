@@ -4,7 +4,7 @@ layout: false
 const RSS = require('rss');
 
 const feed = new RSS({
-  title: this.title,
+  title: this.siteTitle,
   site_url: this.siteUrl,
   feed_url: `${this.siteUrl}${this.outputUrl}`,
   author: 'Romaric Pascal',

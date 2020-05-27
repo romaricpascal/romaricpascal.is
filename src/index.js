@@ -12,7 +12,7 @@ metalsmith(process.cwd())
   .destination('./site')
   .metadata({
     siteUrl: 'http://localhost:3000',
-    title: 'Romaric Pascal',
+    siteTitle: 'Romaric Pascal',
     defaultLanguage: 'en',
     languages: ['en', 'fr'],
     messages: {
