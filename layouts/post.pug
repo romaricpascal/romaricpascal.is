@@ -1,0 +1,7 @@
+extends site
+
+block contents
+  h1= title
+  time= formatDate(stats.mtime, {locale: i18n.language})
+  != contents
+  

@@ -15,4 +15,5 @@ html(lang=`${i18n.language || defaultLanguage}`)
       include i18n/_language_switcher.pug
         
     main
-      != contents
+      block contents
+        != contents

@@ -21,7 +21,8 @@ metalsmith(process.cwd())
         fr: 'Francais'
       }
     },
-    get: require('lodash/get')
+    get: require('lodash/get'),
+    formatDate: require('./helpers/formatDate')
   })
   .use(pathInfo())
   .use(detectLanguage())

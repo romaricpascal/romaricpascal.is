@@ -13,6 +13,7 @@ body {
 }
 
 main > * {
+  display: block;
   width: calc(100% - 3rem);
   max-width: 40rem;
   margin-left: auto;
