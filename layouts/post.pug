@@ -2,6 +2,7 @@ extends site
 
 block contents
   h1= title
-  time= formatDate(stats.mtime, {locale: i18n.language})
+  time.margin-top--0(datetime=formatDate(stats.mtime, 'yyyy-MM-dd', {locale: i18n.language}))
+    = formatDate(stats.mtime, 'dd MMM yyyy', {locale: i18n.language})
   != contents
   

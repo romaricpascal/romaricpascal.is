@@ -12,4 +12,6 @@ A couple of gotchas:
 
 And there we go! We have international date!... A bit verbose though.
 
+So how do we pick the format?
 
+Fortunately (for now), the format is the same for both language, so I can just hardcode it.
