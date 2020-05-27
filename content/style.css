@@ -12,12 +12,20 @@ body {
   background: #fafafa;
 }
 
+main {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 main > * {
   display: block;
   width: calc(100% - 3rem);
   max-width: 40rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+}
+
+main > * + *{
+  margin-top: 1rem;
 }
 
 main > pre {
@@ -27,6 +35,10 @@ main > pre {
 
 main > figure {
   max-width: 50rem;
+}
+
+h1 {
+  line-height: 1.2;
 }
 
 figcaption {
@@ -53,4 +65,8 @@ pre > code {
   outline: solid 2px black;
   background: black;
   color: white;
+}
+
+.margin-top--0 {
+  margin-top: 0;
 }
