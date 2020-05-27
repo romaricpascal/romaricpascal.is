@@ -67,6 +67,19 @@ pre > code {
   color: white;
 }
 
+:focus {
+  outline: solid 2px #111;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  display: block;
+  background: #111;
+  color: #fafafa;
+  text-align: center;
+  padding: 0.75rem;
+}
+
 .margin-top--0 {
   margin-top: 0;
 }

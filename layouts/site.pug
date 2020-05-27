@@ -11,9 +11,10 @@ html(lang=`${i18n.language || defaultLanguage}`)
     - const rssUrl = get(groups.byKeyByLanguage, ['feed', i18n.language, 'outputUrl'])
     link(rel="alternate",type="application/rss+xml",href=rssUrl)
   body
+    a.skip-link(href="#main") Skip to content
     header
       include i18n/_language_switcher.pug
         
-    main
+    main#main
       block contents
         != contents
