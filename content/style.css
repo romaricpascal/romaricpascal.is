@@ -19,9 +19,8 @@ main {
 
 main > * {
   display: block;
-  width: calc(100% - 3rem);
-  max-width: 40rem;
-  margin: 0 auto;
+  margin-top: 0;
+  margin-right: 0;
 }
 
 main > * + *{
@@ -41,15 +40,17 @@ h1 {
   line-height: 1.2;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 figcaption {
   text-align: center;
   margin-top: 0.25rem;
 }
 
-figure > img,
-main > img {
+figure > img {
   display: block;
-  max-width: 50rem;
 }
 
 pre > code {
@@ -82,4 +83,53 @@ pre > code {
 
 .margin-top--0 {
   margin-top: 0;
+}
+
+.container {
+  width: calc(100% - 3rem);
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.site-header a {
+  display: inline-block;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  line-height: 1.5rem;
+}
+
+.language-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: -0.25rem;
+}
+
+.language-switcher > * {
+  margin: 0.25rem;
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.link-discreet {
+  color: inherit;
+}
+
+.link-reversed {
+  text-decoration: none;
+}
+
+.link-reversed:hover {
+  text-decoration: underline;
 }

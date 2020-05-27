@@ -12,9 +12,13 @@ html(lang=`${i18n.language || defaultLanguage}`)
     link(rel="alternate",type="application/rss+xml",href=rssUrl)
   body
     a.skip-link(href="#main") Skip to content
-    header
+    header.site-header.container
+      a.link-discreet.link-reversed.brand(
+        href=get(groups.byKeyByLanguage, ['index', i18n.language, 'outputUrl'])
+        )
+        | Romaric Pascal
       include i18n/_language_switcher.pug
         
-    main#main
+    main#main.container
       block contents
         != contents
