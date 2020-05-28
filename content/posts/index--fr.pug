@@ -5,7 +5,7 @@ block content
   h1 Archive des posts
 
   ul
-    each post in groups.byLanguageByType[i18n.language]['post']
+    each post in (groups.byLanguageByType[i18n.language]['post'] || [])
       li
         a(href=post.outputUrl)
           = post.title

@@ -11,7 +11,7 @@ const feed = new RSS({
   language: this.i18n.language
 })
 
-const posts = this.groups.byLanguageByType[this.i18n.language]['post'];
+const posts = this.groups.byLanguageByType[this.i18n.language]['post'] || [];
 posts.forEach(post => {
   feed.item({
     title: post.title,
