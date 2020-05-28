@@ -20,7 +20,7 @@ main {
 main > * {
   display: block;
   margin-top: 0;
-  margin-right: 0;
+  margin-bottom: 0;
 }
 
 main > * + *{
@@ -40,8 +40,28 @@ h1 {
   line-height: 1.2;
 }
 
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
+  margin-top: 0.25rem;
+}
+
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6 {
+  margin-top: 1.75rem;
+}
+
 a:hover {
   text-decoration: none;
+}
+
+[hreflang]:not(.no-hreflang)::after {
+  content: ' (' attr(hreflang) ')'
 }
 
 figcaption {

@@ -12,7 +12,7 @@ nav.language-switcher(aria-labelledby="languageSwitcherHeading")
 
       currentAttr = i18n.language === language ? 'true' : null
     | !{' '}
-    a(href=href, 
+    a.no-hreflang(href=href, 
       hreflang=language, 
       aria-current=currentAttr)
       = messages.languageSwitcher[language]
