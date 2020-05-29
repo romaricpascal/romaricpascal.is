@@ -2,7 +2,7 @@
 title: Tous les posts
 ---
 block content
-  h1 Archive des posts
+  h1= title
 
   ul
     each post in (groups.byLanguageByType[i18n.language]['post'] || [])

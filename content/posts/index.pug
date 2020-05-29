@@ -2,11 +2,14 @@
 title: All posts
 ---
 block content
-  h1 Post archive
+  h1= title
 
-  ul
+  ul.archive
     each post in (groups.byLanguageByType[i18n.language]['post'] || [])
-      li
-        a(href=post.outputUrl)
-          = post.title
+      li.archive-item
+        h2
+          a(href=post.outputUrl)
+            = post.title
+        time.margin-top--0(datetime=formatDate(post.stats.ctime, 'yyyy-MM-dd', {locale: i18n.language}))
+          = formatDate(post.stats.ctime, 'dd MMM yyyy', {locale: i18n.language})
 
