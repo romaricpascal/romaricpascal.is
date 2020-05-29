@@ -1,6 +1,5 @@
 ---
 title: Starting anew
-slug: starting-anew
 type: post
 layout: post.pug
 ---
