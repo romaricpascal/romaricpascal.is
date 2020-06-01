@@ -19,6 +19,10 @@ metalsmith(process.cwd())
       languageSwitcher: {
         en: 'English',
         fr: 'Francais'
+      },
+      mastodonHandle: {
+        en: 'website',
+        fr: 'siteweb'
       }
     },
     get: require('lodash/get'),

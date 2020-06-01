@@ -91,15 +91,6 @@ pre > code {
   overflow: auto;
 }
 
-[aria-current="true"] {
-  text-decoration: none;
-  outline: solid 2px #111;
-  background: #111;
-  color: #fafafa;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
 :focus {
   outline: solid 2px #111;
   outline-offset: 2px;
@@ -133,9 +124,33 @@ pre > code {
 
 .site-header a {
   display: inline-block;
+  color: inherit;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   line-height: 1.5rem;
+}
+
+.site-header [aria-current="true"] {
+  text-decoration: none;
+  outline: solid 2px #111;
+  background: #111;
+  color: #fafafa;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.site-footer {
+  font-size: calc(14rem / 16);
+  color: #666;
+  text-align: center;
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+}
+
+.site-footer a {
+  color: inherit;
+  display: inline-block;
+  padding: 0.75rem 0.25rem;
 }
 
 .language-switcher {

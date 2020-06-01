@@ -26,3 +26,16 @@ html(lang=`${i18n.language || defaultLanguage}`)
     main#main.container
       block contents
         != contents
+
+    footer.site-footer
+      | © #{new Date().getFullYear()} Romaric Pascal
+      |  -  
+      a(href="https://github.com/rhumaric", rel="me") Github
+      = ' '
+      a(href="https://twitter.com/romaricpascal", rel="me") Twitter
+      = ' '
+      |  - 
+      a(href=rssUrl, rel="alternate") RSS
+      = ' '
+      - const mastodonHandle = get(messages, ['mastodonHandle', i18n.language])
+      a(href=`https://toots.romaricpascal.com/@${mastodonHandle}`, rel="me") ActivityPub
