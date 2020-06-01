@@ -34,7 +34,6 @@ main > * + *{
 
 main > pre {
   max-width: 50rem;
-  font-size: 1.2em;
 }
 
 main > figure {
@@ -67,6 +66,12 @@ a:hover {
 
 [hreflang]:not(.no-hreflang)::after {
   content: ' (' attr(hreflang) ')'
+}
+
+code {
+  font-size: 1.2em;
+  background-color: #eeeeee;
+  outline: solid 2px #eeeeee;
 }
 
 figcaption {
