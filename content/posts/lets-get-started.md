@@ -56,4 +56,4 @@ metalsmith(process.cwd())
   })
 ```
 
-Now running `node src/index.js` should copy any file from the `content` folder to the `site` one. That means Metalsmith is set up OK... though we haven't gained much yet, we might as well have written the files in the `site` folder directly. Next step will be to get something out of all that installation and actually transform some files. But that'll be for the next article.
+Tada! Now running `node src/index.js` should copy any file from the `content` folder to the `site` one. That means Metalsmith is set up OK... though we haven't gained much yet, we might as well have written the files in the `site` folder directly. Next step will be to get something out of all that installation and actually transform some files. But that'll be for the next article.
