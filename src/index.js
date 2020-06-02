@@ -3,6 +3,7 @@ const metalsmith = require('metalsmith');
 const inPlace = require('metalsmith-in-place');
 const layouts = require('metalsmith-layouts');
 const pathInfo = require('./plugins/pathInfo');
+const defaultDate = require('./plugins/defaultDate');
 const detectLanguage = require('./plugins/detectLanguage');
 const { computeOutputPath, move } = require('./plugins/rewrite');
 const group = require('./plugins/group');
@@ -31,6 +32,7 @@ metalsmith(process.cwd())
   .use(pathInfo())
   .use(detectLanguage())
   .use(group())
+  .use(defaultDate())
   .use(computeOutputPath())
   .use(inPlace())
   .use(

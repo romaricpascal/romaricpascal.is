@@ -10,6 +10,6 @@ block content
         h2
           a(href=post.outputUrl)
             = post.title
-        time.margin-top--0(datetime=formatDate(post.stats.ctime, 'yyyy-MM-dd', {locale: i18n.language}))
-          = formatDate(post.stats.ctime, 'dd MMM yyyy', {locale: i18n.language})
+        time.margin-top--0(datetime=formatDate(post.date, 'yyyy-MM-dd', {locale: i18n.language}))
+          = formatDate(post.date, 'dd MMM yyyy', {locale: i18n.language})
 
