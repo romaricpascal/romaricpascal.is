@@ -17,10 +17,17 @@ html(lang=`${i18n.language || defaultLanguage}`)
   body
     a.skip-link(href="#main") Skip to content
     header.site-header.container
-      a.link-discreet.link-reversed.brand(
-        href=get(groups.byKeyByLanguage, ['index', i18n.language, 'outputUrl'])
-        )
-        | Romaric Pascal
+      nav(aria-labelledby="site-navigation-label")
+        h2#site-navigation-label(hidden="") Site navigation
+        a.link-reversed.brand(
+          href=get(groups.byKeyByLanguage, ['index', i18n.language, 'outputUrl'])
+          )
+          | Romaric Pascal
+        = ' '
+        a(
+          href=get(groups.byKeyByLanguage, ['posts/index', i18n.language, 'outputUrl'])
+          )
+          = get(groups.byKeyByLanguage, ['posts/index', i18n.language, 'title'])
       include i18n/_language_switcher.pug
         
     main#main.container

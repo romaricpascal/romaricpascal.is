@@ -140,15 +140,16 @@ pre > code {
 .site-header a {
   display: inline-block;
   color: inherit;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding: 0.75rem 0.25rem;
   line-height: 1.5rem;
 }
 
 .site-header [aria-current="true"] {
   text-decoration: none;
-  outline: solid 2px #111;
-  background: #111;
+  background: linear-gradient(#111,#111);
+  background-size: 100% 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center;
   color: #fafafa;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -170,7 +171,6 @@ pre > code {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: -0.25rem;
 }
 
 .language-switcher > * {
