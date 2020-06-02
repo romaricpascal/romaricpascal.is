@@ -7,7 +7,7 @@ const defaultDate = require('./plugins/defaultDate');
 const detectLanguage = require('./plugins/detectLanguage');
 const { computeOutputPath, move } = require('./plugins/rewrite');
 const group = require('./plugins/group');
-const { compareDesc } = require('date-fns');
+const { compareDesc, isBefore } = require('date-fns');
 
 metalsmith(process.cwd())
   .source('./content')
@@ -33,9 +33,16 @@ metalsmith(process.cwd())
   })
   .use(pathInfo())
   .use(detectLanguage())
-  .use(group())
   .use(defaultDate())
   .use(computeOutputPath())
+  .use(function(files) {
+    Object.entries(files).forEach(function([key, file]) {
+      if (isBefore(new Date(), file.date)) {
+        delete files[key];
+      }
+    });
+  })
+  .use(group())
   .use(inPlace())
   .use(
     layouts({
