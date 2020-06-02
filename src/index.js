@@ -46,7 +46,7 @@ metalsmith(process.cwd())
   .use(
     inPlace({
       engineOptions: {
-        plugins: [require('remark-slug')]
+        plugins: [require('remark-slug'), require('remark-autolink-headings')]
       }
     })
   )
