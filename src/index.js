@@ -43,7 +43,13 @@ metalsmith(process.cwd())
     });
   })
   .use(group())
-  .use(inPlace())
+  .use(
+    inPlace({
+      engineOptions: {
+        plugins: [require('remark-slug')]
+      }
+    })
+  )
   .use(
     layouts({
       pattern: ['*', '**/*', '!*.css'],
