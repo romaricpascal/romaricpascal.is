@@ -53,7 +53,7 @@ Le plugin va non seulement convertir le Markdown en HTML, il va aussi changer le
 Utiliser les plugins de Remark
 ---
 
-Remark à été choisi car il est extensible à souhait. Grâce [à de nombreux plugins](remark-plugins), il est possible de configurer comment le Markdown devient HTML.
+Remark à été choisi car il est extensible à souhait. Grâce [à de nombreux plugins][remark-plugins], il est possible de configurer comment le Markdown devient HTML.
 
 Malheureusement, utiliser un fichier `.remarkrc.js` (comme avec `remark-cli`) ne fonctionne pas. C'est dommage, mais heureusement, `metalsmith-in-place` permet de passer un objet a la librarie `jstransformer-...` afin de la configurer.
 

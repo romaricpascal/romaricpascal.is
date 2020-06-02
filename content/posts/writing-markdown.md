@@ -49,7 +49,7 @@ The plugin will not only turn it into HTML, but also update the path where the f
 Adding Remark plugins
 ---
 
-Remark was chosen for its extensibility. It supports a [system of plugins](remark-plugins) to customise how the Markdown becomes HTML.
+Remark was chosen for its extensibility. It supports a [system of plugins][remark-plugins] to customise how the Markdown becomes HTML.
 
 Unfortunately, using a `.remarkrc.js` file to export Remark's configuration won't work. Bit of a shame, but thankfully, `metalsmith-in-place` allows to pass option to the library transforming the content. 
 
