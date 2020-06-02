@@ -3,18 +3,27 @@
   margin: 0;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+html{ 
+  height: 100%;
 }
 
 body {
-  margin: 0;
+  min-height: 100%;
+}
+
+body {
   line-height: 1.5;
   /* System font stack from https://css-tricks.com/snippets/css/system-font-stack/ */
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
   color: #111;
   background: #fafafa;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+body > main {
+  margin-bottom: auto;
 }
 
 main {
@@ -72,6 +81,12 @@ code {
   font-size: 1.2em;
   background-color: #eeeeee;
   outline: solid 2px #eeeeee;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 figcaption {
@@ -143,8 +158,6 @@ pre > code {
   font-size: calc(14rem / 16);
   color: #666;
   text-align: center;
-  margin-top: -0.75rem;
-  margin-bottom: -0.75rem;
 }
 
 .site-footer a {
