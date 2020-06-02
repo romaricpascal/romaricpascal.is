@@ -5,7 +5,12 @@ block content
   h1= title
 
   ul.archive
-    each post in (groups.byLanguageByType[i18n.language]['post'] || [])
+    - 
+      const posts = [...(groups.byLanguageByType[i18n.language]['post'] || [])].sort(function(a, b) {
+        return compareDesc(a.date, b.date)
+      })
+
+    each post in (posts)
       li.archive-item
         h2
           a(href=post.outputUrl)

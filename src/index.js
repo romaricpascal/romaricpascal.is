@@ -7,6 +7,7 @@ const defaultDate = require('./plugins/defaultDate');
 const detectLanguage = require('./plugins/detectLanguage');
 const { computeOutputPath, move } = require('./plugins/rewrite');
 const group = require('./plugins/group');
+const { compareDesc } = require('date-fns');
 
 metalsmith(process.cwd())
   .source('./content')
@@ -27,7 +28,8 @@ metalsmith(process.cwd())
       }
     },
     get: require('lodash/get'),
-    formatDate: require('./helpers/formatDate')
+    formatDate: require('./helpers/formatDate'),
+    compareDesc
   })
   .use(pathInfo())
   .use(detectLanguage())
