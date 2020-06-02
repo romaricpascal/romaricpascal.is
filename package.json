@@ -7,8 +7,9 @@
     "node": ">=8.12.0"
   },
   "scripts": {
-    "watch": "nodemon",
-    "serve": "browser-sync start -s site",
+    "dev": "concurrently --handle-input --default-input-target dev:watch 'npm:dev:*'",
+    "dev:watch": "nodemon",
+    "dev:serve": "browser-sync start -s site --no-open",
     "lint": "eslint '**/*.js'",
     "test": "nyc --reporter=text ava",
     "docs": "(cd src && npx docco -o ../docs index.js)",
@@ -33,6 +34,7 @@
     "ava": "^3.5.0",
     "browser-sync": "^2.26.7",
     "chokidar-cli": "^2.1.0",
+    "concurrently": "^5.2.0",
     "docco": "^0.8.0",
     "eslint": "^6.8.0",
     "eslint-config-defaults": "^9.0.0",
