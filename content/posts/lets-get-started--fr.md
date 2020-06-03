@@ -15,7 +15,7 @@ Pour cette refonte, j'ai quelques critères en tête pour reduire cette liste:
 - **ne pas etre basé sur une librarie de composants côté client**: C'est un simple site de contenu, sans besoins d'interactivité poussée dans le navigateur, inutile de lui attacher une complexité inutile.
 - **aisément extensible**: En partie, la raison de cette refonte est s'amuser et apprendre comment construire des fonctionnalités pour un site statique. J'aurais donc besoin de le modifier facilement.
 
-Avec tous ça en tête, mon choix s'est porté sur Metalsmith. Peut-être pas l'outil le plus neuf et flamboyant, mais il a pour lui un avantage majeur. J'ai pu très vite comprendre comment il fonctionnait:
+Avec tous ça en tête, mon choix s'est porté sur <a href="https://metalsmith.io" hreflang="en">Metalsmith</a>. Peut-être pas l'outil le plus neuf et flamboyant, mais il a pour lui un avantage majeur. J'ai pu très vite comprendre comment il fonctionnait:
 
 1. Lecture des fichiers dans un dossier source
 2. Extraction de données et transformations grace a un systeme de plugins
@@ -28,7 +28,7 @@ Et le projet fût
 
 Autour du code en lui-même, il y a toujours plein de choses a mettre en place: un dépôt Git, le descripteur de package pour NPM, le linting, les tests... Les ajouter chacun a la main fais perdre un temps précieux. Un bon moyen de gagner du temps sur cette partie est d'utiliser un gabarit de projet avec tous ces aspects pré-configurés. Cela permet de rester concentrer sur ce les parties les plus important (sauf si le projet est de changer la configuration des outils... mais c'est pas le but ici).
 
-Ces derniers temps, ma méthode favorite pour démarrer rapidement un projet et d'avoir un gabarit dans un dépôt Git et d'utilier `degit` pour l'importer, editer 2-3 fichiers (ne pas oublier le nom dans le `package.json`) et c'est parti:
+Ces derniers temps, ma méthode favorite pour démarrer rapidement un projet et d'avoir [un gabarit dans un dépôt Git](https://github.com/rhumaric/project-template-node) et d'utilier `degit` (<a href="https://svelte.dev/blog/the-easiest-way-to-get-started#2_Use_degit" hreflang="en">découvert dans les tutoriaux SvelteJS</a>) pour l'importer, editer 2-3 fichiers (ne pas oublier le nom dans le `package.json`) et c'est parti:
 
 ```sh
 git init

@@ -9,8 +9,8 @@ Meanwhile, inspired by [Frank Chimero](https://frankchimero.com/blog/2019/redesi
 
 Pstt. there's also a [RSS feed](feed.xml).
 
-But...I came to see some lettering
+But... I came to see some lettering
 ---
 
-For now, this new version will focus on web technologies. The lettering images won't disappear, though. If you were looking for pretty pictures of texts, you can find them on the old version of the site.
+For now, this new version will focus on web technologies. The lettering images won't disappear, though. If you were looking for pretty pictures of texts, you can find them on the [old version of the site](https://old.romaricpascal.is).
 

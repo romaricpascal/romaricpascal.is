@@ -12,4 +12,4 @@ Pstt. Il y a aussi un [Flux RSS](feed.xml).
 J'esperais voir des jolis lettrages
 ---
 
-Pour le moment, cette nouvelle version parlera uniquement de technos web. Les images de lettrages n'ont pas disparu, rassurez vous. Elles sont bien au chaud sur l'ancienne version du site.
+Pour le moment, cette nouvelle version parlera uniquement de technos web. Les images de lettrages n'ont pas disparu, rassurez vous. Elles sont bien au chaud sur <a href="https://old.romaricpascal.is/" hreflang="en">l'ancienne version du site</a>.

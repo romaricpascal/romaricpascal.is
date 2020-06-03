@@ -5,7 +5,7 @@ layout: post.pug
 ---
 Let's face it, editing HTML to write content is not the most enjoyable experience. HTML sure helps giving meaning to said content, but littering the page with opening and closing tags gets in the way of just writing. Markdown is a much lighter alternative.
 
-Just like using templates for doing the layout, converting Markdown to HTML is also a pretty standard thing when it comes to static site generation. And here again, Metalsmith offers a pre-exising plugin to handle that, `metalsmith-in-place`.
+Just like using templates for doing the layout, converting Markdown to HTML is also a pretty standard thing when it comes to static site generation. And here again, Metalsmith offers a pre-exising plugin to handle that, [`metalsmith-in-place`](https://github.com/metalsmith/metalsmith-in-place).
 
 Installation
 ---

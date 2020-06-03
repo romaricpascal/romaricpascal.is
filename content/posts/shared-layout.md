@@ -15,12 +15,12 @@ Sharing a common layout will require the use of templates. And there are plenty 
 
 A key thing for me is that is allows to run arbitrary JavaScript code inside the template. As much as we want to keep business logic out of the templates, there's always some templating logic that will require a little more than an `if` or a loop. Maybe building a couple of HTML attributes from the template data. Having to edit a file miles away from the template itself gets in the way more than it helps.
 
-This led to the choice of Pug for templating.
+This led to the choice of [Pug] for templating.
 
 The setup
 ---
 
-To get the layouts in place, we'll need the `metalsmith-layouts` plugin itself. Under the hood, it uses `jstransformer`, a library that standardises the API for calling the various existing template libraries. We'll need to install it too, along with the package for Pug, `jstransformer-pug`.
+To get the layouts in place, we'll need the `metalsmith-layouts` plugin itself. Under the hood, it uses [`jstransformer`][jstransformer], a library that standardises the API for calling the various existing template libraries. We'll need to install it too, along with the package for Pug, `jstransformer-pug`.
 
 ```sh
 npm i metalsmith-layouts jstransformer jstransformer-pug
@@ -82,4 +82,6 @@ Running `node src/index.js`, Metalsmith will combine it with the layout to outpu
 
 There we go! We can edit a unique layout file to affect all the pages of the site. That's already better than copy-pasting. Now lets go further and shift to having the content written in Markdown, rather than plain HTML. It'll be much easier to edit, but it'll be for the next article.
 
-[cool-uris-dont-change]: https://www.w3.org/Provider/Style/URI.html
+[metalsmith-layouts]: https://github.com/metalsmith/metalsmith-layouts
+[Pug]: https://pugjs.org
+[jstransformer]: https://github.com/jstransformers

@@ -7,7 +7,7 @@ layout: post.pug
 
 Maintenant que Metalsmith est en place, il est temps de faire un peu plus que des copier des fichiers. La plupart des pages du site vont partager une mise en page commune, jusque dans le code qui les compose. La copier-coller d'un fichier à l'autre serait innefficace et source d'oublis, erreurs. Pour y remédier, nous allons séparer le contenu de cette enveloppe de code commun et les placer dans des fichiers séparés.
 
-Cette séparation est une opération classique lorsqu'on utilise un générateur de site statique, ou que l'on crée un site web en général. Il existe donc un plugin tout prêt pour Metalsmith, [metalsmith-layouts], donc autant en tirer parti.
+Cette séparation est une opération classique lorsqu'on utilise un générateur de site statique, ou que l'on crée un site web en général. Il existe donc un plugin tout prêt pour Metalsmith, <a href="https://github.com/metalsmith/metalsmith-layouts" hreflang="en">https://metalsmith-layouts</a>, donc autant en tirer parti.
 
 Choisir un système de templates
 ---
@@ -16,12 +16,12 @@ Pour partager ce layout commun, il va falloir recourir a un système de template
 
 Pour moi, l'un des aspects les plus importants pour ce système c'est qu'il permette d'exécuter du code JavaScript à l'intérieur des templates. On cherche, à raison, à ne pas introduire de code dans les templates, mais il y a toujours quelques manipulations qui vont un peu plus loin qu'un simple `if` ou une boucle. Peut-être la construction d'attributs HTML en fonction d'une des données passée au template. Devoir éditer un fichier séparé, souvent bien loin du template lui-même, mets plutôt des battons dans les roues qu'autre chose.
 
-C'est ce qui m'amène a utiliser Pug pour les templates.
+C'est ce qui m'amène a utiliser <a href="https://pugjs.org" hreflang="en">Pug</a> pour les templates.
 
 Installation
 ---
 
-Pour mettre en place ce système de layouts, il faut bien sûr le plugin `metalsmith-layout`. Pour se câbler aux differents systèmes de templates, il utilise `jstransformer`, une librairie qui uniformise l'API pour générer le rendu des differents systèmes de template existants. Il faut donc l'installer aussi, et la completer de son pendant spécifique pour Pug, `jstransformer-pug`.
+Pour mettre en place ce système de layouts, il faut bien sûr le plugin `metalsmith-layout`. Pour se câbler aux differents systèmes de templates, il utilise <a href="https://github.com/jstransformers/jstransformer" hreflang="en"><code>jstransformer</code></a>, une librairie qui uniformise l'API pour générer le rendu des differents systèmes de template existants. Il faut donc l'installer aussi, et la completer de son pendant spécifique pour Pug, `jstransformer-pug`.
 
 ```sh
 npm i metalsmith-layouts jstransformer jstransformer-pug

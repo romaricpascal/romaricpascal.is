@@ -14,7 +14,7 @@ For this rebuild, I have a couple of criteria that will shorten the list:
 - **Not based on a client-side component library**: It's a content site, with no need for anything fancy/app-y on the client-side, so let's not bind it to unnecessary complexity.
 - **Easily extensible**: Part of the reason for this rebuild is just having fun and learning how to build features around a static site generator. I want to easily be able to tweak or add features.
 
-With all that in mind, I settled for Metalsmith. Not the newest shiny tool in the list, but it had the main advantage of a process I easily wrapped my head around:
+With all that in mind, I settled for [Metalsmith](https://metalsmith.io/). Not the newest shiny tool in the list, but it had the main advantage of a process I easily wrapped my head around:
 
 1. Read all the content files in a source folder
 2. Pass them through a series of plugins that extract data and transform it
@@ -28,7 +28,7 @@ Rise, project!
 Around the code of the projects themselves, there's always a series of things to set up: create a Git repository, an NPM package, linting, testing, CI...
 Setting them all in turn takes precious time. Having a template project handy with all these pre-set is a massive time saver, allowing to focus on what actually matters (unless the project is about tweaking those presets... but this one is not).
 
-My favourite way of scaffolding a project lately is by having a template repository at the ready and using `degit` (discovered in the SvelteJS tutorials) to bring its content in, edit a few files and be ready to go:
+My favourite way of scaffolding a project lately is by having [a template repository](https://github.com/rhumaric/project-template-node) at the ready and using `degit` ([discovered in the SvelteJS tutorials](https://svelte.dev/blog/the-easiest-way-to-get-started#2_Use_degit)) to bring its content in, edit a few files and be ready to go:
 
 ```sh
 npx degit https://github.com/rhumaric/project-template-node

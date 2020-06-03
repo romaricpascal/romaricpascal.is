@@ -19,10 +19,10 @@ Les changements sont conséquents pour cette nouvelle version, ça sera plus sim
 
 - **aura du contenu en français et en anglais**: le web est plein d'articles techniques écrits en anglais. Pour chaque persone que l'anglais permet d'atteindre, il y en a qu'elle laisse de côté. Traduire mon contenu en français permet a plus de personnes d'y acceder.
 - **utilisera un generateur de site statique**. Son contenu est plutôt statique apres tout. C'est aussi quelque chose qu'il me tardait d'essayer. J'ai hâte de voir comment les choses vont se passer et de rajouter des fonctionalités multilangues. En plus, ca veut dire plus d'admin Wordpress a hacker sur le site.
-- **creuser l'aspect IndieWeb**: cela me parait de plus en plus important de continuer d'avoir un petit bout a soi sure internet. Pour echapper aux décisions de plateformes tierces (fermeture/vente, censure, changements d'interface, d'algorithmes...). Mais aussi pour le plaisir de cultiver un petit espace a soi et de le faire grandir.
+- **creuser l'aspect [IndieWeb](https://indieweb.org/)**: cela me parait de plus en plus important de continuer d'avoir un petit bout a soi sure internet. Pour echapper aux décisions de plateformes tierces (fermeture/vente, censure, changements d'interface, d'algorithmes...). Mais aussi pour le plaisir de cultiver un petit espace a soi et de le faire grandir.
 - **un nouveau design**: ce design minimaliste noir et blanc n'est que temporaire. Je compte bien retourner a quelque chose de plus coloré et texturé (quelque chose que le web a bien perdu, je trouve). Mais cela viendra après que j'ai commencé a publier.
 
-Et pour le site d'avant? Il reste accessible sur old.romaricpascal.is, en essayant de casser un minimum de liens avec la technique 4042302 proposée par Aral Balkan.
+Et pour le site d'avant? Il reste accessible sur old.romaricpascal.is, en essayant de casser un minimum de liens avec la [technique 4042302 proposée par Aral Balkan](https://4042302.org).
 
 C'est quoi la suite?
 ---
@@ -40,4 +40,4 @@ Je pense prendre quelques raccourcis, histoire d'arriver plus vite, puis nettoye
 
 Après, je pourrais me pencher un peu plus sur le contenu que je souhaite à côté de ce "journal de refonte", créer le design des pages qui vont l'afficher et l'implémenter. En tout cas c'est le plan pour le moment.
 
-Si ça vous interesse, vous pouvez vous abonner au flux RSS, suivre les nouvelles sur Mastodon ou just revenir ici de temps a autre.
+Si ça vous interesse, vous pouvez vous abonner au [flux RSS](/fr/feed.xml), ou just revenir ici de temps a autre.
