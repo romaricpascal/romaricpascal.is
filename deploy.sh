@@ -15,13 +15,10 @@ target=$2
 
 branch=$3
 
-echo "Making clean install"
-
-
 echo "Packaging project before upload"
 
 echo " - Creating tarball"
-(cd site && tar --exclude=$workdir/$SITE_PATH/vendor -cvzf $archive_path *)
+(cd $SITE_PATH && tar -cvzf $archive_path *)
 
 echo "Archive ready for upload at $archive_path"
 
