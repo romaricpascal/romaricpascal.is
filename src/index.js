@@ -52,7 +52,7 @@ metalsmith(process.cwd())
   )
   .use(
     layouts({
-      pattern: ['*', '**/*', '!*.css'],
+      pattern: ['*.html', '**/*.html'],
       default: 'site.pug'
     })
   )
