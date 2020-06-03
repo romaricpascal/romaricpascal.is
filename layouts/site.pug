@@ -43,6 +43,3 @@ html(lang=`${i18n.language || defaultLanguage}`)
       = ' '
       |  - 
       a(href=rssUrl, rel="alternate") RSS
-      = ' '
-      - const mastodonHandle = get(messages, ['mastodonHandle', i18n.language])
-      a(href=`https://toots.romaricpascal.com/@${mastodonHandle}`, rel="me") ActivityPub
