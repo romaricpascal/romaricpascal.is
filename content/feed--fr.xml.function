@@ -2,21 +2,27 @@
 layout: false
 ---
 const RSS = require('rss');
+const {compareDesc} = require('date-fns');
+
+const posts = [...(this.groups.byLanguageByType[this.i18n.language]['post'] || [])].sort(function(a, b) {
+        return compareDesc(a.date, b.date)
+      })
 
 const feed = new RSS({
   title: this.siteTitle,
   site_url: this.siteUrl,
   feed_url: `${this.siteUrl}${this.outputUrl}`,
-  author: 'Romaric Pascal',
-  language: this.i18n.language
+  author: 'hello@romaricpascal.is',
+  language: this.i18n.language,
+  lastBuildDate: posts[0].date // Ensure the date doesn't change every time we build
 })
 
-const posts = this.groups.byLanguageByType[this.i18n.language]['post'] || [];
 posts.forEach(post => {
   feed.item({
     title: post.title,
-    url: `${this.siteUrl}${post.outputUrl}`
+    url: `${this.siteUrl}${post.outputUrl}`,
+    date: post.date
   })
 })
 
-return feed.xml();
+return feed.xml().replace(/<lastBuildDate>.*<\/lastBuildDate>/, `<lastBuildDate>${posts[0].date.toGMTString()}</lastBuildDate>`);
