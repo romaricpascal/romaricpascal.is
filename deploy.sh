@@ -1,10 +1,9 @@
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 SITE_PATH=site
-
-deploy_id=romaricpascal.is-`date '+%y%m%d%H%M%S'`
-workdir="/tmp/deploy/$deploy_id"
-archive_path=$workdir.tar.gz
+WORK_DIR=/tmp/deploy
+DEPLOY_ID=romaricpascal.is-`date '+%y%m%d%H%M%S'`
+ARCHIVE_PATH="$WORK_DIR/$DEPLOY_ID.tar.gz"
 branch=master
 
 : ${1?"The script needs to know which host to deploy to. './deploy.sh <host> <target>'"}
@@ -17,16 +16,19 @@ branch=$3
 
 echo "Packaging project before upload"
 
-echo " - Creating tarball"
-(cd $SITE_PATH && tar -cvzf $archive_path *)
+echo " - Creating temp directory"
+mkdir -p $WORK_DIR
 
-echo "Archive ready for upload at $archive_path"
+echo " - Creating tarball"
+(cd $SITE_PATH && tar -cvzf $ARCHIVE_PATH *)
+
+echo "Archive ready for upload at $ARCHIVE_PATH"
 
 echo "Uploading"
-scp $archive_path $host:.
+scp $ARCHIVE_PATH $host:.
 
 # # RESTART HERE: Extract archive on remote server, copy resources & swap folders
-./deploy__remote.sh $host $target $deploy_id
+./deploy__remote.sh $host $target $DEPLOY_ID
 
 # # echo "Cleaning up local files"
-# # rm -rf "$workdir*"
+# # rm -rf "$WORK_DIR/*"

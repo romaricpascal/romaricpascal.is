@@ -22,7 +22,7 @@ ssh $host <<-ENDSH
   mv $target $target-old
   mv $deploy_id $target
 
-  # echo "Cleaning up remote files"
-  # rm "$deploy_id.tar.gz"
+  echo "Cleaning up remote files"
+  rm "$deploy_id.tar.gz"
 
 ENDSH
