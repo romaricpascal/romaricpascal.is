@@ -8,15 +8,17 @@ Pour accéder à n'importe quel contenu sur le web, il vous faut son URL. Peut-�
 
 Pas d'extension, pas de prison
 ---
+
 Un premier pas pour prolonger la durée de vie des URLs est d'en enlever les extension. Les technologies et besoins changent avec le temps. Cette `/merveilleuse/page.html` d'aujourd'hui aura peut-être besoin d'être dynamisée avec un peu de PHP dans le future. Et voilà, les liens existants ne fonctionnent plus, râtant la nouvelle version à `/merveilleuse/page.php`.
 
-L'URL `/merveilleuse/page/` est bien plus résiliente. Aucune hypothèse sur ce qui génère son contenu. Aucune hypothèse sur quelle format elle renvoie. Cela la rend flexible non seulemennt sur ce qui fournit son contenu, mais aussi ce qu'elle renvoie. Peut-être un jour elle permettra de requêter un JSON avec des métadonnées sur la page. Ça serait bizarre d'envoyer une requête terminant en `.html` pour ça, non?
+<a href="https://www.w3.org/Provider/Style/URI" hreflang="en">L'URL `/merveilleuse/page/` est bien plus résiliente</a>. Aucune hypothèse sur ce qui génère son contenu. Aucune hypothèse sur quelle format elle renvoie. Cela la rend flexible non seulemennt sur ce qui fournit son contenu, mais aussi ce qu'elle renvoie. Peut-être un jour elle permettra de requêter un JSON avec des métadonnées sur la page. Ça serait bizarre d'envoyer une requête terminant en `.html` pour ça, non?
 
 Mise en place
 ---
+
 Rien ne garantit que ce site statique le reste pour toujours. Mieux vaut donc s'assurer que ses URLs sont pérennes. Pour celà, on peut s'appuyer sur une convention suivie par une grande majorité des serveurs: si la requête pointe sur un dossier, ils renverront le fichier `index.html`.
 
-Comme il s'agit la encore d'un besoin récurrent, il existe déjà un plugin Metalsmith pour ça: `metalsmith-permalinks`. Il réécrit le chemin de destination des fichiers, transformant `merveilleuse/page.html` en `merveilleuse/page/index.html`.
+Comme il s'agit la encore d'un besoin récurrent, il existe déjà un plugin Metalsmith pour ça: <a href="https://github.com/segmentio/metalsmith-permalinks" hreflang="en">`metalsmith-permalinks`</a>. Il réécrit le chemin de destination des fichiers, transformant `merveilleuse/page.html` en `merveilleuse/page/index.html`.
 
 Après l'installation des deux plugins précédent, rien de bien nouveau pour la mise en place. C'est même plus rapide car il n'y a pas de bibliothèque de templating à installer cette fois.
 
@@ -49,31 +51,30 @@ En revanche, les robots indexeurs des moteurs de recherche le seront un peu moin
 
 Je n'ai pas pu trouver d'argument fort pour garder le `/` final ou non. Mais étant donné que les URLs pointent maintenant vers des dossiers, il est cohérent de garder le slash final.
 
-Avec le module [mod_rewrite] de Apache, on peut utiliser des redirections HTTP pour donner aux robots une unique version, avec un slash final. Une exception, cependant, lorsque l'URL contient une extension. Il s'agirait alors d'une requête vers un fichier spécifique, plutôt qu'une page HTML. Celà évitera une redirection inutile si le fichier n'existe pas.
+Avec le module [mod_rewrite] de Apache, on peut utiliser des redirections HTTP pour donner aux robots une unique version, avec un slash final. Pour éviter des redirections inutiles si l'URL tape dans le vide, ce slash ne sera rajouté que si l'URL correspond à un dossier existant.
 
-Directement dans la configuration du Virtual Host, ou dans le fichier `.htaccess` à la racine du site:
+Cette configuration peut se faire directement dans la configuration du Virtual Host, ou dans le fichier `.htaccess` à la racine du site. Dan Morell à d'ailleurs mis en ligne un <a href="https://www.danielmorell.com/tools/htaccess/redirect-generator" hreflang="en">générateur de `.htaccess`</a> pour gérer ces redirections :
 
 ```apache
-# S'assure que le module est activé
+# Make sure we can rewrite URLs
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Rajoute le slash final si absent
-  ## Filtre les URLs sans slash final
+  # Supprime le slash final s'il existe...
+  RewriteCond %{REQUEST_URI} /(.+)/$
+  # ... et que l'URL ne correspond pas à un dossier
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ https://romaricpascal.is/%1 [R=301,L]
+
+  # Ajoute un slash final s'il est absent...
   RewriteCond %{REQUEST_URI} !(.+)/$
-
-  ## et qui n'ont pas d'extension
-  RewriteCond %{REQUEST_URI} !\..+$
-
-  ## et qui ne correspondent pas à un fichier
-  RewriteCond %{REQUEST_FILENAME} !-f
-
-  ## Répond avec une redirection 301 avec le slash
+  # ... et que l'URL correspond à un dossier
+  RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^(.+)$ https://romaricpascal.is/$1/ [R=301,L]
 
-  # Supprime le `index.html` des requêtes, à l'intérieur de dossiers ou a la racine
-  RewriteRule ^(.+)/index.html$ https://next.romaricpascal.is/$1/ [R=301,L]
-  RewriteRule ^index.html$ https://next.romaricpascal.is/ [R=301,L]
+  # Remove trailing index.html both inside folders and at the root
+  RewriteRule ^(.+)/index.html$ https://romaricpascal.is/$1/ [R=301,L]
+  RewriteRule ^index.html$ https://romaricpascal.is/ [R=301,L]
 </IfModule>
 ```
 

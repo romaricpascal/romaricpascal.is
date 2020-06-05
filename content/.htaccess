@@ -25,18 +25,25 @@ Redirect 302 /selling-nice-stuff https://www.redbubble.com/people/romaricpascal/
 Redirect 302 /selling-nice-stuff/ https://www.redbubble.com/people/romaricpascal/shop/recent?asc=u 
 
 <IfModule mod_rewrite.c>
+    # Remove trailing slash from non-filepath urls
+    RewriteCond %{REQUEST_URI} /(.+)/$
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ https://romaricpascal.is/%1 [R=301,L]
+
     # Include trailing slash on directory
     RewriteCond %{REQUEST_URI} !(.+)/$
-    RewriteCond %{REQUEST_URI} !\..+$
-    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^(.+)$ https://romaricpascal.is/$1/ [R=301,L]
+
     # Remove trailing index.html
     RewriteRule ^(.+)/index.html$ https://romaricpascal.is/$1/ [R=301,L]
     RewriteRule ^index.html$ https://romaricpascal.is/ [R=301,L]
+
     # Enforce HTTPS and not www.
     RewriteCond %{HTTP_HOST} ^www\.(.*)$ [OR,NC]
     RewriteCond %{HTTPS} off 
     RewriteRule ^(.*)$ https://romaricpascal.is/$1 [R=301,L]
 </IfModule>
+
 #4042302
 ErrorDocument 404 /4042302.php
