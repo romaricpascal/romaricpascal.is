@@ -27,5 +27,7 @@ Rough plan
 9. Indexing pages
 10. Archive page (blog archive and feed... finally, up to then, it'll have been generated)
 11. Pagination
-
+12. Internationalizing links (share links between translations, maybe accross the whole site, with the option to set the language for a link automatically and )
 At that point, that should be enough JavaScript ;) Time to move to HTML & CSS
+
+
