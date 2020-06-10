@@ -144,7 +144,7 @@ pre > code {
   line-height: 1.5rem;
 }
 
-.site-header [aria-current="true"] {
+.site-header [aria-current] {
   text-decoration: none;
   background: linear-gradient(#111,#111);
   background-size: 100% 1.5rem;

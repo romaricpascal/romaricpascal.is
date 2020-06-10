@@ -22,6 +22,10 @@ metalsmith(process.cwd())
         en: 'English',
         fr: 'Francais'
       },
+      languageSwitcherLabel: {
+        en: 'Languages',
+        fr: 'Langues'
+      },
       mastodonHandle: {
         en: 'website',
         fr: 'siteweb'
