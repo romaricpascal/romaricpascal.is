@@ -15,7 +15,7 @@ Il manque également un moyen d'associer un contenu à sa version traduite. Avec
 
 Enfin, les contenus et leurs traductions sont bien loin les uns des autres. Les pages en français sont dans le dossier `content/fr/`, les versions anglaises directement à la racine du dossier `content`. Cela correspond à la structure du site généré. Cependant lorsque les pages seront dans des sous-dossier, ou juste qu'il y en aura plein, ça va vite devenir difficile de savoir ce qui est traduit de ce qui ne l'est pas. Encore pire, les noms risquent de ne pas correspondre pour que les URLs soient elles aussi traduites. Je préfèrerais les fichiers les uns juste à côté des autres, avec des noms qui reflètent qu'ils correspondent au même contenu.
 
-The plan
+Le plan
 ---
 
 Pour faire face à ces trois soucis:
