@@ -1,4 +1,4 @@
-const { dirname, basename } = require('path');
+const { dirname, basename, join } = require('path');
 
 /**
  * A metalsmith plugin to provide path breakdown
@@ -6,22 +6,23 @@ const { dirname, basename } = require('path');
 module.exports = function pathInfo() {
   return function(files) {
     Object.keys(files).forEach(filePath => {
-      // First split the extension
       files[filePath].pathInfo = getPathInfo(filePath);
     });
   };
 };
 
 function getPathInfo(filePath) {
-  const [stem, ...extensionsList] = filePath.split('.');
+  const dirName = dirname(filePath);
+  const fileName = basename(filePath);
+  const [baseName, ...extensionsList] = fileName.split('.');
   return {
     path: filePath,
-    stem,
+    stem: join(dirName, baseName),
     extension: extensionsList[extensionsList.length - 1] || '',
     extensions: extensionsList.join('.'),
     extensionList: extensionsList,
-    dirName: dirname(stem),
-    baseName: basename(stem),
-    fileName: basename(filePath)
+    dirName,
+    fileName,
+    baseName
   };
 }
