@@ -2,10 +2,10 @@ module.exports = function detectLanguage({
   languageInfo = getLanguageInfo
 } = {}) {
   return function(files, metalsmith) {
-    const { i18n } = metalsmith.metadata();
+    const config = metalsmith.metadata();
 
     Object.values(files).forEach(file => {
-      file.i18n = languageInfo(file, i18n);
+      file.i18n = languageInfo(file, config);
     });
   };
 };
