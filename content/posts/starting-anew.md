@@ -1,4 +1,5 @@
 ---
+date: 2020-05-28
 title: Starting anew
 type: post
 layout: post.pug

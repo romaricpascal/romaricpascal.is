@@ -1,4 +1,5 @@
 ---
+date: 2020-06-01
 title: Un layout partagé
 slug: layout-partage
 type: post

@@ -1,4 +1,5 @@
 ---
+date: 2020-06-05
 title: Prendre soin de ses anciennes URLs
 slug: prendre-soin-de-ses-anciennes-URLs
 type: post

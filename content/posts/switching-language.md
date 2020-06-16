@@ -1,4 +1,5 @@
 ---
+date: 2020-06-10
 title: Switching language
 type: post
 layout: post.pug

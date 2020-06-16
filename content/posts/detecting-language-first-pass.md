@@ -1,4 +1,5 @@
 ---
+date: 2020-06-15
 title: Detecting language - A first pass
 type: post
 layout: post.pug

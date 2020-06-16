@@ -1,4 +1,5 @@
 ---
+date: 2020-06-09
 title: First step towards internationalisation
 type: post
 layout: post.pug

@@ -1,4 +1,5 @@
 ---
+date: 2020-05-29
 title: C'est parti
 slug: c-est-parti
 type: post

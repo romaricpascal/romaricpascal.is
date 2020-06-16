@@ -1,4 +1,5 @@
 ---
+date: 2020-05-29
 title: Let's get started
 type: post
 layout: post.pug

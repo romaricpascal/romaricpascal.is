@@ -1,4 +1,5 @@
 ---
+date: 2020-06-08
 title: A little automation
 type: post
 layout: post.pug

@@ -1,4 +1,5 @@
 ---
+date: 2020-06-04
 title: Long life URLs
 type: post
 layout: post.pug

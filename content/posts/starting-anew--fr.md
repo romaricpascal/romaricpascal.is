@@ -1,4 +1,5 @@
 ---
+date: 2020-05-28
 title: Nouveau départ
 slug: nouveau-depart
 type: post

@@ -1,4 +1,5 @@
 ---
+date: 2020-06-12
 title: Disecting the files' paths
 type: post
 layout: post.pug

@@ -1,4 +1,5 @@
 ---
+date: 2020-06-08
 title: Un peu d'automatisation
 slug: un-peu-d-automatisation
 type: post

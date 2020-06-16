@@ -1,4 +1,5 @@
 ---
+date: 2020-06-15
 title: Detecter la langue - Première!
 slug: detecter-la-langue-premiere
 type: post

@@ -1,4 +1,5 @@
 ---
+date: 2020-06-02
 title: Writing markdown
 type: post
 layout: post.pug

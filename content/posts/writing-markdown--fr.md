@@ -1,4 +1,5 @@
 ---
+date: 2020-06-02
 title: Markdown plutôt que HTML
 slug: markdown-plutot-que-html
 type: post

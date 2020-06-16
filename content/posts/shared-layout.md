@@ -1,4 +1,5 @@
 ---
+date: 2020-06-01
 title: A shared layout
 type: post
 layout: post.pug

@@ -1,4 +1,5 @@
 ---
+date: 2020-06-09
 title: Premiers pas vers l'internationalisation
 slug: premiers-pas-vers-l-internationalisation
 type: post

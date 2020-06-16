@@ -1,4 +1,5 @@
 ---
+date: 2020-06-10
 title: Passer d'une langue à l'autre
 slug: passer-d-une-langue-a-l-autre
 type: post

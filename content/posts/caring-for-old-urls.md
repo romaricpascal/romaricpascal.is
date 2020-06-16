@@ -1,4 +1,5 @@
 ---
+date: 2020-06-05
 title: Caring for old URLs
 type: post
 layout: post.pug
