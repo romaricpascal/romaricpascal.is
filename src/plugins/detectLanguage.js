@@ -39,12 +39,13 @@ function pathPrefix(
   }
 }
 
-function filenameSuffix(file, { separator = '--' } = {}) {
-  const [key, language] = file.pathInfo.stem.split(separator);
-  if (language) {
+function filenameSuffix(file, { separator = '--', languages } = {}) {
+  const suffix = new RegExp(`(.*)${separator}(${languages.join('|')})`);
+  const result = suffix.exec(file.pathInfo.stem);
+  if (result) {
     return {
-      key,
-      language: language
+      language: result[2],
+      key: result[1]
     };
   }
 }
