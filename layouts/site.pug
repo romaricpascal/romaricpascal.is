@@ -30,7 +30,7 @@ html(lang=`${i18n.language || defaultLanguage}`)
           = get(groups.byKeyByLanguage, ['posts/index', i18n.language, 'title'])
       include i18n/_language_switcher.pug
         
-    main#main.container
+    main#main.container.prose
       block contents
         != contents
 

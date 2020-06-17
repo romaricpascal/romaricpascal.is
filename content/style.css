@@ -106,6 +106,18 @@ pre > code {
   overflow: auto;
 }
 
+.prose *{
+  margin-bottom: 0;
+}
+
+.prose * + * {
+  margin-top: 1rem;
+}
+
+.prose li + li {
+  margin-top: 0.5rem;
+}
+
 :focus {
   outline: solid 2px #111;
   outline-offset: 2px;
