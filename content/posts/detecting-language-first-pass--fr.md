@@ -76,9 +76,9 @@ function getLanguageInfo(
   const prefix = new RegExp(`^(${languages.join('|')})/(.*)`);
   const result = prefix.exec(file.pathInfo.stem);
 
-  // `result` will only have a value if the RegExp
-  // matched anything. This way we can provide default
-  // with the `else`
+  // `result` n'a de valeur que si l'expression régulière
+  // a trouvé correspondance. Cela permet de fournir
+  // une valeur par défaut dans le `else`
   if (result) {
     return {
       language: result[1],
