@@ -5,7 +5,7 @@ const layouts = require('metalsmith-layouts');
 const pathInfo = require('./plugins/pathInfo');
 const defaultDate = require('./plugins/defaultDate');
 const detectLanguage = require('./plugins/detectLanguage');
-const { computeOutputPath, move } = require('./plugins/rewrite');
+const { computeOutputPath, moveToOutputPath } = require('./plugins/outputPath');
 const group = require('./plugins/group');
 const { compareDesc, isBefore } = require('date-fns');
 
@@ -60,7 +60,7 @@ metalsmith(process.cwd())
       default: 'site.pug'
     })
   )
-  .use(move())
+  .use(moveToOutputPath())
   .build(function(err) {
     if (err) throw err;
   });
