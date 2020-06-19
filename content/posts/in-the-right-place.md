@@ -1,19 +1,19 @@
 ---
 date: 2020-06-19
-title: Setting the right URL
+title: In the right place
 type: post
 layout: post.pug
 ---
-Pages using the `--fr` suffix to show they're in French need to be moved in the right place. Take the `a/blog-entry--fr.md`, for example. Instead of landing in `site/a/blog-entry--fr/index.html` ([remember the permalink][permalink-article]), it needs to be output to `site/fr/a/blog-entry/index.html`.
+Pages using the `--fr` suffix to show they're in French need to be moved in the right place. Take the `blog-entry--fr.md`, for example. Instead of landing in `site/blog-entry--fr/index.html` ([remember the permalink][permalink-article]), it needs to be output to `site/fr/blog-entry/index.html`.
 
-Even better if we can rename the `blog-entry` to a French translation, say `article`. But let's leave that last bit aside for now, start with the base of the feature and build on it.
+Even better if we can rename the `blog-entry` to a French translation, to land at `site/fr/article/index.html`. But let's leave that last bit aside for now, start with the base of the feature and build on it.
 
 A two step process
 ---
 
 Putting the files in the right place requires two things:
 
-1. Computing the (possibly new) output path for the file, based on its language and translation key
+1. Computing the output path for the file, based on its language and translation key
 2. "Moving" the file to its final location, which, for Metalsmith, means setting it to the right key in the `files` object.
 
 The first one needs to happen early-ish. This will allow to grab the computed path to generate links. However, `metalsmith-in-place` will use the original file extension to pick-up that it needs to process the Markdown into HTML. If we move the file too early, it'll just not process it.
@@ -53,13 +53,13 @@ Computing the output path
 
 At first, it would seem that the following would do the trick:
 
-- Grab the language and translation key
+- Grab the language and translation key du fichier
 - If the language is not the default language, set the output path to `<language>/<translation-key>/index.html`
 - Otherwise, use `<translation-key>/index.html`
 
 But like the implementation of most features in projects, there are a couple more subtleties.
 
-First, `index.md` files, say the `index--fr.md` of the homepage translation. We don't want it moved to `/fr/index/index.html`, it would be served for `/fr/index/` rather than just `/fr/`. Instead it needs to just remain `<language>/index.html`.
+First, `index.md` files, say the `index--fr.md` of the homepage translation. We don't want it moved to `/fr/index/index.html`, it would be served for `/fr/index/` rather than just `/fr/`. Instead it needs to just remain `/fr/index.html`.
 
 The other issue is that not all files are bound to be output as HTML. Throw a stylesheet or an image in the `content` folder and it'll get copied accross. It has to retain its extension, so we'll have to handle that too.
 
@@ -80,7 +80,8 @@ function newOutputPath(file) {
 
   // Only process extensions that'll output HTML
   if (extension == 'md' || extension == 'html' || extension == 'pug') {
-    // Only handle the `index` case when outputing HTML
+    // Only HTML files need to bother
+    // whether they're called `index`
     if (slug === 'index') {
       return join(path, 'index.html')
     } else {
@@ -100,7 +101,7 @@ We can then use that function to compute the final output path and attach it to 
 
 ```js
 // Add `normalize` to the list of required functions
-// to deal with `./` paths
+// to remove any `/./` that might have sneaked in the output path
 const { basename, dirname, join , normalize } = require('path');
 
 exports.computeOutputPath = function rewrite() {
@@ -114,7 +115,7 @@ exports.computeOutputPath = function rewrite() {
       let outputPath = newOutputPath(file);
 
       if (file.i18n.language !== defaultLanguage) {
-        // Remove any `/./` that might have sneaked in
+        // 
         outputPath = normalize(join(file.i18n.language, outputPath));
       }
 
@@ -132,8 +133,8 @@ Moving the files
 
 Thankfully, moving the files is way less heavy than computing where they should go. With their `outputPath` already computed, it's a matter of:
 
-1. deleting where they were previously so they don't get writen in two different place.
-2. adding them at the right key in Metalsmith's `files` object
+1. deleting them from their current key in Metalsmith's `files` object, so they don't end up written twice
+2. add them at the key we just computed
 
 In that order, otherwise the files would get deleted if their path didn't change... not ideal.
 
@@ -157,7 +158,7 @@ exports.moveToOutputPath = function moveToOutputPath() {
 
 This would be good place to check that different files don't step on each other's toes. `fr/index.md` would get written in the same place as `index--fr.md`.
 
-To handle this, we can throw a custom exception when a file already exist for the `outputPath`. For debugging, it'll be handy to know which `outputPath` is at fault, but also which source files are trying to get written there. Fortunately, the information is kept nice and warm in the `pathInfo` of the file (that first plugin is really paying off now).
+To handle this, we can throw a custom exception when a file already exist for the `outputPath`. For debugging, it'll be handy to know which `outputPath` is at fault, but also which source files are trying to get written there. Fortunately, the information is kept nice and warm in the `pathInfo` of the file (that [first plugin][first-plugin] is really paying off now).
 
 ```js
 // ...
@@ -206,3 +207,7 @@ const slug = file.slug || basename(file.i18n.key);
 This marks the finish line (for now) for placing translated files right next to each other. Future efforts will certainly include translating the rest of the path. That's a good bit of effort, though. Keeping in mind that the original aim is to get the new website out, better move on to something that gets it closer.
 
 The next bit of work on the generation itself would be updating the language switcher to send to the translated pages, now that there's a translation key to link them together. However, I feel like talking CSS a bit. How about some words on the minimal launch styles. Yes, yes, there's already enough to talk about with so little styling. See you for the next article.
+
+
+[permalink-article]: ../long-life-urls
+[first-plugin]: ../disecting-the-files-path
