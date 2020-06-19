@@ -1,6 +1,6 @@
 ---
 date: 2020-06-12
-title: Disecter le chemin des fichiers
+title: Dissecter le chemin des fichiers
 slug: disecter-le-chemin-des-fichiers
 type: post
 layout: post.pug
