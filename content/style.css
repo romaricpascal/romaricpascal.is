@@ -26,33 +26,11 @@ body > main {
   margin-bottom: auto;
 }
 
-main {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-main > * {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-main > * + *{
-  margin-top: 1rem;
-}
-
-main > pre {
-  max-width: 50rem;
-}
-
-main > figure {
-  max-width: 50rem;
-}
-
 h1 {
   line-height: 1.2;
 }
 
+h1 + *,
 h2 + *,
 h3 + *,
 h4 + *,
@@ -83,7 +61,6 @@ code {
   outline: solid 2px #eeeeee;
 }
 
-
 img {
   max-width: 100%;
   height: auto;
@@ -106,12 +83,56 @@ pre > code {
   overflow: auto;
 }
 
+main {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+main > * {
+  display: block;
+  width: calc(100% - 3rem);
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main > pre,
+main > figure,
+main > img {
+  max-width: 46rem;
+}
+
+ul, ol {
+  padding-left: 0;
+}
+
+ul ul, ul ol, ol ul, ol ol {
+  padding-left: 1rem;
+}
+
 .prose *{
   margin-bottom: 0;
 }
 
 .prose * + * {
   margin-top: 1rem;
+}
+
+.prose h1 + *,
+.prose h2 + *,
+.prose h3 + *,
+.prose h4 + *,
+.prose h5 + *,
+.prose h6 + * {
+  margin-top: 0.25rem;
+}
+
+.prose * + h2,
+.prose * + h3,
+.prose * + h4,
+.prose * + h5,
+.prose * + h6 {
+  margin-top: 1.75rem;
 }
 
 .prose li + li {
@@ -154,6 +175,12 @@ pre > code {
   color: inherit;
   padding: 0.75rem 0.25rem;
   line-height: 1.5rem;
+}
+
+@media (min-width: 419px) {
+  .site-header > :first-child {
+    margin-right: auto;
+  }
 }
 
 .site-header [aria-current] {
@@ -279,5 +306,61 @@ h6 [href^="#"]:focus {
   right: 0;
   bottom: 0;
   z-index: 1;
+}
+
+.demo {
+  position: relative;
+  width: 70%;
+  max-width: 30rem;
+}
+
+.demo::before {
+  content: '';
+  display: block;
+  padding-top: 1.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  background: currentColor;
+}
+
+.demo::after {
+  content: '';
+  display: block;
+  padding-top: 75%;
+}
+
+.demo > div {
+  position: absolute;
+  top: 1.5rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: calc(100% - 1.5rem);
+  padding: 0.125rem;
+  border: solid 2px;
+}
+
+.demo--narrow::before,
+.demo--narrow > div {
+  max-width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-element {
+  border: solid 0.125rem;
+}
+
+.demo-element-filled {
+  background: currentColor;
+}
+
+.demo-element-striped {
+  /* https://css-tricks.com/why-do-we-have-repeating-linear-gradient-anyway/ */
+  background:  repeating-linear-gradient(-45deg, 
+      currentColor, currentColor 0.125rem /* lines */, 
+      white calc(0.125rem + 1px), white 0.5rem /* space between */
+  ) 50% no-repeat;
 }
 
