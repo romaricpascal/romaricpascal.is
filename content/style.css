@@ -115,7 +115,7 @@ ul ul, ul ol, ol ul, ol ol {
 }
 
 .prose * + * {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .prose h1 + *,
