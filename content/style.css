@@ -168,6 +168,7 @@ ul ul, ul ol, ol ul, ol ol {
   flex-wrap: wrap;
   justify-content: space-around;
   text-align: center;
+  align-items: baseline;
 }
 
 .site-header a {
@@ -209,7 +210,8 @@ ul ul, ul ol, ol ul, ol ol {
 .language-switcher {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  margin: -0.25rem;
 }
 
 .language-switcher > * {
@@ -308,7 +310,7 @@ h6 [href^="#"]:focus {
   z-index: 1;
 }
 
-.demo {
+.demo:not(.demo--shallow) {
   position: relative;
   width: 70%;
   max-width: 30rem;
@@ -323,13 +325,22 @@ h6 [href^="#"]:focus {
   background: currentColor;
 }
 
-.demo::after {
+.demo:not(.demo--shallow)::after {
   content: '';
   display: block;
   padding-top: 75%;
 }
 
-.demo > div {
+.demo * {
+  margin: 0;
+}
+
+.demo > * {
+  padding: 0.125rem;
+  border: solid 2px;
+}
+
+.demo:not(.demo--shallow) > * {
   position: absolute;
   top: 1.5rem;
   left: 0;
@@ -337,8 +348,6 @@ h6 [href^="#"]:focus {
   right: 0;
   width: 100%;
   height: calc(100% - 1.5rem);
-  padding: 0.125rem;
-  border: solid 2px;
 }
 
 .demo--narrow::before,
