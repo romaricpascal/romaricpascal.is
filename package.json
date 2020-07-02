@@ -1,8 +1,9 @@
 {
-  "name": "project-template-node",
+  "name": "romaricpascal.is",
   "version": "0.0.1",
-  "description": "Template for NodeJS projects",
+  "description": "Sources and content of romaricpascal.is website",
   "main": "src/index.js",
+  "private": true,
   "engines": {
     "node": ">=8.12.0"
   },
@@ -11,6 +12,7 @@
     "dev:watch": "nodemon",
     "dev:serve": "browser-sync start -s site --no-open",
     "lint": "eslint '**/*.js'",
+    "check-links": "wget --spider --recursive --no-verbose localhost:3000 && rm -r localhost:3000",
     "test": "nyc --reporter=text ava",
     "docs": "(cd src && npx docco -o ../docs index.js)",
     "docs:watch": "chokidar src/index.js -c 'npm run docs'",
@@ -20,14 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rhumaric/project-template-node.git"
+    "url": "git+https://github.com/rhumaric/romaricpascal.is.git"
   },
   "author": "Romaric Pascal <hello@romaricpascal.is>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rhumaric/project-template-node/issues"
+    "url": "https://github.com/rhumaric/romaricpascal.is/issues"
   },
-  "homepage": "https://github.com/rhumaric/project-template-node#readme",
+  "homepage": "https://github.com/rhumaric/romaricpascal.is#readme",
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
