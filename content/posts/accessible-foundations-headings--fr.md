@@ -1,5 +1,5 @@
 ---
-date: 2020-06-02
+date: 2020-07-02
 title: Une base accessible - Les titres
 slug: une-base-accessible-les-titres
 type: post

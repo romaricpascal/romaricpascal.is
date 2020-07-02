@@ -1,5 +1,5 @@
 ---
-date: 2020-06-02
+date: 2020-07-02
 title: Accessible foundations - Headings
 type: post
 layout: post.pug
