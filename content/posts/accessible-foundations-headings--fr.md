@@ -56,7 +56,7 @@ Chercher chaque titre au milieu de toutes le balises, ça fait pas vraiment rêv
 
 J'aime bien l'[extension headingsMap pour Firefox][headingsmap-firefox] (disponible également [pour Chrome]) pour jeter un coup d'oeil à la liste des titres. Elle indique également si des titres ne sont pas au bon niveau dans la hiérarchie. C'est aussi quelque chose que fait <a href="https://www.deque.com/axe/" hreflang="en">Axe</a> (parmi d'autres vérifications d'accesibilité).
 
-Et il est toujours possible de regarder ce que détectent les lecteurs d'écrans. [Mac][voiceover], [Windows 10][narrator] et [Ubuntu][orca] en embarque un tous les trois, et [NVDA][nvda] peut également être installé sur Windows.
+Et il est toujours possible de regarder ce que détectent les lecteurs d'écrans. [Mac][voiceover], [Windows 10][narrator] et [Ubuntu][orca] en embarque un tous les trois, et <a href="https://www.nvaccess.org/download/" hreflang="en">NVDA</a> peut également être installé sur Windows.
 
 En complément des titres, il y a d'autres moyens pour aider la navigation au sein d'une page pour les utilisateurs/trice de techologies d'assistance. Assez pour en faire le prochain article, qui parlera des landmarks ARIA.
 
