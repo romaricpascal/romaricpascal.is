@@ -1,4 +1,5 @@
 ---
+date: 2020-07-06
 title: Une base accessible - Les landmarks
 slug: une-base-accessible-les-landmarks
 type: post
