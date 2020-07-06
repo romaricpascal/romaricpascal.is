@@ -26,6 +26,10 @@ metalsmith(process.cwd())
         en: 'Languages',
         fr: 'Langues'
       },
+      skipLinkLabel: {
+        en: 'Skip to content',
+        fr: 'Aller au contenu'
+      },
       mastodonHandle: {
         en: 'website',
         fr: 'siteweb'
