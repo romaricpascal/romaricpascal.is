@@ -11,7 +11,7 @@ About me
 
 **Hello, I'm Romaric** and I've been building websites for more that 12 years now. Along the way, I've come to care about accessibility and performance to offer a good experience to the widest audience.
 
-I focus on writing semantic templates and components, and maintainable CSS (from scratch or on top of libraries like Bootstrap)
+I focus on writing semantic templates and components, as well as maintainable CSS (from scratch or on top of libraries like Bootstrap),
 to support various backends whether server-side like Rails or Django, or client-side like React or Vue.
 
 </div>
