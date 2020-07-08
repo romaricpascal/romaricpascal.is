@@ -29,6 +29,11 @@ html(lang=`${i18n.language || defaultLanguage}`)
           href=get(groups.byKeyByLanguage, ['posts/index', i18n.language, 'outputUrl'])
           )
           = get(groups.byKeyByLanguage, ['posts/index', i18n.language, 'title'])
+        = ' '
+        a(
+          href=get(groups.byKeyByLanguage, ['me', i18n.language, 'outputUrl'])
+          )
+          = get(groups.byKeyByLanguage, ['me', i18n.language, 'title'])
       include i18n/_language_switcher.pug
         
     main#main.prose

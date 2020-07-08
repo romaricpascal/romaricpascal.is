@@ -98,15 +98,36 @@ main > * {
 
 main > pre,
 main > figure,
-main > img {
+main > img,
+main > blockquote {
   max-width: 46rem;
 }
 
-ul, ol {
-  padding-left: 0;
+blockquote {
+  padding: 1rem;
+  font-size: 1.125rem;
+  border: solid 0.125rem;
 }
 
-ul ul, ul ol, ol ul, ol ol {
+blockquote p:first-child::before {
+  content: open-quote;
+}
+
+blockquote p:nth-last-child(2)::after {
+  content: close-quote
+}
+
+blockquote cite {
+  font-size: 1rem;
+}
+
+blockquote a,
+blockquote a:visited {
+  color: inherit;
+}
+
+
+ul, ol {
   padding-left: 1rem;
 }
 
@@ -116,6 +137,10 @@ ul ul, ul ol, ol ul, ol ol {
 
 .prose * + * {
   margin-top: 1.5rem;
+}
+
+.prose br {
+  margin: 0;
 }
 
 .prose h1 + *,
@@ -135,7 +160,15 @@ ul ul, ul ol, ol ul, ol ol {
   margin-top: 1.75rem;
 }
 
-.prose li + li {
+.prose h3 a:first-child,
+.prose h4 a:first-child,
+.prose h5 a:first-child,
+.prose h6 a:first-child {
+  display: none;
+}
+
+.prose li + li,
+.prose p + ul {
   margin-top: 0.5rem;
 }
 
@@ -373,3 +406,12 @@ h6 [href^="#"]:focus {
   ) 50% no-repeat;
 }
 
+.avatar {
+  float: right;
+  margin-left: 1.5rem;
+  margin-top: 0;
+  shape-outside: circle(calc(50% + 1.5rem)) padding-box;
+  width: 20%;
+  min-width: 6rem;
+  margin-bottom: 1.5rem;
+}
