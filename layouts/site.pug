@@ -14,6 +14,7 @@ html(lang=`${i18n.language || defaultLanguage}`)
 
     - const rssUrl = get(groups.byKeyByLanguage, ['feed', i18n.language, 'outputUrl'])
     link(rel="alternate",type="application/rss+xml",href=rssUrl)
+    include _favicons.pug
   body
     a.skip-link(href="#main") 
       = messages.skipLinkLabel[i18n.language]
@@ -34,6 +35,8 @@ html(lang=`${i18n.language || defaultLanguage}`)
           href=get(groups.byKeyByLanguage, ['me', i18n.language, 'outputUrl'])
           )
           = get(groups.byKeyByLanguage, ['me', i18n.language, 'title'])
+        = ' '
+        a(href="mailto:hello@romaricpascal.is") Contact
       include i18n/_language_switcher.pug
         
     main#main.prose
