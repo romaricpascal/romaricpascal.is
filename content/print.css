@@ -1,0 +1,40 @@
+.site-header,
+.site-footer,
+.skip-link {
+  display: none;
+}
+
+a, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+a[href]::after {
+  text-decoration: underline;
+  margin-left: 0.5ch;
+}
+
+a[href]:not([href^='#'])::after {
+  content: '[' attr(href) ']';
+}
+
+a[href]:not([href^='#'])[hreflang]::after {
+  content: '[' attr(href) '(' attr(hreflang) ')]' 
+}
+
+a[href^='#']::after {
+  content: '[see ' attr(href) ' on this document]'
+}
+
+h1 a,
+h2 a {
+  display: none;
+}
+
+.avatar {
+  filter: grayscale(100%)
+}
+
+/* blockquote {
+  page-break-inside: avoid;
+} */
