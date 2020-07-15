@@ -1,4 +1,5 @@
 ---
+date: 2020-07-09
 title: Accessible foundations - Skip links
 type: post
 layout: post.pug

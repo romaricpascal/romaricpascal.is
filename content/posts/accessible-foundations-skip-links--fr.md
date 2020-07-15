@@ -1,4 +1,5 @@
 ---
+date: 2020-07-09
 title: Des bases accessibles - Les liens d'évitement
 slug: des-bases-accessibles-les-liens-d'evitement
 type: post
