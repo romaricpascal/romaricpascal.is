@@ -1,6 +1,6 @@
 ---
-date: 2020-07-09
-title: Revisiter la navigation par langue - Indexer les page
+date: 2020-07-15
+title: Revisiter la navigation par langue - Indexer les pages
 slug: revisiter-la-navigation-par-langue-indexer-les-pages
 type: post
 layout: post.pug
