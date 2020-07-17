@@ -5,11 +5,9 @@ nav.language-switcher(aria-labelledby="languageSwitcherHeading",role="navigation
   h2#languageSwitcherHeading(hidden="")= messages.languageSwitcherLabel[i18n.language]
   each language in languages
     - 
-      const translationUrl = get(groups.byKeyByLanguage, [i18n.key, language, 'outputUrl']);
-      let href;
-      if (translationUrl) { 
-        href = translationUrl
-      } else {
+      
+      href = get(groups.byKeyByLanguage, [i18n.key, language, 'outputUrl']);
+      if (!href) { 
         href = language === defaultLanguage ? '/' : `/${language}`  
       }
 
