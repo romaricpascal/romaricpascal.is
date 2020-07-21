@@ -69,7 +69,7 @@ Other projects
 Outside of client work, and [this website][romaricpascal.is], I also tinker with various little projects: small apps, tooling or just experiments with concepts or technology that feel interesting to me. Here are a selected few:
 
 - [Taskfight]: A(n oldish) React app where tasks fight against one another to sort their priorities.
-- [express-mount-files]: An ExpressJS middeleware to declare routes through folders and files, nostalgia of PHP's early days.
+- [express-mount-files]: An ExpressJS middleware to declare routes through folders and files, nostalgia of PHP's early days.
 - [implicitjs]: Twisting JavaScript syntax with Babel to try and turn it into a templating language. Highly experimental.
 - [An experiment with Bezier curves][bezier-experiment]: A Svelte app illustrating an idea for drawing a Bezier spline passing through a list of points.
 
