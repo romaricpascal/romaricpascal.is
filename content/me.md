@@ -7,7 +7,7 @@ About me
 
 <div>
 
-<img src="/media/me.png" alt="" class="avatar" role="presentation">
+<img src="/media/me.png" alt="" class="avatar no-border" role="presentation">
 
 **Hello, I'm Romaric** and I've been building websites for more that 12 years now. Along the way, I've come to care about accessibility and performance to offer a good experience to the widest audience.
 
