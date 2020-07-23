@@ -159,7 +159,7 @@ Pour les mises à jour du contenu, c'est un peu plus de JavaScript pour écouter
 
 </script>
 
-Il reste plus qu'à espérer que ça marche avec toutes sortes de navigateurs et lecteurs d'écran. Je n'ai malheureusement pu tester qu'avec Firefox + Orca sur Ubuntu et Safari + Voiceover sur Mac. Si vous essayez avec d'autres combinaisons, je serais heureux de connaître le résultat.
+Il reste plus qu'à espérer que ça marche avec toutes sortes de navigateurs et lecteurs d'écran. Je n'ai malheureusement pu tester qu'avec Firefox + Orca sur Ubuntu et Safari + Voiceover sur Mac. [Si vous essayez avec d'autres combinaisons, je serais heureux de connaître le résultat][tweet].
 
 Bon, pour de vrai, le prochain article, on revient au générateur de site.
 
@@ -167,3 +167,4 @@ Bon, pour de vrai, le prochain article, on revient au générateur de site.
 [voiceover]: https://help.apple.com/voiceover/mac/10.15/?lang=fr
 [narrator]: https://support.microsoft.com/fr-fr/help/22798/windows-10-complete-guide-to-narrator
 [orca]: https://help.gnome.org/users/orca/stable/index.html.fr
+[tweet]: https://twitter.com/romaricpascal/status/1286322112576270342

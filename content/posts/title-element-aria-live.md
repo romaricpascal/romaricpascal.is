@@ -153,7 +153,7 @@ For the updates, it's a little more JavaScript to listen to events of the form a
   
 </script>
 
-Now hopefully that works across all kinds of browsers and screenreaders, but I could only test with Firefox + Orca on Ubuntu and Safari + Voiceover on Mac. If you try it with another combination, I'd be glad to know.
+Now hopefully that works across all kinds of browsers and screenreaders, but I could only test with Firefox + Orca on Ubuntu and Safari + Voiceover on Mac. [If you try it with another combination, I'd be glad to know][tweet].
 
 OK, for real, next article will be back to the static site generator.
 
@@ -165,3 +165,4 @@ OK, for real, next article will be back to the static site generator.
 [narrator]: https://support.microsoft.com/en-us/help/22798/windows-10-complete-guide-to-narrator
 [orca]: https://help.gnome.org/users/orca/stable/index.html.en
 [nvda]: https://www.nvaccess.org/download/
+[tweet]: https://twitter.com/romaricpascal/status/1286322110789554184
