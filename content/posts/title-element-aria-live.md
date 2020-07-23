@@ -8,7 +8,7 @@ layout: post.pug
 <strong>Important: The content that follows is an experiment with very limited testing. It would need testing on a broader range of browser and screenreader combination before being used in production.</strong>
 </p>
 
-Building a single page applications requires taking over the browser's responsibility for navigating from page to page. This  means responding to changes to the page URL and showing the page that corresponds, of course. But browsers also broadcast the title of the new page to assistive technologies, making the new location clear to the users. This is also something that needs to be taken care of.
+Building a single page applications requires taking over <a href="https://access42.net/accessibilite-rechargement-page-single-page-applications" hreflang="fr">the browser's responsibility for navigating from page to page</a>. This  means responding to changes to the page URL and showing the page that corresponds, of course. But browsers also broadcast the title of the new page to assistive technologies, making the new location clear to the users. This is also something that needs to be taken care of.
 
 The [Accessible Rich Internet Application (ARIA) specification][aria-spec] brings the [`aria-live` attribute][aria-live] to let assistive technologies announce updates of the page as they happen. It has [good support][aria-live-support], so could it be used on the document's title tag? This is a test to find out.
 
@@ -157,6 +157,11 @@ Now hopefully that works across all kinds of browsers and screenreaders, but I c
 
 OK, for real, next article will be back to the static site generator.
 
+Updates
+---
+
+23 Jul 2020: Add a link detailing what needs to be handled when taking over the browser navigation with JavaScript. Thanks <a href="https://twitter.com/firewalkwizme/status/1286331334365982721" hreflang="fr">Yann</a> for the link, and <a href="https://access42.net/audrey-maniez" hreflang="fr">Audrey</a> for the article!
+
 [aria-live]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions
 [aria-spec]: https://www.w3.org/TR/wai-aria-1.1/
 [aria-live-support]: https://a11ysupport.io/tech/aria/aria-live_attribute
@@ -166,3 +171,4 @@ OK, for real, next article will be back to the static site generator.
 [orca]: https://help.gnome.org/users/orca/stable/index.html.en
 [nvda]: https://www.nvaccess.org/download/
 [tweet]: https://twitter.com/romaricpascal/status/1286322110789554184
+[yann-tweet]:https://twitter.com/firewalkwizme/status/1286331334365982721

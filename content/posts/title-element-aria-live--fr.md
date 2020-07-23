@@ -11,7 +11,7 @@ Important: Le contenu de cet article est expérimental, avec des tests très lim
 </strong>
 </p>
 
-Contruire une <span lang="en">Single Page Application</span> demande de prendre à sa charge les résponsabilités du navigateur pour aller d'une page à l'autre. Celà implique de répondre aux changement d'URLs pour afficher le contenu correspondant, bien sûr. Mais les navigateurs annoncent également le titre de la nouvelle page aux technologies d'assistance, ce qui clarifie où se trouve maintenant l'utilisateur/trice. C'est donc quelque chose dont il faut s'occuper également.
+Contruire une <span lang="en">Single Page Application</span> demande de prendre à sa charge [les résponsabilités du navigateur pour aller d'une page à l'autre][access42-article]. Celà implique de répondre aux changement d'URLs pour afficher le contenu correspondant, bien sûr. Mais les navigateurs annoncent également le titre de la nouvelle page aux technologies d'assistance, ce qui clarifie où se trouve maintenant l'utilisateur/trice. C'est donc quelque chose dont il faut s'occuper également (avec la position du focus également, mais c'est un tout autre problème).
 
 La <a href="https://www.w3.org/TR/wai-aria-1.1/" hreflang="en">spécification ARIA (Accessible Rich Internet Application)</a> prévoit un [attribut `aria-live`][aria-live] pour permettre aux technologies d'assistance d'annoncer les changements dans la page en direct. Son <a href="https://a11ysupport.io/tech/aria/aria-live_attribute" hreflang="en">support est bon</a>, serait-il donc possible de l'utiliser sur la balise `<title>` du document? C'est une expérience pour le savoir.
 
@@ -163,8 +163,16 @@ Il reste plus qu'à espérer que ça marche avec toutes sortes de navigateurs et
 
 Bon, pour de vrai, le prochain article, on revient au générateur de site.
 
+Mises à jour
+---
+
+23 Juillet 2020: Ajout d'un lien détaillant les différents aspects à prendre en charge quand on remplace la navigation par du JavaScript. Merci [Yann][yann-tweet] pour le lien, et [Audrey][audrey-profile] pour l'article!
+
+[access42-article]: https://access42.net/accessibilite-rechargement-page-single-page-applications
+[yann-tweet]:https://twitter.com/firewalkwizme/status/1286331334365982721
 [aria-live]: https://developer.mozilla.org/fr/docs/Accessibilit%C3%A9/ARIA/Zones_live_ARIA
 [voiceover]: https://help.apple.com/voiceover/mac/10.15/?lang=fr
 [narrator]: https://support.microsoft.com/fr-fr/help/22798/windows-10-complete-guide-to-narrator
 [orca]: https://help.gnome.org/users/orca/stable/index.html.fr
 [tweet]: https://twitter.com/romaricpascal/status/1286322112576270342
+[audrey-profile]: https://access42.net/audrey-maniez
