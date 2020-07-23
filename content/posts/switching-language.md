@@ -63,7 +63,7 @@ Number 1 is taken care of by [the `language` variable introduced previously][lan
   messages: {
     languageSwitcher: {
       en: 'English',
-      fr: 'Francais'
+      fr: 'Français'
     },
     languageSwitcherLabel: {
       en: 'Languages',

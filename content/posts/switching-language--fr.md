@@ -65,7 +65,7 @@ La première contrainte est déjà couverte par [la variable `language` introdui
   messages: {
     languageSwitcher: {
       en: 'English',
-      fr: 'Francais'
+      fr: 'Français'
     },
     languageSwitcherLabel: {
       en: 'Languages',

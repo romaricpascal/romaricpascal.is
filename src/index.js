@@ -20,7 +20,7 @@ metalsmith(process.cwd())
     messages: {
       languageSwitcher: {
         en: 'English',
-        fr: 'Francais'
+        fr: 'Français'
       },
       languageSwitcherLabel: {
         en: 'Languages',
