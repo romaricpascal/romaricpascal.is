@@ -5,6 +5,7 @@ const layouts = require('metalsmith-layouts');
 const pathInfo = require('./plugins/pathInfo');
 const defaultDate = require('./plugins/defaultDate');
 const detectLanguage = require('./plugins/detectLanguage');
+const paginate = require('./plugins/paginate');
 const { computeOutputPath, moveToOutputPath } = require('./plugins/outputPath');
 const group = require('./plugins/group');
 const { compareDesc, isBefore } = require('date-fns');
@@ -42,7 +43,6 @@ metalsmith(process.cwd())
   .use(pathInfo())
   .use(detectLanguage())
   .use(defaultDate())
-  .use(computeOutputPath())
   .use(function(files) {
     Object.entries(files).forEach(function([key, file]) {
       if (isBefore(new Date(), file.date)) {
@@ -51,6 +51,8 @@ metalsmith(process.cwd())
     });
   })
   .use(group())
+  .use(paginate())
+  .use(computeOutputPath())
   .use(
     inPlace({
       engineOptions: {
