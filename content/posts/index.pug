@@ -7,7 +7,7 @@ block content
   ul.archive
     - 
       const posts = [...(groups.byLanguageByType[i18n.language]['post'] || [])].sort(function(a, b) {
-        return compareDesc(a.date, b.date)
+        return b.date - a.date
       })
 
     each post in (posts)
@@ -15,6 +15,6 @@ block content
         h2
           a(href=post.outputUrl)
             = post.title
-        time.margin-top--0(datetime=formatDate(post.date, 'yyyy-MM-dd', {locale: i18n.language}))
-          = formatDate(post.date, 'dd MMM yyyy', {locale: i18n.language})
+        time.margin-top--0(datetime=date.toISOString())
+          = get(dateFormats,i18n.language)(post.date)
 

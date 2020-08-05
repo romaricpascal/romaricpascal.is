@@ -7,7 +7,19 @@ const defaultDate = require('./plugins/defaultDate');
 const detectLanguage = require('./plugins/detectLanguage');
 const { computeOutputPath, moveToOutputPath } = require('./plugins/outputPath');
 const group = require('./plugins/group');
-const { compareDesc, isBefore } = require('date-fns');
+
+const FORMATTERS = {
+  en: new Intl.DateTimeFormat('en-gb', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit'
+  }),
+  fr: new Intl.DateTimeFormat('fr', {
+    year: 'numeric',
+    month: 'short',
+    day: '2-digit'
+  })
+};
 
 metalsmith(process.cwd())
   .source('./content')
@@ -17,6 +29,10 @@ metalsmith(process.cwd())
     siteTitle: 'Romaric Pascal',
     defaultLanguage: 'en',
     languages: ['en', 'fr'],
+    dateFormats: {
+      en: date => FORMATTERS.en.format(date),
+      fr: date => FORMATTERS.fr.format(date)
+    },
     messages: {
       languageSwitcher: {
         en: 'English',
@@ -35,9 +51,7 @@ metalsmith(process.cwd())
         fr: 'siteweb'
       }
     },
-    get: require('lodash/get'),
-    formatDate: require('./helpers/formatDate'),
-    compareDesc
+    get: require('lodash/get')
   })
   .use(pathInfo())
   .use(detectLanguage())
@@ -45,7 +59,7 @@ metalsmith(process.cwd())
   .use(computeOutputPath())
   .use(function(files) {
     Object.entries(files).forEach(function([key, file]) {
-      if (isBefore(new Date(), file.date)) {
+      if (new Date() - file.date < 0) {
         delete files[key];
       }
     });
