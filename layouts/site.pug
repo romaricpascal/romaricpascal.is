@@ -39,8 +39,7 @@ html(lang=`${i18n.language || defaultLanguage}`)
         = ' '
         a(href="mailto:hello@romaricpascal.is") Contact
       include i18n/_language_switcher.pug
-        
-    main#main.prose
+    main#main(class= (prose === false ? '' : 'prose'))
       block contents
         != contents
 

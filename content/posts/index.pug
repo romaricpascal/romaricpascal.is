@@ -1,20 +1,19 @@
 ---
 title: All posts
+prose: false
 ---
-block content
-  h1= title
+h1= title
 
-  ul.archive
-    - 
-      const posts = [...(groups.byLanguageByType[i18n.language]['post'] || [])].sort(function(a, b) {
-        return b.date - a.date
-      })
-
-    each post in (posts)
-      li.archive-item
-        h2
-          a(href=post.outputUrl)
-            = post.title
-        time.margin-top--0(datetime=date.toISOString())
-          = get(dateFormats,i18n.language)(post.date)
+- 
+  const posts = [...(groups.byLanguageByType[i18n.language]['post'] || [])].sort(function(a, b) {
+    return b.date - a.date
+  })
+ul.post-list
+  each post in (posts)
+    li.post-list-item
+      h2
+        a(href=post.outputUrl)
+          = post.title
+      time.margin-top--0(datetime=date.toISOString())
+        = get(dateFormats,i18n.language)(post.date)
 

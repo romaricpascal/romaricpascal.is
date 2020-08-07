@@ -318,7 +318,7 @@ ul, ol {
   text-decoration: underline;
 }
 
-.archive {
+.post-list {
   list-style: none;
   padding: 0;
 }
@@ -358,12 +358,12 @@ h6 [href^="#"]:focus {
   outline: none;
 }
 
-.archive > * + * {
+.post-list > * + * {
   position: relative;
-  border-top: solid 1px transparent;
+  margin-top: 0;
 }
 
-.archive > * + *::before {
+.post-list > * + *::before {
   content: '';
   display: block;
   position: absolute;
@@ -375,14 +375,16 @@ h6 [href^="#"]:focus {
   background: #111;
 }
 
-.archive-item {
+.post-list-item {
   position: relative;  
   z-index: 0;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: solid 1px transparent;
+  border-bottom: solid 1px transparent;
 }
 
-.archive-item a::before {
+.post-list-item a::before {
   content: '';
   display: block;
   position: absolute;

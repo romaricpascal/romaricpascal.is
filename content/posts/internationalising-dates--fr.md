@@ -1,5 +1,6 @@
 ---
-title: Internationalising dates with JavaScript
+title: Internationaliser les dates en JavaScript
+slug: internationaliser-dates-en-javascript
 date: 2020-08-05
 type: post
 layout: post.pug

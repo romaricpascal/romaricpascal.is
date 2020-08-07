@@ -10,7 +10,7 @@ module.exports = function() {
     Object.values(files).forEach(file => {
       const language = get('i18n.language')(file);
       const key = get('i18n.key')(file);
-      const type = get('type')(file) || 'page';
+      const type = get('type')(file);
       set(groups.byKeyByLanguage, [key, language], file);
       push(groups.byLanguageByType, [language, type], file);
     });
