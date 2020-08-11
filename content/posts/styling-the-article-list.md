@@ -43,6 +43,7 @@ There's (at least) 3 options for drawing the border:
   ```css
   .post-list > * + * {
     position: relative;
+
     /*
       Add a border to not eat 1px from the top padding
       and ensure equal spacing
@@ -54,6 +55,7 @@ There's (at least) 3 options for drawing the border:
     content: '';
     display: block;
     position: absolute;
+
     /*
       Shift to overlap the space reserved by the border
     */
@@ -62,6 +64,7 @@ There's (at least) 3 options for drawing the border:
 
     height: 0.0625rem;
     width: 20%;
+
     /*
       Because it's a pseudo element, we can use `min-width`
       to ensure a minimum width
@@ -75,16 +78,21 @@ There's (at least) 3 options for drawing the border:
 
   ```css
   .post-list > * + * {
+
     /* Avoid eating the padding */
     border-top: solid 0.0625rem transparent;
+
     /* Draws a block of #111 */
     background-image: linear-gradient(#111,#111);
+
     /* Ensures the background gets drawn under the border */
     background-origin: border-box;
+
     /* Instead of `min-width` we can use `max` to get similar control,
        however, a fallback is necessary for older browsers */
     background-size: 15% 0.0625rem;
     background-size: max(20%, 2rem) 0.0625rem;
+
     /* Prevent filling the whole block */
     background-repeat: no-repeat;
   }
@@ -94,8 +102,10 @@ There's (at least) 3 options for drawing the border:
 
   ```css
     .post-list > * + * {
+
       /* Avoid eating the padding */
       border-top: solid 0.0625rem transparent;
+
       /*
         Use a horizontal gradient 
         with a harsh stop at 20% or 2rem, 
@@ -108,6 +118,7 @@ There's (at least) 3 options for drawing the border:
       */
       border-image-source: linear-gradient(90deg, #111 15%, transparent 0);
       border-image-source: linear-gradient(90deg, #111 max(20%, 2rem), transparent 0);
+      
       /*
         Take a 1px horizontal slice from the top. 
         It'll be drawn to cover the top border of the element. 

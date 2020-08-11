@@ -119,6 +119,7 @@ Comment les afficher, donc... Il y a (au moins) 3 options:
       */
       border-image-source: linear-gradient(90deg, #111 15%, transparent 0);
       border-image-source: linear-gradient(90deg, #111 max(20%, 2rem), transparent 0);
+      
       /*
         On prend une tranche horizontale de 1px 
         en partant du haut du gradient. C'est cette tranche 
