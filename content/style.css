@@ -28,7 +28,7 @@ body > main {
 }
 
 h1 {
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 h1 + *,
@@ -318,11 +318,6 @@ ul, ol {
   text-decoration: underline;
 }
 
-.post-list {
-  list-style: none;
-  padding: 0;
-}
-
 h1[id],
 h2[id],
 h3[id],
@@ -358,21 +353,23 @@ h6 [href^="#"]:focus {
   outline: none;
 }
 
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
 .post-list > * + * {
   position: relative;
   margin-top: 0;
-}
-
-.post-list > * + *::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 1px;
-  width: 20%;
-  min-width: 2rem;
-  background: #111;
+  border-top: solid 0.0625rem transparent;
+  /* background-image: linear-gradient(#111,#111);
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-size: 15% 0.0625rem;
+  background-size: max(20%, 2rem) 0.0625rem; */
+  border-image: repeating-linear-gradient(90deg, #111 15%, transparent 0) 1;
+  border-image: linear-gradient(90deg, #111 max(20%, 2rem), transparent 0) 1;
+  border-image-width: 1 0 0 0;
 }
 
 .post-list-item {
@@ -380,8 +377,6 @@ h6 [href^="#"]:focus {
   z-index: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-top: solid 1px transparent;
-  border-bottom: solid 1px transparent;
 }
 
 .post-list-item a::before {
@@ -393,6 +388,15 @@ h6 [href^="#"]:focus {
   right: 0;
   bottom: 0;
   z-index: 1;
+}
+
+.post-list-item:focus-within {
+  outline: solid 2px #111;
+  outline-offset: 2px;
+}
+
+.post-list-item:focus-within a {
+  outline: none;
 }
 
 .demo:not(.demo--shallow) {
