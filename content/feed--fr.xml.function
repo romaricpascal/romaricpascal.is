@@ -2,11 +2,10 @@
 layout: false
 ---
 const RSS = require('rss');
-const {compareDesc} = require('date-fns');
 
 const posts = [...(this.groups.byLanguageByType[this.i18n.language]['post'] || [])].sort(function(a, b) {
-        return compareDesc(a.date, b.date)
-      })
+  return b.date - a.date
+})
 
 const feed = new RSS({
   title: this.siteTitle,
@@ -25,4 +24,4 @@ posts.forEach(post => {
   })
 })
 
-return feed.xml().replace(/<lastBuildDate>.*<\/lastBuildDate>/, `<lastBuildDate>${posts[0].date.toGMTString()}</lastBuildDate>`);
+return feed.xml().replace(/<lastBuildDate>.*<\/lastBuildDate>/, `<lastBuildDate>${posts[0].date.toUTCString()}</lastBuildDate>`);
