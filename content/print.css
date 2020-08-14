@@ -35,6 +35,22 @@ h2 a {
   filter: grayscale(100%)
 }
 
+.project,
+blockquote {
+  page-break-inside: avoid;
+}
+
+.project h3 {
+  border: solid 0.125rem #111;
+}
+
+.project {
+  background:linear-gradient(white, white), linear-gradient(#111, #111);
+  background-repeat: no-repeat;
+  background-size: 100% calc(100% - 1rem - 0.25rem), 100% calc(100% - 1rem);
+  background-position: bottom 0.125rem left 50%, bottom left;
+}
+
 /* blockquote {
   page-break-inside: avoid;
 } */
