@@ -71,10 +71,10 @@ We have learnt a lot from him. I think that, going forward, Nic and I will alway
 
 <article class="project">
 
-#### <a href="https://stornaway.io" hreflang="en" lang="en">Stornaway</a>
+#### <a href="https://stornaway.io/#homevideoplayer" hreflang="en" lang="en">Stornaway</a>
 
 <p class="lead">
-Développement d'un éditeur de graphes pour faciliter la <a href="https://www.stornaway.io/#homevideoplayer" hreflang="en">création de vidéos interactives</a>
+Développement d'un éditeur de graphes pour faciliter la création de vidéos interactives.
 </p>
 
 En dehors de l'implémentation générale des styles, j'ai plus particulièrement travaillé sur l'éditeur de graphe lui-même. Il permet aux créateurs/trices de cartographier les histoirs qu'iels créent: quelles scènes composent l'histoire, quels choix sont offerts à la fin de chacune et comment ceux-ci affectent la scène choisie. Iels peuvent ensuite uploader une vidéo pour chaque scène et exporter l'histoire.
