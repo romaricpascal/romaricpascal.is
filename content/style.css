@@ -356,22 +356,32 @@ h6[id] {
   position:relative;
 }
 
-h1 [href^="#"]::before,
-h2 [href^="#"]::before,
-h3 [href^="#"]::before,
-h4 [href^="#"]::before,
-h5 [href^="#"]::before,
-h6 [href^="#"]::before {
-  content: '#';
+h1 {
+  counter-reset: h2;
+}
+
+h2 [href^="#"]::before {
+  counter-increment: h2;
+  content: counter(h2) '.';
   position: absolute;
   right: 100%;
   top: 50%;
   transform:translateY(-50%);
   padding: 0.375em;
+  padding-right: 0.25rem;
   color: #666;
   font-weight: normal;
   font-size: 0.8em;
 }
+
+h1 [href^="#"],
+h3 [href^="#"],
+h4 [href^="#"],
+h5 [href^="#"],
+h6 [href^="#"] {
+  display: none;
+} 
+
 
 h1 [href^="#"]:focus,
 h2 [href^="#"]:focus,
