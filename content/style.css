@@ -547,6 +547,19 @@ h6 [href^="#"]:focus {
   color: inherit;
 }
 
+.project h3 a:focus {
+  outline-offset: calc(0.5rem + 2px);
+}
+
+.project h3:focus-within {
+  outline: solid 2px #111;
+  outline-offset: 2px;
+} 
+
+.project h3:focus-within a:focus {
+  outline: none;
+}
+
 .project h3 [hreflang]::after {
   content: none;
 }
