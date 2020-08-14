@@ -24,13 +24,11 @@ After a little more than 2 years in my previous position, I felt the need to tak
 
 <div class="project">
 
-### Personal site
+### [Personal site][romaricpascal.is]
 
 <p class="lead">Explore static site generation, internationalisation and steady writing.</p>
 
 Starting back from scratch, I rebuilt this website using a static site generator (Metalsmith), implementing features to publish both in English and French. The whole process is documented through [blog posts](/posts/), from the JavaScript implementing the features to the CSS patterns used for the styles, as well as accessibility fundamentals.
-
-[Sources available on Github][website-sources].
 
 <p class="tech-list">JavaScript (NodeJS), Metalsmith, HTML, CSS, Markdown</p>
 
@@ -38,15 +36,13 @@ Starting back from scratch, I rebuilt this website using a static site generator
 
 <div class="project">
 
-### To/Fro
+### [To/Fro][to-fro]
 
 <p class="lead">Volunteer work collaborating to the creation of an app that coordinates Knowle West Alliance volunteers who support isolated people during the Covid19 crisis.</p>
 
 I took part to the EUvsVirus hackathon to kickstart the project and continued growing the project afterwards. Due to the small scale of the team, I got involved in most areas of the build: setting up the front-end build process, implementing Django templates and their styling using Bootstrap, but also using Django's ORM to query the necessary data or customizing Django admin, authentication and emails.
 
-[Sources available on Github][to-fro].
-
-
+<p class="tech-list">Django, HTML, CSS (Bootstrap, SASS), JavaScript (jQuery), tooling (Parcel)</p>
 
 </div>
 
@@ -70,10 +66,10 @@ We have learnt a lot from him. I think that, going forward, Nic and I will alway
 
 <div class="project">
 
-### Stornaway
+### [Stornaway][stornaway]
 
 <p class="lead">
-Development of a graph editor to facilitate the <a href="https://www.stornaway.io/#homevideoplayer">creation of interactive videos</a>.
+Development of a graph editor to facilitate the creation of interactive video.
 </p>
 
 Aside from general styling, I mostly got involved with the implementation of the graph editor. It allows creators to map the stories they're building: which scenes make part of the story, which options viewers can take at the end of the scenes and how that affects the scene they're led to. They can then upload the video for each scene and export the story.
@@ -85,15 +81,13 @@ This included:
 - Integrating the graph edition with Rails forms for editing the node's data
 - Implementing specialised form controls (tabs, file upload, color picking)
 
-Live at https://stornaway.io
-
 <p class="tech-list">Rails, HTML (HAML), CSS (Bootstrap, SASS, SCSS), JavaScript (RappidJS), tooling (Webpack)</p>
 
 </div>
 
 <div class="project">
 
-### Big Clean Switch
+### [Big Clean Switch][big-clean-switch]
 
 <p class="lead">
 Development of a "block editor" to help create variations of a green energy supplier switching form
@@ -114,13 +108,13 @@ This involved:
 - Collaborating to the architecture for handling form's saves, rendering and submission
 - Allowing embedding of the form on the marketting site, as well as 3rd parties
 
-Live at https://bigcleanswitch.org
+<p class="tech-list">Rails, HTML (HAML), CSS (SASS, PostCSS), JavaScript (Vanilla), tooling (Webpack)</p>
 
 </div>
 
 <div class="project">
 
-### Patternbank
+### [Patternbank][patternbank]
 
 <p class="lead">
 Development of a block editor to facilitate the creation of content pages to alongside ecommerce site.
@@ -142,7 +136,7 @@ On a more technical level, this project included:
 - Styling the components with CSS
 - Integrating a Vue editor to pick sections and configure their options with Rails form in the admin
 
-Live at http://patternbank.com
+Live at 
 
 <p class="tech-list">Rails, HTML (HAML), CSS (SASS, PostCSS), JavaScript (Vue, Vanilla), tooling (Webpack)</p>
 
