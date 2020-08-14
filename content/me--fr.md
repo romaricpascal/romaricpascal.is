@@ -17,12 +17,12 @@ Je me spécialise dans l'écriture de templates ou composants sémantiques, et d
 
 Si je suis également très attaché à la protection des données privées, je crois beaucoup au partage, qu'il soit de [code open-source][github-profile] ou de [connaissances](#articles).
 
-Mar. 2020 - Maintenant
+En ce moment
 ---
 
 Après un peu plus de deux ans à mon poste précédent, j'ai ressenti le besoin de prendre du temps pour des expérimentations personelles: [quelques expériences](#autres-projets) mais aussi des projets plus aboutis:
 
-<div class="project">
+<article class="project">
 
 ### [Site personel][romaricpascal.is]
 
@@ -32,9 +32,9 @@ Repartant de zéro, j'ai reconstruit ce site en utilisant un générateur de sit
 
 <p class="tech-list">JavaScript (NodeJS), Metalsmith, HTML, CSS, Markdown</p>
 
-</div>
+</article>
 
-<div class="project">
+<article class="project">
 
 ### [To/Fro][to-fro]
 
@@ -44,12 +44,14 @@ J'ai participé au hackathon EUvsVirus qui a vu le démarrage du projet et ai co
 
 <p class="tech-list">Django, HTML, CSS (Bootstrap, SASS), JavaScript (jQuery), tooling (Parcel)</p>
 
-</div>
+</article>
 
-Nov. 2017 - Fev. 2020: Cookies HQ - Développeur front-end
+Par le passé
 ---
 
-Conception et développement de composants front-end pour diverses applications, en collaboration avec les développeurs backend et designers. Support à l'équipe sur les problèmes front-end. 
+### Nov. 2017 - Fev. 2020: Cookies HQ - Développeur front-end
+
+Conception et développement de composants front-end pour diverses applications, en collaboration avec les développeurs backend et designers. Support à l'équipe sur les problèmes front-end.
 
 J'ai également sensibilisé à l'accessibilité, au travers de:
 
@@ -67,9 +69,9 @@ We have learnt a lot from him. I think that, going forward, Nic and I will alway
 
 </blockquote>
 
-<div class="project">
+<article class="project">
 
-### <a href="https://stornaway.io" hreflang="en" lang="en">Stornaway</a>
+#### <a href="https://stornaway.io" hreflang="en" lang="en">Stornaway</a>
 
 <p class="lead">
 Développement d'un éditeur de graphes pour faciliter la <a href="https://www.stornaway.io/#homevideoplayer" hreflang="en">création de vidéos interactives</a>
@@ -86,12 +88,11 @@ Plus particulièrement:
 
 <p class="tech-list">Rails, HTML (HAML), CSS (Bootstrap, SASS, SCSS), JavaScript (RappidJS), tooling (Webpack)</p>
 
-</div>
+</article>
 
-<div class="project">
+<article class="project">
 
-
-### <a href="https://bigcleanswitch.org" hreflang="en" lang="en">Big Clean Switch</a>
+#### <a href="https://bigcleanswitch.org" hreflang="en" lang="en">Big Clean Switch</a>
 
 <p class="lead">
 Développement d'un "éditeur de blocs" pour aider la création de variantes d'un comparateur de fournisseurs d'énergie renouvelables.
@@ -115,11 +116,11 @@ Notamment:
 
 <p class="tech-list">Rails, HTML (HAML), CSS (SASS, PostCSS), JavaScript (Vanilla), tooling (Webpack)</p>
 
-</div>
+</article>
 
-<div class="project">
+<article class="project">
 
-### <a href="http://patternbank.com" hreflang="en">Patternbank</a>
+#### <a href="http://patternbank.com" hreflang="en">Patternbank</a>
 
 <p class="lead">
 Développement d'un "éditeur de blocs" pour faciliter la création de pages de contenu en support d'un site ecommerce.
@@ -143,11 +144,11 @@ D'un point de vue plus technique:
 
 <p class="tech-list">Rails, HTML (HAML), CSS (SASS, PostCSS), JavaScript (Vue, Vanilla), tooling (Webpack)</p>
 
-</div>
+</article>
 
-<div class="project">
+<article class="project">
 
-### Mise à jour de sites ecommerce existant
+#### Mise à jour de sites ecommerce existant
 
 <p class="lead">
 Implémentation de changements de design et nouvelles fonctionnalités à des sites ecommerce en production
@@ -162,10 +163,9 @@ Pour des sites comme <a href="https://www.goodsixty.co.uk/retailers/bristol/115-
 
 <p class="tech-list">Rails, HTML, CSS (SASS), JavaScript (jQuery, Turbolinks)</p>
 
-</div>
+</article>
 
-Avant Nov. 2017
----
+### Avant Nov. 2017
 
 - Jan 2016 - Nov 2017: Artiste lettreur indépendant
 - Jan 2012 - Dec 2016: Développeur front-end et web designer indépendant - Travaux incluant la réalisation d'un interface utilisateur/trice pour le <a href="https://community.hpe.com/t5/behind-the-scenes-at-labs/introducing-loom-a-new-tool-for-managing-complex-systems/ba-p/6793962" hreflang="en">projet Loom de HP Labs</a>
@@ -176,12 +176,39 @@ Autres projets
 
 En dehors de travaux pour des clients, et de [ce site][romaricpascal.is], je bricole aussi sur différents projets: petites applications, outils ou juste expérimentations avec des concepts ou technologies qui me semblent intéressantes. En voici quelque uns:
 
-- <a href="https://taskfight.romaricpascal.com" hreflang="en">Taskfight</a>: Une application (plus toute jeune) React où les tâches se confrontent les une aux autres pour décider de leur priorité.
-- <a href="https://github.com/rhumaric/express-mount-files" hreflang="en">express-mount-files</a>: Un middleware ExpressJS pour déclarer les routes avec des fichiers et dossiers, nostalgie des jeunes jours de PHP.
-- <a href="https://github.com/rhumaric/implicitjs" hreflang="en">implicitjs</a>: Détourner la syntaxe de JavaScript avec Babel pour essayer d'en faire un langage de template. Extrêmement expérimental.
-- <a href="https://github.com/rhumaric/bezier-spline-experiment" hreflang="en">Une expérience sur les courbes de Bézier</a>: Une application Svelte qui illustre une idée pour dessiner une courbe de Bézier qui passe par une liste de points.
+<article class="project project--side">
 
-Articles
+### <a href="https://taskfight.romaricpascal.com" hreflang="en">Taskfight</a>
+
+Une application (plus toute jeune) React où les tâches se confrontent les une aux autres pour décider de leur priorité.
+
+</article>
+
+<article class="project project--side">
+
+### <a href="https://github.com/rhumaric/express-mount-files" hreflang="en">express-mount-files</a>
+
+Un middleware ExpressJS pour déclarer les routes avec des fichiers et dossiers, nostalgie des jeunes jours de PHP.
+
+</article>
+
+<article class="project project--side">
+
+### <a href="https://github.com/rhumaric/implicitjs" hreflang="en">implicitjs</a>
+
+Détourner la syntaxe de JavaScript avec Babel pour essayer d'en faire un langage de template. Extrêmement expérimental.
+
+</article>
+
+<article class="project project--side">
+
+### <a href="https://github.com/rhumaric/bezier-spline-experiment" hreflang="en"> Une expérience sur les courbes de Bézier</a>
+
+Une application Svelte qui illustre une idée pour dessiner une courbe de Bézier passant par une liste de points.
+
+</article>
+
+Publications
 ---
 
 J'ai beaucoup appris de ce que les autres ont partagé. Il me semble donc normal d'essayer de rendre la pareil (avec un succès mitigé sur la régularité):

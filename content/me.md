@@ -17,12 +17,12 @@ I focus on writing semantic templates and components, as well as maintainable CS
 
 While I'm attached to privacy, I'm a big believer in sharing, whether it's [open-source code][github-profile] or [knowledge](#writings).
 
-Mar. 2020 - Now
+Currently
 ---
 
 After a little more than 2 years in my previous position, I felt the need to take some time for personal explorations: [some experimental projects](#other-projects) as well as more complete pieces of work.
 
-<div class="project">
+<article class="project">
 
 ### [Personal site][romaricpascal.is]
 
@@ -32,9 +32,9 @@ Starting back from scratch, I rebuilt this website using a static site generator
 
 <p class="tech-list">JavaScript (NodeJS), Metalsmith, HTML, CSS, Markdown</p>
 
-</div>
+</article>
 
-<div class="project">
+<article class="project">
 
 ### [To/Fro][to-fro]
 
@@ -44,10 +44,12 @@ I took part to the EUvsVirus hackathon to kickstart the project and continued gr
 
 <p class="tech-list">Django, HTML, CSS (Bootstrap, SASS), JavaScript (jQuery), tooling (Parcel)</p>
 
-</div>
+</article>
 
-Nov. 2017 - Feb. 2020: Cookies HQ - Front-end developer
+Previously
 ---
+
+### Nov. 2017 - Feb. 2020: Cookies HQ - Front-end developer
 
 Conception and development of front-end components for various applications, coordinating with the backend developers and designers. Alongside development, I also helped support the team when front-end issues arose. I also raised awareness about accessibility through:
 
@@ -64,9 +66,9 @@ We have learnt a lot from him. I think that, going forward, Nic and I will alway
 <cite><a href="https://www.linkedin.com/feed/update/urn%3Ali%3Aactivity%3A6638408058257055744/">Nathalie Alpi - Co Founder and Managing Director at CookiesHQ</a></cite>
 </blockquote>
 
-<div class="project">
+<article class="project">
 
-### [Stornaway][stornaway]
+#### [Stornaway][stornaway]
 
 <p class="lead">
 Development of a graph editor to facilitate the creation of interactive video.
@@ -83,11 +85,11 @@ This included:
 
 <p class="tech-list">Rails, HTML (HAML), CSS (Bootstrap, SASS, SCSS), JavaScript (RappidJS), tooling (Webpack)</p>
 
-</div>
+</article>
 
-<div class="project">
+<article class="project">
 
-### [Big Clean Switch][big-clean-switch]
+#### [Big Clean Switch][big-clean-switch]
 
 <p class="lead">
 Development of a "block editor" to help create variations of a green energy supplier switching form
@@ -110,11 +112,11 @@ This involved:
 
 <p class="tech-list">Rails, HTML (HAML), CSS (SASS, PostCSS), JavaScript (Vanilla), tooling (Webpack)</p>
 
-</div>
+</article>
 
-<div class="project">
+<article class="project">
 
-### [Patternbank][patternbank]
+#### [Patternbank][patternbank]
 
 <p class="lead">
 Development of a block editor to facilitate the creation of content pages to alongside ecommerce site.
@@ -140,11 +142,11 @@ Live at
 
 <p class="tech-list">Rails, HTML (HAML), CSS (SASS, PostCSS), JavaScript (Vue, Vanilla), tooling (Webpack)</p>
 
-</div>
+</article>
 
-<div class="project">
+<article class="project">
 
-### Update existing ecommerce sites
+#### Update existing ecommerce sites
 
 <p class="lead">Implement design updates and new features on ecommerce sites already in production</p>
 
@@ -157,10 +159,10 @@ On ecommerce sites like [Good Sixty], [Patternbank][patternbank-studio] or [Roug
 
 <p class="tech-list">Rails, HTML, CSS (SASS), JavaScript (jQuery, Turbolinks)</p>
 
-</div>
+</article>
 
-Before Nov. 2017
----
+### Before Nov. 2017
+
 
 - Jan. 2016 - Nov. 2017: Independent lettering artist
 - Jan. 2012 - Dec. 2016: Independent front-end developer and web designer - Works included building a JavaScript UI for [HP Labs' Loom][hpe-loom].
@@ -171,10 +173,37 @@ Other projects
 
 Outside of client work, and [this website][romaricpascal.is], I also tinker with various little projects: small apps, tooling or just experiments with concepts or technology that feel interesting to me. Here are a selected few:
 
-- [express-mount-files]: An ExpressJS middleware to declare routes through folders and files, nostalgia of PHP's early days.
-- [implicitjs]: Twisting JavaScript syntax with Babel to try and turn it into a templating language. Highly experimental.
-- [An experiment with Bezier curves][bezier-experiment]: A Svelte app illustrating an idea for drawing a Bezier spline passing through a list of points.
-- [Taskfight]: A(n oldish) React app where tasks fight against one another to sort their priorities.
+<article class="project project--side">
+
+### [express-mount-files]
+
+An ExpressJS middleware to declare routes through folders and files, nostalgia of PHP's early days.
+
+</article>
+
+<article class="project project--side">
+
+### [implicitjs]
+
+Twisting JavaScript syntax with Babel to try and turn it into a templating language. Highly experimental.
+
+</article>
+
+<article class="project project--side">
+
+### [An experiment with Bezier curves][bezier-experiment]
+
+A Svelte app illustrating an idea for drawing a Bezier spline passing through a list of points
+
+</article>
+
+<article class="project project--side">
+
+### [Taskfight]
+
+A(n oldish) React app where tasks fight against one another to sort their priorities
+
+</article>
 
 Writings
 ---
