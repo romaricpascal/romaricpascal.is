@@ -38,9 +38,9 @@ Starting back from scratch, I rebuilt this website using a static site generator
 
 ### [To/Fro][to-fro]
 
-<p class="lead">Volunteer work collaborating to the creation of an app that coordinates Knowle West Alliance volunteers who support isolated people during the Covid19 crisis.</p>
+<p class="lead">Volunteer collaboration to an app that coordinates [Knowle West Alliance][https://knowlewestalliance.co.uk/] volunteers who support isolated people during the Covid-19 crisis.</p>
 
-I took part to the EUvsVirus hackathon to kickstart the project and continued growing the project afterwards. Due to the small scale of the team, I got involved in most areas of the build: setting up the front-end build process, implementing Django templates and their styling using Bootstrap, but also using Django's ORM to query the necessary data or customizing Django admin, authentication and emails.
+I took part to the [EUvsVirus][https://www.euvsvirus.org/] hackathon to kickstart the project and continued growing the project afterwards. Due to the small scale of the team, I got involved in most areas of the build: setting up the front-end build process, implementing Django templates and their styling using Bootstrap, but also using Django's ORM to query the necessary data or customizing Django admin, authentication and emails.
 
 <p class="tech-list">Django, HTML, CSS (Bootstrap, SASS), JavaScript (jQuery), tooling (Parcel)</p>
 

@@ -28,7 +28,7 @@ Après un peu plus de deux ans à mon poste précédent, j'ai ressenti le besoin
 
 <p class="lead">Explorer la génération de site statiques, l'internationalisation et la production d'articles</p>
 
-Repartant de zéro, j'ai reconstruit ce site en utilisant un générateur de site statique (Metalsmith), implémentant des fonctionnalités pour publier à la fois en français et en anglais. Des articles sur le blog documentent en détail le processur, du JavaScript pour implémenter les fonctionnalités aux CSS mis en place pour les styles, en passant par des bases d'accessibilité.
+Repartant de zéro, j'ai reconstruit ce site en utilisant un générateur de site statique (Metalsmith), implémentant des fonctionnalités pour publier à la fois en français et en anglais. Des [articles sur le blog][/fr/posts/] documentent en détail le processur, du JavaScript pour implémenter les fonctionnalités aux CSS mis en place pour les styles, en passant par des bases d'accessibilité.
 
 <p class="tech-list">JavaScript (NodeJS), Metalsmith, HTML, CSS, Markdown</p>
 
@@ -38,9 +38,9 @@ Repartant de zéro, j'ai reconstruit ce site en utilisant un générateur de sit
 
 ### [To/Fro][to-fro]
 
-<p class="lead">Collaboration bénévole à la création d'une application pour coordonner les volontaires de <span lang="en">Knowle West Alliance</span> qui aident les personnes isolées par la crise du Covid19</p>
+<p class="lead">Collaboration bénévole à une application pour coordonner les volontaires de <a href="https://knowlewestalliance.co.uk/" hreflang="en" lang="en">Knowle West Alliance</a> qui aident les personnes isolées par la crise du Covid-19</p>
 
-J'ai participé au hackathon EUvsVirus qui a vu le démarrage du projet et ai continué sa construction après. L'équipe étant très réduite, j'ai pu participer sur des aspects variés: mise en place d'outils pour le front-end, implémentation de templates Django et leur styles avec Bootstrap, mais aussi utilisation de l'ORM de Django pour requêter les données à afficher, personalisation de l'admin Django, de l'authentification et des emails.
+J'ai participé au hackathon <a href="https://www.euvsvirus.org/" hreflang="en">EUvsVirus</a> qui a vu le démarrage du projet et ai continué sa construction après. L'équipe étant très réduite, j'ai pu participer sur des aspects variés: mise en place d'outils pour le front-end, implémentation de templates Django et leur styles avec Bootstrap, mais aussi utilisation de l'ORM de Django pour requêter les données à afficher, personalisation de l'admin Django, de l'authentification et des emails.
 
 <p class="tech-list">Django, HTML, CSS (Bootstrap, SASS), JavaScript (jQuery), tooling (Parcel)</p>
 
