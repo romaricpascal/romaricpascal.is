@@ -7,9 +7,9 @@ A propos
 
 <div>
 
-<img src="/media/me.png" alt="" class="avatar" role="presentation">
+<img src="/media/me.png" alt="" class="avatar no-border" role="presentation">
 
-**Enchanté, je suis Romaric** et je construis des sites web depuis plus de 12 ans maintenant. En cours de route, j'en suis venu à m'interesser de près à l'accessibilité et aux performances, qui permettent d'offrir une bonne expérience au plus grand nombre.
+**Enchanté, je suis Romaric** et je construis des sites web depuis plus de 12 ans maintenant. En cours de route, j'en suis venu à m'intéresser de près à l'accessibilité et aux performances, qui permettent d'offrir une bonne expérience au plus grand nombre.
 
 Je me spécialise dans l'écriture de templates ou composants sémantiques, et de CSS maintenable (de zéro ou en complément de librairies telles que Bootstrap) pour supporter des backends variés: côté serveur comme Rails ou Django, ou côté client comme React ou Vue.
 
@@ -20,7 +20,32 @@ Si je suis également très attaché à la protection des données privées, je 
 En ce moment
 ---
 
-Après un peu plus de deux ans à mon poste précédent, j'ai ressenti le besoin de prendre du temps pour des expérimentations personelles: [quelques expériences](#autres-projets) mais aussi des projets plus aboutis:
+<div class="project project--reversed project--not-linked project--ends-with-block column--expanded">
+
+### Disponible pour vos projets
+
+Je suis disponible pour de nouveaux projets ou un nouveau poste, en **télétravail UK/EU ou à Bristol (UK)**, idéalement **à temps partiel (80%)**.
+
+Je recherche à aider:
+
+- **l'intégration et maintenance de front-end accessibles** pour des sites ou applications web
+- **la consolidation de pratiques d'intégration** dans des design-systems, bibliothèques, documentations, articles…
+
+Je serais particulièrement intéressé par des projets dans les domaines **civique, social, de l'éducation ou de l'écologie, ainsi qu'artistique**. Tout particulièrement si ceux-ci:
+
+- ont une composante **open-source**
+- **respectent** leurs utilisateurs (accessibilité, vie privée, performance, inclusivité)
+- sont **construits pour durer**, pas pour être vendus.
+
+Je peux travailler avec des **technologies variées** (Rails, Django, Vue, Svelte…) et en **français ou anglais**.
+
+<p class="lead box text-align--center cta with-cover-link">
+Si tout ça vous semble intéressant et que vous souhaiteriez collaborer avec moi, n'hésitez pas <a href="mailto:hello@romaricpascal.is">me contacter</a>
+</p>  
+
+</div>
+
+Dernièrement, j'ai laissé les travaux pro de côté pour des expérimentations personelles. J'ai développé [quelques expériences](#autres-projets) mais aussi des projets plus aboutis:
 
 <article class="project">
 
@@ -40,7 +65,7 @@ Repartant de zéro, j'ai reconstruit ce site en utilisant un générateur de sit
 
 <p class="lead">Collaboration bénévole à une application pour coordonner les volontaires de <a href="https://knowlewestalliance.co.uk/" hreflang="en" lang="en">Knowle West Alliance</a> qui aident les personnes isolées par la crise du Covid-19</p>
 
-J'ai participé au hackathon <a href="https://www.euvsvirus.org/" hreflang="en">EUvsVirus</a> qui a vu le démarrage du projet et ai continué sa construction après. L'équipe étant très réduite, j'ai pu participer sur des aspects variés: mise en place d'outils pour le front-end, implémentation de templates Django et leur styles avec Bootstrap, mais aussi utilisation de l'ORM de Django pour requêter les données à afficher, personalisation de l'admin Django, de l'authentification et des emails.
+J'ai participé au hackathon <a href="https://www.euvsvirus.org/" hreflang="en">EUvsVirus</a> qui a vu le démarrage du projet et ai continué sa construction après. L'équipe étant très réduite, j'ai pu participer sur des aspects variés: mise en place d'outils pour le front-end, implémentation de templates Django et leur styles avec Bootstrap, mais aussi utilisation de l'ORM de Django pour requêter les données à afficher, personnalisation de l'admin Django, de l'authentification et des e-mails.
 
 <p class="tech-list">Django, HTML, CSS (Bootstrap, SASS), JavaScript (jQuery), tooling (Parcel)</p>
 
@@ -77,13 +102,13 @@ We have learnt a lot from him. I think that, going forward, Nic and I will alway
 Développement d'un éditeur de graphes pour faciliter la création de vidéos interactives.
 </p>
 
-En dehors de l'implémentation générale des styles, j'ai plus particulièrement travaillé sur l'éditeur de graphe lui-même. Il permet aux créateurs/trices de cartographier les histoirs qu'iels créent: quelles scènes composent l'histoire, quels choix sont offerts à la fin de chacune et comment ceux-ci affectent la scène choisie. Iels peuvent ensuite uploader une vidéo pour chaque scène et exporter l'histoire.
+En dehors de l'implémentation générale des styles, j'ai plus particulièrement travaillé sur l'éditeur de graphe lui-même. Il permet aux créateurs/trices de cartographier leurs histoires: quelles scènes les composent, quels choix sont offerts à la fin de chacune et comment ceux-ci affectent la scène choisie. Iels peuvent ensuite uploader une vidéo pour chaque scène et exporter leur projet pour le diffuser.
 
 Plus particulièrement:
 
 - Prototypage de la faisabilité des fonctionnalités à ajouter à la bibliothèque de graphes (JointJS/RappidJS)
-- Collaboration avec les développeurs back-end sur l'achitecture pour sauver et charger les graphes
-- Intégration de l'édition de graphe avec des formulaires Rails pour éditer les données des noeuds
+- Collaboration avec les développeurs back-end sur l'architecture pour sauver et charger les graphes
+- Intégration de l'édition de graphe avec des formulaires Rails pour éditer les données des nœuds
 - Implémentation de contrôles de forulaires spécifiques (onglets, upload, color-picker)
 
 <p class="tech-list">Rails, HTML (HAML), CSS (Bootstrap, SASS, SCSS), JavaScript (RappidJS), tooling (Webpack)</p>
@@ -98,18 +123,17 @@ Plus particulièrement:
 Développement d'un "éditeur de blocs" pour aider la création de variantes d'un comparateur de fournisseurs d'énergie renouvelables.
 </p>
 
-Pour aider Big Clean Switch à adapter leur formulaire aux utilisateurs/trices ainsi qu'à leurs partenaires, j'ai aidé à:
+Pour aider Big Clean Switch à adapter leur formulaire aux utilisateurs/trices ainsi qu'à leurs partenaires, j'ai participé à:
 
-- l'implémentation d'un "éditeur de blocs" qui leur permet d'organisers des champs prédéfinis en différentes étapes,
-- choisir un thème pour leur rendu,
-- intégrer le résultat à leur site Wordpress ou un site externe, en minimisant l'impact au performance (au travers de JS "vanilla" et de CSS spécifiques) et en évitant les styles extérieurs d'affecter le forumlaire.
+- l'implémentation d'un "éditeur de blocs" qui leur permet d'organiser des champs prédéfinis en différentes étapes et de choisir un thème de couleurs adapté à leurs partenaires commerciaux,
+- l'export du formulaire resultant pour l'intégrer à leur site Wordpress ou un site externe, en minimisant l'impact au performance (au travers de JS "vanilla" et de CSS spécifiques) et en évitant aux styles extérieurs d'affecter le formulaire.
 
 Notamment:
 
 - Implémentation sémantique de divers champs de formulaire
-- Écriture de styles CSS responsive pour leur mise en page
+- Écriture de styles CSS responsive et thémable pour leur mise en page
 - Réalisation de la navigation entre étapes par JavaScript ainsi que de comportements spécifiques aux champs (gestion d'erreurs, visibilité, adaptation des valeurs aux choix...)
-- Selection de styles (choix de thémes)
+- Sélection de styles (choix de thémes)
 - Collaboration avec les développeurs backend, à la fois sur le design et l'implémentation, à la sauvegarde, au rendu et la soumission du formulaire
 - Intégration du formulaire sur le site marketting, ainsi que sites tiers
 - Intégration d'un éditeur d'options réalisé avec Vue avec des formulaires Rails dans l'administration
@@ -126,7 +150,7 @@ Notamment:
 Développement d'un "éditeur de blocs" pour faciliter la création de pages de contenu en support d'un site ecommerce.
 </p>
 
-Pour aider Patternbank à ajouter des pages de contenu à leur site ecommer, j'ai participé à la construction d'un "éditeur de bloc". Il permet de construire les pages en combinant des sections configurables. L'aspect visuel fort de ce site a demandé de se pencher particulièrement sur:
+Pour aider Patternbank à ajouter des pages de contenu à leur site ecommerce, j'ai participé à la construction d'un "éditeur de bloc". Il permet de construire les pages en combinant des sections configurables. L'aspect visuel fort de ce site a demandé de se pencher particulièrement sur:
 
 - des images responsive et performantes (lazy loading, srcset, arrière plans responsive)
 - proposer des mises en pages responsives variées
@@ -136,7 +160,7 @@ Pour aider Patternbank à ajouter des pages de contenu à leur site ecommer, j'a
 
 D'un point de vue plus technique:
 
-- Réalisation d'un prototype côté client pour explorer rapidement le concept avec Vue
+- Réalisation d'un prototype côté client pour explorer efficacement le concept avec Vue
 - Collaboration, à la fois sur le design et l'implémentation, avec les développeurs backend pour sauver et charger le contenu
 - Implémentation des composants et du rendu des page
 - Écriture de styles
@@ -169,7 +193,7 @@ Pour des sites comme <a href="https://www.goodsixty.co.uk/retailers/bristol/115-
 
 - Jan 2016 - Nov 2017: Artiste lettreur indépendant
 - Jan 2012 - Dec 2016: Développeur front-end et web designer indépendant - Travaux incluant la réalisation d'un interface utilisateur/trice pour le <a href="https://community.hpe.com/t5/behind-the-scenes-at-labs/introducing-loom-a-new-tool-for-managing-complex-systems/ba-p/6793962" hreflang="en">projet Loom de HP Labs</a>
-- Avr. 2008 - Aout 2011: Atos Worldine - De stagiaire à lead-developer sur l'API de cartes du géoportail de l'IGN
+- Avr. 2008 - Aout 2011: Atos Worldine - De stagiaire à lead-developer sur l'API de cartes du Géoportail de l'IGN
 
 Autres projets
 ---

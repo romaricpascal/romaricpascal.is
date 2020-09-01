@@ -20,7 +20,30 @@ While I'm attached to privacy, I'm a big believer in sharing, whether it's [open
 Currently
 ---
 
-After a little more than 2 years in my previous position, I felt the need to take some time for personal explorations: [some experimental projects](#other-projects) as well as more complete pieces of work.
+<div class="project project--reversed project--not-linked project--ends-with-block column--expanded">
+
+### Available for your projects
+
+I'm now available for new projects or a new role, **remote UK/EU or in Bristol (UK)**, ideally **part-time (80%)**.
+
+I'd be looking to help:
+
+- **build and maintain accessible front-ends** for websites or apps
+- **consolidate front-end practices** into design systems, libraries, documentations, articles…
+
+I'm particularly interested in supporting projects in the **civic, social, education or ecology domains, as well as art**. Especially if those:
+
+- involve **open-source**
+- **respect** their users (accessibility, privacy, performance, inclusivity)
+- are **built to last**, not to sell
+
+I can work with **various technologies** (Rails, Django, Vue, Svelte…) and in **French or English**.
+
+<p class="lead box text-align--center cta with-cover-link">
+If all this sounds interesting and you'd like to collaborate with me, please <a href="mailto:hello@romaricpascal.is">get in touch</a>.</p>
+</div>
+
+Lately, I took some time off client work for personal explorations. I developped [some experimental projects](#other-projects) as well as more complete pieces of work.
 
 <article class="project">
 
@@ -78,10 +101,10 @@ Aside from general styling, I mostly got involved with the implementation of the
 
 This included:
 
-- Prototyping for feasability the extra features to be added to the graph library (JointJS/RappidJS)
+- Prototyping for feasibility the extra features to be added to the graph library (JointJS/RappidJS)
 - Collaborating with the back-end developers on the architecture for storing and loading the graph
 - Integrating the graph edition with Rails forms for editing the node's data
-- Implementing specialised form controls (tabs, file upload, color picking)
+- Implementing specialised form controls (tabs, file upload, colour picking)
 
 <p class="tech-list">Rails, HTML (HAML), CSS (Bootstrap, SASS, SCSS), JavaScript (RappidJS), tooling (Webpack)</p>
 
@@ -97,9 +120,8 @@ Development of a "block editor" to help create variations of a green energy supp
 
 To help Big Clean Switch customize the journey their users go through when looking for a new green energy provider, I helped:
 
-- implement a "block editor" that lets them organise pre-set fields into different steps,
-- pick a theme for their styling,
-- integrate the resulting form on their Wordpress site or 3rd party, ensuring minimal bloat (though use of vanilla JS and bespoke CSS) and preventing styles leaking in.
+- implement a "block editor" that lets them organise pre-set fields into different steps and pick a theme of colours matching their commercial partner,
+- export the resulting form to integrate on their Wordpress site or 3rd party, ensuring minimal bloat (though use of vanilla JS and bespoke CSS) and preventing styles leaking in.
 
 This involved:
 
@@ -108,7 +130,7 @@ This involved:
 - Building JavaScript navigation through the step and form fields behaviour (error handling, conditional visibility, adapting values to choices...)
 - Offering styling options (theme switching)
 - Collaborating to the architecture for handling form's saves, rendering and submission
-- Allowing embedding of the form on the marketting site, as well as 3rd parties
+- Allowing embedding of the form on the marketing site, as well as 3rd parties
 
 <p class="tech-list">Rails, HTML (HAML), CSS (SASS, PostCSS), JavaScript (Vanilla), tooling (Webpack)</p>
 
@@ -124,9 +146,9 @@ Development of a block editor to facilitate the creation of content pages to alo
 
 To help Patternbank publish content next to their ecommerce site, I helped implement a "block editor" that allows to build pages through a combination of configurable sections. Due to high importance of visuals for this site, particular attention had to be paid to:
 
-- image responsiveness and performance (lazy loading, srcset...s)
+- image responsiveness and performance (lazy loading, srcset, responsive backgrounds)
 - providing a variety of responsive layouts for each section
-- offering styling options (typography, colors, component variants)
+- offering styling options (typography, colours, component variants)
 - allowing accessible fluid typography
 - providing control for heading levels
 
@@ -144,7 +166,7 @@ Live at
 
 </article>
 
-<article class="project">
+<article class="project project--not-linked">
 
 #### Update existing ecommerce sites
 
@@ -166,7 +188,7 @@ On ecommerce sites like [Good Sixty], [Patternbank][patternbank-studio] or [Roug
 
 - Jan. 2016 - Nov. 2017: Independent lettering artist
 - Jan. 2012 - Dec. 2016: Independent front-end developer and web designer - Works included building a JavaScript UI for [HP Labs' Loom][hpe-loom].
-- Apr. 2008 - Aug. 2011: Atos Wordline - Intern to Lead developer on the Geoportail mapping API for the French <span lang="fr">Institut géographique national</span>.
+- Apr. 2008 - Aug. 2011: Atos Wordline - Intern to Lead developer on the <span lang="fr">Géoportail</span> mapping API for the French <span lang="fr">Institut géographique national</span>.
 
 Other projects
 ---
