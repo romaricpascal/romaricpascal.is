@@ -42,6 +42,8 @@ html(lang=`${i18n.language || defaultLanguage}`)
     main#main(class= (prose === false ? '' : 'prose'))
       block contents
         != contents
+      
+      include _for_hire
 
     footer.site-footer(role="contentinfo")
       | © #{new Date().getFullYear()} Romaric Pascal

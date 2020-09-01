@@ -1,5 +1,6 @@
 ---
 title: About me
+noForHireCTA: true
 ---
 
 About me

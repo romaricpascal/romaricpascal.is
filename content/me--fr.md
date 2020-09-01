@@ -1,6 +1,7 @@
 ---
 title: À propos
 slug: a-propos
+noForHireCTA: true
 ---
 A propos
 ===

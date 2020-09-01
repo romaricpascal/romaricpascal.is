@@ -523,7 +523,8 @@ h6 [href^="#"]:focus {
   background-position: bottom;
 }
 
-  .project h3,
+.project h2,
+.project h3,
 .project h4 {
   background: #111;
   color: #fafafa;
@@ -540,6 +541,7 @@ h6 [href^="#"]:focus {
   position: relative;
 }
 
+.project h2::after,
 .project h3::after,
 .project h4::after {
   content: '';
@@ -551,12 +553,14 @@ h6 [href^="#"]:focus {
   left: 0;
 }
 
-
+.project h2 + *,
 .project h3 + *,
 .project h4 + * {
   margin-top: 1.5rem;
 }
 
+.project h2 a,
+.project h2 a:visited,
 .project h3 a,
 .project h3 a:visited,
 .project h4 a,
@@ -564,27 +568,32 @@ h6 [href^="#"]:focus {
   color: inherit;
 }
 
+.project h2 a:focus,
 .project h3 a:focus,
 .project h4 a:focus {
   outline-offset: calc(0.5rem + 2px);
 }
 
+.project h2:focus-within,
 .project h3:focus-within,
 .project h4:focus-within {
   outline: solid 2px #111;
   outline-offset: 2px;
 } 
 
+.project h2:focus-within a:focus,
 .project h3:focus-within a:focus,
 .project h4:focus-within a:focus {
   outline: none;
 }
 
+.project h2 [hreflang]::after,
 .project h3 [hreflang]::after,
 .project h4 [hreflang]::after {
   content: none;
 }
 
+.project--not-linked h2,
 .project--not-linked h3,
 .project--not-linked h4 {
   /* Shift padding to bottom to handle the lack of underline */
@@ -599,7 +608,8 @@ h6 [href^="#"]:focus {
   padding-bottom: 1rem;
 }
 
-.project--side h3{
+.project--side h2,
+.project--side h3 {
   background: #fafafa;
   color: #111;
   border: solid 2px;
@@ -607,6 +617,7 @@ h6 [href^="#"]:focus {
   padding-bottom: 0.375rem;
 }
 
+.project--side h2 + *,
 .project--side h3 + * {
   margin-top: 0.75rem;
 }
@@ -621,6 +632,7 @@ h6 [href^="#"]:focus {
   padding: 1rem;
 }
 
+.project--reversed h2,
 .project--reversed h3 {
   margin-left: -1.5rem;
 

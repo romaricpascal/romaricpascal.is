@@ -49,6 +49,22 @@ metalsmith(process.cwd())
       mastodonHandle: {
         en: 'website',
         fr: 'siteweb'
+      },
+      noForHireCTA: false,
+      forHireHeading: {
+        en: 'Available for your projects',
+        fr: 'Disponible pour vos projets'
+      },
+      forHireContent: {
+        en: `
+          I'm currently <a href="/me#available-for-your-projects">available for new projects or a new role</a>. 
+          I'd be happy to chat about how I could help, so don't hesitate to
+          <a href="mailto:hello@romaricpascal.is">get in touch</a>.
+        `,
+        fr: `
+          Je suis actuellement <a href="/fr/a-propos#disponible-pour-vos-projets">disponible pour de nouveaux projets ou un nouveau poste</a>.
+          Je serais heureux de discutter de l'aide que je pourrais vous apporter, n'hésitez donc pas à <a href="mailto:hello@romaricpascal.is">me contacter</a>.
+        `
       }
     },
     get: require('lodash/get')

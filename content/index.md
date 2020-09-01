@@ -1,3 +1,6 @@
+---
+noForHireCTA: true
+---
 Hi, I'm Romaric!
 ===
 
