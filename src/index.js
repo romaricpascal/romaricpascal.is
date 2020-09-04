@@ -84,7 +84,18 @@ metalsmith(process.cwd())
   .use(
     inPlace({
       engineOptions: {
-        plugins: [require('remark-slug'), require('remark-autolink-headings')]
+        plugins: [
+          require('remark-slug'),
+          require('remark-autolink-headings'),
+          function() {
+            return require('remark-rehype')({
+              allowDangerousHtml: true
+            });
+          },
+          require('rehype-raw'),
+          require('./rehype/hreflang'),
+          require('rehype-stringify')
+        ]
       }
     })
   )

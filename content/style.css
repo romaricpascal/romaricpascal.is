@@ -56,7 +56,7 @@ a:hover {
   text-decoration: none;
 }
 
-[hreflang]:not(.no-hreflang)::after {
+.hreflang {
   content: ' ' attr(hreflang);
   vertical-align: super;
   font-size: 80%;
@@ -587,12 +587,6 @@ h6 [href^="#"]:focus {
   outline: none;
 }
 
-.project h2 [hreflang]::after,
-.project h3 [hreflang]::after,
-.project h4 [hreflang]::after {
-  content: none;
-}
-
 .project--not-linked h2,
 .project--not-linked h3,
 .project--not-linked h4 {
@@ -704,9 +698,10 @@ h6 [href^="#"]:focus {
 
 .with-cover-link {
   position: relative;
+  z-index: 0;
 }
 
-.with-cover-link a::after {
+.with-cover-link a::before {
   content: '';
   display: block;
   position: absolute;
@@ -714,6 +709,7 @@ h6 [href^="#"]:focus {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 1;
 }
 
 .with-cover-link:hover {

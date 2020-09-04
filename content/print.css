@@ -16,14 +16,12 @@ a[href]::after {
 
 a[href]:not([href^='#'])::after {
   content: '[' attr(href) ']';
-}
-
-a[href]:not([href^='#'])[hreflang]::after {
-  content: '[' attr(href) '(' attr(hreflang) ')]' 
+  word-break: break-all;
 }
 
 a[href^='#']::after {
-  content: '[see ' attr(href) ' on this document]'
+  content: '[see ' attr(href) ' on this document]';
+  overflow-wrap: word-break
 }
 
 h1 a,
@@ -38,17 +36,24 @@ h2 a {
 .project,
 blockquote {
   page-break-inside: avoid;
+  break-inside: avoid;
 }
 
-.project h3 {
+.project h3,
+.project h4,
+.tech-list {
   border: solid 0.125rem #111;
+  color: #111;
 }
 
 .project {
-  background:linear-gradient(white, white), linear-gradient(#111, #111);
-  background-repeat: no-repeat;
-  background-size: 100% calc(100% - 1rem - 0.25rem), 100% calc(100% - 1rem);
-  background-position: bottom 0.125rem left 50%, bottom left;
+  position: relative;
+  border: solid 0.125rem #111;
+  color: #111;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  break-after: avoid;
 }
 
 /* blockquote {
