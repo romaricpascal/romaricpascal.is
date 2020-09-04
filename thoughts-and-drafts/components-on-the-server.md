@@ -505,7 +505,7 @@ end
 - a helper for handling classes. Similar to [JavaScript's `classnames` package][npm-classnames], that accepts string, arrays, but most importantly hashes of classes with true/false (`true`, the class appears, `false` it doesn't)
 - a helper for handling class
 - aria-... support
-- a `merge_html_attributes` helper for merging hashes of HTML attributes together, taking care of merging classes appropriately (relying on the `classname` helper)
+- a `merge_html_attributes` helper for merging hashes of HTML attributes together, taking care of merging classes appropriately (relying on the `classname` helper) as well as [some ARIA attributes][ember-attribute-merge-aria-issues]
 
 - inlining SVGs, transforming them at runtime (adjust viewBox, set title, remove focusable for IE11, add default "role: presentation" for icons…), handle spriting when SVGs are repeated (for ex. when rendering a collection), load SVGs optimized by Webpacker, from node_modules
 
@@ -515,3 +515,4 @@ end
 
 [aria-disclosure]: https://www.w3.org/TR/wai-aria-practices-1.1/#disclosure
 [npm-classnames]: https://www.npmjs.com/package/classnames
+[ember-attribute-merge-aria-issues]: https://github.com/emberjs/ember.js/issues/19026
