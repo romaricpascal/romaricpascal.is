@@ -1,4 +1,5 @@
 const { selectAll, matches } = require('hast-util-select');
+const h = require('hastscript');
 
 module.exports = function({
   selector = '[hreflang]',
@@ -9,19 +10,8 @@ module.exports = function({
     const linksWithHreflang = selectAll(selector, tree);
     for (const link of linksWithHreflang) {
       if (!ignoreSelector || !matches(ignoreSelector, link)) {
-        const span = {
-          type: 'element',
-          tagName: 'span',
-          properties: {
-            className
-          },
-          children: [
-            {
-              type: 'text',
-              value: link.properties.hrefLang
-            }
-          ]
-        };
+        const span = h('span', { class: className }, link.properties.hrefLang);
+
         // Add a little space
         link.children.push({ type: 'text', value: ' ' });
         // Add the generated span with the language
