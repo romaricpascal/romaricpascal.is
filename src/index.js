@@ -85,6 +85,7 @@ metalsmith(process.cwd())
     inPlace({
       engineOptions: {
         plugins: [
+          require('remark-hreflang'),
           require('remark-slug'),
           require('remark-autolink-headings'),
           function() {
@@ -94,6 +95,7 @@ metalsmith(process.cwd())
           },
           require('rehype-raw'),
           require('./rehype/hreflang'),
+          require('./rehype/well-known-urls'),
           require('rehype-stringify')
         ]
       }
