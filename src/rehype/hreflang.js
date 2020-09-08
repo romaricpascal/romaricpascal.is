@@ -7,16 +7,16 @@ module.exports = function({
   className = 'hreflang'
 } = {}) {
   return function(tree) {
-    const linksWithHreflang = selectAll(selector, tree);
+    const linksWithHreflang = selectAll(selector, tree).filter(
+      link => !ignoreSelector || !matches(ignoreSelector, link)
+    );
     for (const link of linksWithHreflang) {
-      if (!ignoreSelector || !matches(ignoreSelector, link)) {
-        const span = h('span', { class: className }, link.properties.hrefLang);
+      const span = h('span', { class: className }, link.properties.hrefLang);
 
-        // Add a little space
-        link.children.push({ type: 'text', value: ' ' });
-        // Add the generated span with the language
-        link.children.push(span);
-      }
+      // Add a little space
+      link.children.push({ type: 'text', value: ' ' });
+      // Add the generated span with the language
+      link.children.push(span);
     }
   };
 };
