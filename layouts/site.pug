@@ -16,6 +16,7 @@ html(lang=`${i18n.language || defaultLanguage}`)
     - const rssUrl = get(groups.byKeyByLanguage, ['feed', i18n.language, 'outputUrl'])
     link(rel="alternate",type="application/rss+xml",href=rssUrl)
     include _favicons.pug
+    include _meta.pug
   body
     a.skip-link(href="#main") 
       = messages.skipLinkLabel[i18n.language]
