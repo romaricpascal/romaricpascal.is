@@ -21,29 +21,6 @@ While I'm attached to privacy, I'm a big believer in sharing, whether it's [open
 Currently
 ---
 
-<div class="project project--reversed project--not-linked project--ends-with-block column--expanded">
-
-### Available for your projects
-
-I'm now available for new projects or a new role, **remote UK/EU or in Bristol (UK)**, ideally **part-time (80%)**.
-
-I'd be looking to help:
-
-- **build and maintain accessible front-ends** for websites or apps
-- **consolidate front-end practices** into design systems, libraries, documentations, articles…
-
-I'm particularly interested in supporting projects in the **civic, social, education or ecology domains, as well as art**. Especially if those:
-
-- involve **open-source**
-- **respect** their users (accessibility, privacy, performance, inclusivity)
-- are **built to last**, not to sell
-
-I can work with **various technologies** (Rails, Django, Vue, Svelte…) and in **French or English**.
-
-<p class="lead box text-align--center cta with-cover-link">
-If all this sounds interesting and you'd like to collaborate with me, please <a href="mailto:hello@romaricpascal.is">get in touch</a>.</p>
-</div>
-
 Lately, I took some time off client work for personal explorations. I developped [some experimental projects](#other-projects) as well as more complete pieces of work.
 
 <article class="project">

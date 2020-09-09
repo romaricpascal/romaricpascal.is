@@ -33,6 +33,8 @@ metalsmith(process.cwd())
       en: date => FORMATTERS.en.format(date),
       fr: date => FORMATTERS.fr.format(date)
     },
+    forHire: false,
+    noForHireCTA: false,
     messages: {
       languageSwitcher: {
         en: 'English',
@@ -50,7 +52,6 @@ metalsmith(process.cwd())
         en: 'website',
         fr: 'siteweb'
       },
-      noForHireCTA: false,
       forHireHeading: {
         en: 'Available for your projects',
         fr: 'Disponible pour vos projets'

@@ -21,31 +21,6 @@ Si je suis également très attaché à la protection des données privées, je 
 En ce moment
 ---
 
-<div class="project project--reversed project--not-linked project--ends-with-block column--expanded">
-
-### Disponible pour vos projets
-
-Je suis disponible pour de nouveaux projets ou un nouveau poste, en **télétravail UK/EU ou à Bristol (UK)**, idéalement **à temps partiel (80%)**.
-
-Je recherche à aider:
-
-- **l'intégration et maintenance de front-end accessibles** pour des sites ou applications web
-- **la consolidation de pratiques d'intégration** dans des design-systems, bibliothèques, documentations, articles…
-
-Je serais particulièrement intéressé par des projets dans les domaines **civique, social, de l'éducation ou de l'écologie, ainsi qu'artistique**. Tout particulièrement si ceux-ci:
-
-- ont une composante **open-source**
-- **respectent** leurs utilisateurs (accessibilité, vie privée, performance, inclusivité)
-- sont **construits pour durer**, pas pour être vendus.
-
-Je peux travailler avec des **technologies variées** (Rails, Django, Vue, Svelte…) et en **français ou anglais**.
-
-<p class="lead box text-align--center cta with-cover-link">
-Si tout ça vous semble intéressant et que vous souhaiteriez collaborer avec moi, n'hésitez pas <a href="mailto:hello@romaricpascal.is">me contacter</a>
-</p>  
-
-</div>
-
 Dernièrement, j'ai laissé les travaux pro de côté pour des expérimentations personelles. J'ai développé [quelques expériences](#autres-projets) mais aussi des projets plus aboutis:
 
 <article class="project">
