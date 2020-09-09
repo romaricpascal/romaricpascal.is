@@ -1,5 +1,6 @@
 ---
-title: Revisiting the language hints
+title: Mieux indiquer la langue de destination
+slug: mieux-indiquer-la-langue-de-destination
 type: post
 layout: post.pug
 ---
