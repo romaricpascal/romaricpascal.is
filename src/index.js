@@ -25,7 +25,7 @@ metalsmith(process.cwd())
   .source('./content')
   .destination('./site')
   .metadata({
-    siteUrl: 'http://localhost:3000',
+    siteUrl: 'http://romaricpascal.is',
     siteTitle: 'Romaric Pascal',
     defaultLanguage: 'en',
     languages: ['en', 'fr'],
