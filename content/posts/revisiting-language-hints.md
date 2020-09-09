@@ -2,6 +2,9 @@
 title: Revisiting the language hints
 type: post
 layout: post.pug
+ogDescription:
+  Fixing accessibility issues of hints for link's target language,
+  manipulating remark's abstract syntax tree to inject some markup.
 ---
 The web gets written in multiple languages. Knowing you're about to click on a link that sends you to a page in another language really helps navigation.
 

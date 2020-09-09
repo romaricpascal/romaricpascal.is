@@ -3,6 +3,9 @@ title: Mieux indiquer la langue de destination
 slug: mieux-indiquer-la-langue-de-destination
 type: post
 layout: post.pug
+ogDescription:
+  Amélioration de l'accessibilité de la langue de destination des liens,
+  en injectant du HTML grâce à remark et son arbre de sytaxe abstraite.
 ---
 Le web est écrit dans de nombreuses langues. Savoir que vous allez cliquer sur un lien qui vous emmène vers une page dans une autre langue facilite la navigation.
 
