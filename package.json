@@ -69,6 +69,7 @@
     "metalsmith-permalinks": "^2.2.0",
     "patch-package": "^6.2.2",
     "rehype": "^11.0.0",
+    "rehype-hreflang": "^1.0.0",
     "rehype-raw": "^4.0.2",
     "rehype-remark": "^8.0.0",
     "rehype-stringify": "^8.0.0",

@@ -95,7 +95,7 @@ metalsmith(process.cwd())
             });
           },
           require('rehype-raw'),
-          require('./rehype/hreflang'),
+          require('rehype-hreflang'),
           require('./rehype/well-known-urls'),
           require('rehype-stringify')
         ]
