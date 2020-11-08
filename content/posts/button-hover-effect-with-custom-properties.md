@@ -38,9 +38,9 @@ To start with, we'll need a button so quickly make one. Nothing fancy, just a cu
     border-radius: 0.375rem / 50% ;
     background: #460160;
     color: white;
-    border: solid 0.125rem; /*Will be white*/
+    border: solid 0.125rem white;
     padding: 0.5rem 1rem;
-    box-shadow: 0 0.25rem 0 #460160;
+    box-shadow: 0 0.25rem 0 RGBA(70, 1, 96, 0.7);
   }
 </style>
 
@@ -58,11 +58,11 @@ To make the button stick out more, or appear pressed, the first part of the effe
 <style>
   .button--with-static-adjustable-shadows:hover,
   .button--with-static-adjustable-shadows:focus {
-    box-shadow: 0 0.375rem 0 #460160;
+    box-shadow: 0 0.375rem 0 RGBA(70, 1, 96, 0.7);
   }
 
   .button--with-static-adjustable-shadows:active {
-    box-shadow: 0 0.125rem 0 #460160;
+    box-shadow: 0 0.125rem 0 RGBA(70, 1, 96, 0.7);
   }
 </style>
 
@@ -73,7 +73,7 @@ So let's refactor this by introducing a `--elevation` property that'll let us tw
 <style>
   .button--with-adjustable-shadows {
     --elevation: 0.25rem;
-    box-shadow: 0 var(--elevation) 0 #460160;
+    box-shadow: 0 var(--elevation) 0 RGBA(70, 1, 96, 0.7);
   }
 
   .button--with-adjustable-shadows:hover,
@@ -101,9 +101,9 @@ We'll also need to store what the original elevation was to compute the amount o
 
 <style>
   .button--with-translation {
-    --original-elevation: 0.25rem;
-    --elevation: var(--original-elevation);
-    transform: translateY(calc(var(--original-elevation) - var(--elevation)));
+    --base-elevation: 0.25rem;
+    --elevation: var(--base-elevation);
+    transform: translateY(calc(var(--base-elevation) - var(--elevation)));
   }
 </style>
 
@@ -116,9 +116,11 @@ We'll also need to store what the original elevation was to compute the amount o
 Creating configurable patterns
 ---
 
+The above created our own little CSS behaviour. Set `--base-elevation` and you get a button that goes up on hover, down on active. We can push this further by introducing two other properties that'll let us set how high or low the button needs to go.
+
 <style>
   .button--configurable {
-    --original-elevation: 0.25rem;
+    --base-elevation: 0.25rem;
     --up-elevation: 0.375rem;
     --down-elevation: 0.125rem;
   }
@@ -133,7 +135,7 @@ Creating configurable patterns
   }
 
   .button--configurable-low {
-    --original-elevation: 0.125rem;
+    --base-elevation: 0.125rem;
     --up-elevation: 0.1875rem;
     --down-elevation: 0.0625rem;
   }
@@ -150,30 +152,39 @@ Creating configurable patterns
 Allowing composition of non-composable properties
 ---
 
+Let's say we have another style of button already using `box-shadow`, for a double border using an `inset` shadow for example. `box-shadow` does support multiple shadows, but only as part of the same declaration. When multiple classes apply the property, they don't get composed together. Only the declaration for the most specific rule applies. This means our button will either lose its double border or it's drop-shadow. Not ideal at all!
+
+By introducing a new custom property to store each of the shadows, we can help their composition. And either can rely on other custom properties to be made configurable as needed. The same can be done for the `transform` which has the same composability issue as `box-shadow`.
+
 <style>
   .button--secondary {
-    --inset-shadow: inset 0 0 0 0.125rem #460160;
+    --shadow-inset: inset 0 0 0 0.125rem #460160;
     box-shadow: var(--shadow-inset);
     background: white;
     color: #460160;
   }
 
   .button--with-composable-shadow {
-    --elevation-shadow: 0 var(--elevation) 0 #460160;
-    box-shadow: var(--elevation-shadow);
+    --shadow-elevation: 0 var(--elevation) 0 RGBA(70, 1, 96, 0.7);
+    box-shadow: var(--shadow-elevation);
+  }
+
+  .button--with-composable-transform {
+    --transform-elevation: translateY(calc(var(--base-elevation) - var(--elevation)));
+    transform: var(--transform-elevation);
   }
 
   .button--secondary.button--with-composable-shadow {
-    box-shadow: var(--inset-shadow), var(--elevation-shadow);
+    box-shadow: var(--shadow-inset), var(--shadow-elevation);
   }
 </style>
 
 <div class="demo demo--shallow">
   <div class="demo-content">
-    <button class="button button--secondary button--with-adjustable-shadows button--with-translation">I don't have a shadow</button>
+    <button class="button button--secondary button--with-adjustable-shadows button--with-translation">I lost my drop shadow</button>
     <br><br>
-    <button class="button button--secondary button--with-adjustable-shadows button--with-composable-shadow button--with-translation">
-    I do have one
+    <button class="button button--secondary button--with-adjustable-shadows button--with-composable-shadow button--with-composable-transform button--with-translation">
+    I kept my drop shadow
     </button>
   </div>
 </div>
@@ -181,4 +192,120 @@ Allowing composition of non-composable properties
 Separating configuration from application
 ---
 
-Probably one of the most widespread, as it's what happens when using `:root {}` variables. They get defined up there and applied by whichever element uses them.
+So far, each new behaviour has been brought by different classes, the ones coming later overriding the declarations of the earlier ones thanks to the cascade. Great for explaining, but ultimately, we'd probably want to gather that into one unique class.
+
+<style>
+  .button--fancy {
+    /*The configuration of the whole pattern*/
+    --base-elevation: 0.25rem;
+    --up-elevation: 0.375rem;
+    --down-elevation: 0.125rem;
+
+    /*The one property that'll end up tweaking both shadow and transform*/
+    --elevation: var(--base-elevation);
+
+    /*Variables to help composing the shadow and transform*/
+    --shadow-elevation: 0 var(--elevation) 0 RGBA(70, 1, 96, 0.7);
+    --transform-elevation: translateY(calc(var(--base-elevation) - var(--elevation)));
+
+    /*The application through CSS properties*/
+    box-shadow: var(--shadow-elevation);
+    transform: var(--transform-elevation);
+  }
+
+  /*The changes of properties due to different states*/
+  .button--fancy:hover,
+  .button--fancy:focus {
+    --elevation: var(--up-elevation);
+  }
+
+  .button--fancy:active {
+    --elevation: var(--down-elevation);
+  }
+
+  /*Let's not forget our secondary button*/
+  .button--secondary.button--fancy {
+    box-shadow: var(--shadow-inset), var(--shadow-elevation);
+  }
+</style>
+
+<div class="demo demo--shallow">
+  <div class="demo-content">
+    <button class="button button--fancy">All in one class!</button>
+  </div>
+</div>
+
+Much tidier! That said, there's a last welcome bit of flexibility that can be added by splitting that class into two. Because child elements will also get the custom properties, we can separate where the properties get set from where they get applied. This will allow the `box-shadow` and `transform` not to be set on the element itself, but on one or several of its children. Like the little badge of the button below.
+
+<style>
+  .button--with-elevation {
+    /*The configuration of the whole pattern*/
+    --base-elevation: 0.25rem;
+    --up-elevation: 0.375rem;
+    --down-elevation: 0.125rem;
+
+    /*The one property that'll end up tweaking both shadow and transform*/
+    --elevation: var(--base-elevation);
+
+    /*Variables to help composing the shadow and transform*/
+    --shadow-elevation: 0 var(--elevation) 0 #853D84; /*Turned into a solid color to allow shadows to overlap*/
+    --transform-elevation: translateY(calc(var(--base-elevation) - var(--elevation)));
+  }
+
+    /*The changes of properties due to different states*/
+  .button--with-elevation:hover,
+  .button--with-elevation:focus {
+    --elevation: var(--up-elevation);
+  }
+
+  .button--with-elevation:active {
+    --elevation: var(--down-elevation);
+  }
+
+  .button--with-elevation__elevate {
+    box-shadow: var(--shadow-elevation);
+    transform: var(--transform-elevation);
+  }
+
+  .button--with-elevation__elevate.button--secondary {
+    box-shadow: var(--shadow-inset), var(--shadow-elevation);
+  }
+</style>
+<details>
+  <summary>Badge styling</summary>
+  <style>
+    .button--with-badge {
+      position: relative;
+    }
+
+    .button--with-badge__badge {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+
+      max-width: max-content;
+
+      margin-left: auto;
+      margin-right: auto;
+
+      margin-top: -0.75em;
+
+      font-size: 0.75em;
+      padding: 0.125em 0.75em;
+
+      background-color: #460160;
+      color: white;
+      border-radius: 9999px;
+    }
+  </style>
+</details>
+
+<div class="demo demo--shallow">
+  <div class="demo-content">
+    <button class="button button--with-badge button--secondary button--with-elevation button--with-elevation__elevate">
+      <span>Text of the button</span>
+      <span class="button--with-badge__badge button--with-elevation__elevate">boom!</span>
+    </button>
+  </div>
+</div>
