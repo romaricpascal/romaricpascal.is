@@ -1,5 +1,6 @@
 ---
 title: Revisiting the language hints
+date: 2020-09-04
 type: post
 layout: post.pug
 ogDescription:

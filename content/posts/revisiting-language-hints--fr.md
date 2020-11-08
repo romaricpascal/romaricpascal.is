@@ -1,6 +1,7 @@
 ---
 title: Mieux indiquer la langue de destination
 slug: mieux-indiquer-la-langue-de-destination
+date: 2020-09-04
 type: post
 layout: post.pug
 ogDescription:
