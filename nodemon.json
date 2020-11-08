@@ -1,7 +1,7 @@
 {
   "ext": "html,js,pug,md,json,css,function",
   "ignore": [
-    "site"
+    "./site"
   ],
   "events": {
     "exit": "curl -s http://localhost:3000/__browser_sync__?method=reload > /dev/null && echo 'Restarted browser-sync' || echo 'Failed to restart broswer-sync'"
