@@ -725,6 +725,10 @@ h6 [href^="#"]:focus {
   text-align: center !important;
 }
 
+.d--none {
+  display: none;
+}
+
 .no-border {
   border: 0 !important;
 }
