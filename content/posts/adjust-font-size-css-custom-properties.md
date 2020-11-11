@@ -1,10 +1,11 @@
 ---
 title: Adjust font size with CSS custom properties
+date: 2122-01-01
 type: post
 layout: post.pug
 draft: true
 ---
-For a given font-size, different fonts will render at a different height. More details: https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align
+For a given font-size, different fonts will render at a different height. More details: <https://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align>
 This calls for some adjustments to minimise layout shifts.
 In the future, there'll be `font-size-adjust` and it'll be great.
 It's not quite there yet though.
@@ -33,7 +34,7 @@ Next to the relevant `font-family` declaration, we're going to introduce a `--fo
 Scale the `rem` `font-size` to use each font scale
 ---
 
-By multiplying the `font-size` expressed in `rem` we'll make them scale appropriately once the font is loaded. We don't want to touch any of the other font-size relative unit (`em`,`ex`, `ch`) as we'd compound the scaling. 
+By multiplying the `font-size` expressed in `rem` we'll make them scale appropriately once the font is loaded. We don't want to touch any of the other font-size relative unit (`em`,`ex`, `ch`) as we'd compound the scaling.
 
 Technically we should scale the absolute font-sizes too (`px`, `pt`, `cm` and whatnot), but as they should be expressed in `rem` so they scale accessibly for people that need the base font-size tweaked, we'll leave them out. It'll be easier to spot issues.
 
