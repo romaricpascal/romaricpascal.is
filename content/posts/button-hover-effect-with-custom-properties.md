@@ -283,8 +283,8 @@ Much tidier! That said, there's a last bit of flexibility that can be added by s
     box-shadow: var(--shadow-inset), var(--shadow-elevation);
   }
 </style>
-<details class="column--expanded">
-  <summary class="code">Badge styling</summary>
+<details class="column--expanded hljs">
+  <summary class="code-like">Support styles: Badge styling</summary>
 
   <style>
 .button--with-badge {

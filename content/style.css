@@ -72,6 +72,11 @@ style,
   outline: solid 2px #eeeeee;
 }
 
+.code-like {
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
 kbd {
   min-width: 1.25em;
   line-height: 1.25;
@@ -120,6 +125,7 @@ pre > code,
   background-color: #1D273A;
   color: #fafafa;
   overflow: auto;
+  outline: 0;
 }
 
 main {
@@ -739,6 +745,14 @@ h6 [href^="#"]:focus {
 
 .no-border {
   border: 0 !important;
+}
+
+summary {
+  cursor: pointer;
+}
+
+details pre code {
+  padding: 0;
 }
 
 /* HighlightJS theme tweak */
