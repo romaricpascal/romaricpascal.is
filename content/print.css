@@ -42,14 +42,14 @@ blockquote {
 .project h3,
 .project h4,
 .tech-list {
-  border: solid 0.125rem #111;
-  color: #111;
+  border: solid 0.125rem #1D273A;
+  color: #1D273A;
 }
 
 .project {
   position: relative;
-  border: solid 0.125rem #111;
-  color: #111;
+  border: solid 0.125rem #1D273A;
+  color: #1D273A;
 }
 
 h1, h2, h3, h4, h5, h6 {

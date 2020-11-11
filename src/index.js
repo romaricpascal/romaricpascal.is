@@ -97,6 +97,9 @@ metalsmith(process.cwd())
           require('rehype-raw'),
           require('rehype-hreflang'),
           require('./rehype/well-known-urls'),
+          function() {
+            return require('rehype-highlight')({ ignoreMissing: true });
+          },
           require('rehype-stringify')
         ]
       }

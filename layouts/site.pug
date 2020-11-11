@@ -8,6 +8,7 @@ html(lang=`${i18n.language || defaultLanguage}`)
         = title
         = ' - ' 
       = siteTitle
+    link(rel="stylesheet",href='/nord.css?version=' + Date.now())
     link(rel="stylesheet",href='/style.css?version=' + Date.now())
     link(rel="stylesheet",href='/print.css?version=' + Date.now(),media="print")
     

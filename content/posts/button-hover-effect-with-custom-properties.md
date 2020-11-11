@@ -2,19 +2,11 @@
 title: Hover effects with custom properties
 type: post
 layout: post.pug
+ogDescription:
+  Where a button serves as a pretext 
+  to explore patterns around CSS custom properties
 draft: true
 ---
-Let's look into a button. Not any button, one sticks out of the page thanks to some drop shadow, making it appear pressable. On hover (or focus), we'll have it stick out a bit more and when active, get pressed closer to the page. Like this one:
-
-TODO: DEMO
-
-Behind the scene, it's custom properties that help coordinate two properties `box-shadow` and `transform` to the button. That's one of their benefits: they allow to affect multiple CSS properties by changing only one.
-
-First, a button
----
-
-To start with, we'll need a button so quickly make one. Nothing fancy, just a custom background and text color, some rounded corners (well, maybe a bit fancy) and a border. Oh, and a nice solid shadow to make it stick out, we said a shadow.
-
 <style class="d--none">
   .demo {
     display: table;
@@ -28,10 +20,27 @@ To start with, we'll need a button so quickly make one. Nothing fancy, just a cu
   }
 </style>
 
+Let's look into a button. One sticks out of the page thanks to some drop shadow, making it appear pressable. On hover (or focus), we'll have it stick out a bit more and when active, get pressed closer to the page. Like this one:
+
+<div class="demo demo--shallow">
+  <div class="demo-content">
+    <button class="button button--with-elevation button--with-elevation__elevate">
+      The final result
+    </button>
+  </div>
+</div>
+
+Behind the scene, it's CSS custom properties that help coordinate two properties `box-shadow` and `transform` to the button. Coordinating multiple properties is only one of the benefits CSS custom properties provide. So let's use this button to discover different patterns around custom properties.
+
+First, a button
+---
+
+To start with, we'll need a button so quickly make one. Nothing fancy, just a custom background and text color, some rounded corners (well, maybe a bit fancy) and a border. Oh, and a nice solid shadow to make it stick out, we said a shadow for the effect.
+
 <style>
   /*
-    Using custom classes to not hook onto any random button
-    on the page
+    Using a custom class to not hook
+    onto all the buttons on this page
   */
   .button {
     font: inherit;
@@ -50,10 +59,12 @@ To start with, we'll need a button so quickly make one. Nothing fancy, just a cu
   </div>
 </div>
 
-Breaking down shorthands
+Now let's enter the realm of custom properties for creating the effect.
+
+Breaking down complex property values
 ---
 
-To make the button stick out more, or appear pressed, the first part of the effect is adjusting its shadow. Longer shadow and the button looks taller, smaller one and it looks shorter.
+To make the button stick out more, or appear pressed, the first part of the effect is adjusting its shadow. Longer shadow and the button looks taller, smaller one and it looks shorter. Bluntly, we could define the whole `box-shadow` property on both states:
 
 <style>
   .button--with-static-adjustable-shadows:hover,
@@ -66,9 +77,9 @@ To make the button stick out more, or appear pressed, the first part of the effe
   }
 </style>
 
-The only thing that varies here is the `y` offset of the shadow. That's 3 places where we'd need to change the colors now, all for tweaking a unique property. A good use case for custom properties is to allow tweaking individual parts of properties that only have shorthand-ish declarations, like `box-shadow`.
+For only adjusting the offset on the `y` axis, it's quite a lot to duplicate. It's a "chance" for a mistake when duplicating the values, and opportunities to forget updating one of the declarations if the color was to change.
 
-So let's refactor this by introducing a `--elevation` property that'll let us tweak just the elevation, without worrying about the color.
+By introducing a custom `--elevation` property, we can tweak just the value we need to touch and keep the rest of the `box-shadow` value in a unique place.
 
 <style>
   .button--with-adjustable-shadows {
@@ -95,9 +106,9 @@ So let's refactor this by introducing a `--elevation` property that'll let us tw
 Controlling multiple properties
 ---
 
-For now, the shadow changes, but the button remains stuck in place. We still need to add a `transform` that'll translate the button. How much the button is translated depends on its elevation. The custom properties we just introduced will let us reuse that value.
+For now, the shadow changes, but the button remains stuck in place. It still needs the `transform` that'll translate it up or down. How much the button is translated depends on its elevation, and thanks to the `--elevation` property we just introduced, we got that nice and ready to use.
 
-We'll also need to store what the original elevation was to compute the amount of translation, thanks to `calc`. Change the elevation, and both the shadow and translation will update, now.
+With `calc` we can reuse it to compute how much we need to translate the button. We'll need to store the original property first, as `--base-elevation`. And now by changing only one (custom) property, two properties get adjusted as needed.
 
 <style>
   .button--with-translation {
@@ -116,7 +127,9 @@ We'll also need to store what the original elevation was to compute the amount o
 Creating configurable patterns
 ---
 
-The above created our own little CSS behaviour. Set `--base-elevation` and you get a button that goes up on hover, down on active. We can push this further by introducing two other properties that'll let us set how high or low the button needs to go.
+The previous example already illustrated it a bit. The new `button--with-translation` class was able to set the property defined by `button--with-adjustable-shadow`. Regular specificity rules apply as to which declaration will actually be applied to the element. And the values will trickle down accordingly: `--elevation` takes the value from `--base-elevation`, and in turn the `box-shadow` value will get adjusted accordingly.
+
+We can push this further by introducing two other properties that'll let us set how high or low the button needs to go. This makes the element a central point for updating the whole pattern, without need to define extra `:hover`,`:focus` and `:active` selectors when we want to use different elevations for each state.
 
 <style>
   .button--configurable {
@@ -149,8 +162,10 @@ The above created our own little CSS behaviour. Set `--base-elevation` and you g
   </div>
 </div>
 
-Allowing composition of non-composable properties
+Offering values to be consumed by other classes
 ---
+
+So far, we've just used the values from the properties, either set inside the pattern or by another class. Custom properties can also be set for other classes to consume, helping with computations of their styles.
 
 Let's say we have another style of button already using `box-shadow`, for a double border using an `inset` shadow for example. `box-shadow` does support multiple shadows, but only as part of the same declaration. When multiple classes apply the property, they don't get composed together. Only the declaration for the most specific rule applies. This means our button will either lose its double border or it's drop-shadow. Not ideal at all!
 
@@ -189,7 +204,7 @@ By introducing a new custom property to store each of the shadows, we can help t
   </div>
 </div>
 
-Separating configuration from application
+Separating configuration from usage
 ---
 
 So far, each new behaviour has been brought by different classes, the ones coming later overriding the declarations of the earlier ones thanks to the cascade. Great for explaining, but ultimately, we'd probably want to gather that into one unique class.
@@ -235,7 +250,7 @@ So far, each new behaviour has been brought by different classes, the ones comin
   </div>
 </div>
 
-Much tidier! That said, there's a last welcome bit of flexibility that can be added by splitting that class into two. Because child elements will also get the custom properties, we can separate where the properties get set from where they get applied. This will allow the `box-shadow` and `transform` not to be set on the element itself, but on one or several of its children. Like the little badge of the button below.
+Much tidier! That said, there's a last bit of flexibility that can be added by splitting that class into two. Because child elements will also get the values of the custom properties, we can separate where the properties get set from where they get applied. This will allow the `box-shadow` and `transform` not to be set on the element itself, but on one or several of its children. Like the little badge of the button below.
 
 <style>
   .button--with-elevation {
@@ -262,43 +277,42 @@ Much tidier! That said, there's a last welcome bit of flexibility that can be ad
     --elevation: var(--down-elevation);
   }
 
+  /*The trigger for actually lifting the button*/
   .button--with-elevation__elevate {
     box-shadow: var(--shadow-elevation);
     transform: var(--transform-elevation);
   }
 
+  /*And let's not forget the composition with the secondary button*/
   .button--with-elevation__elevate.button--secondary {
     box-shadow: var(--shadow-inset), var(--shadow-elevation);
   }
 </style>
 <details>
   <summary>Badge styling</summary>
-  <style>
-    .button--with-badge {
-      position: relative;
-    }
 
-    .button--with-badge__badge {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
+  <style class="code-block">
+.button--with-badge {
+  position: relative;
+}
 
-      max-width: max-content;
-
-      margin-left: auto;
-      margin-right: auto;
-
-      margin-top: -0.75em;
-
-      font-size: 0.75em;
-      padding: 0.125em 0.75em;
-
-      background-color: #460160;
-      color: white;
-      border-radius: 9999px;
-    }
+.button--with-badge__badge {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -0.75em;
+  font-size: 0.75em;
+  padding: 0.125em 0.75em;
+  background-color: #460160;
+  color: white;
+  border-radius: 9999px;
+}
   </style>
+
 </details>
 
 <div class="demo demo--shallow">
@@ -309,3 +323,17 @@ Much tidier! That said, there's a last welcome bit of flexibility that can be ad
     </button>
   </div>
 </div>
+
+Custom properties open up new ways of creating reusable patterns in CSS. They let us create small APIs to combine them with other classes, letting them input values or consume the ones we create thanks to the cascade (there's just [a little gotcha to be aware of when using them to set cutting-edge values][css-custom-props-gotcha]). Makes our rulesets kind of little functions.
+
+They open the door to very intersting things. [Theming][css-custom-props-theming] might come to mind first. But they also let us go past just "replacing" values, with [logical operators][css-custom-props-logical], [stacks of default values][css-custom-props-stacks],...
+
+[Browser support is great][css-custom-props-browser-support]. Progressive enhancement (either using fallback values or [`@supports`][css-custom-props-support]) takes care of the older browsers (or even [a polyfill][css-custom-props-polyfill] if really necessary). It's all very exciting!
+
+[css-custom-props-logical]: https://css-tricks.com/logical-operations-with-css-variables/
+[css-custom-props-stacks]: https://css-tricks.com/using-custom-property-stacks-to-tame-the-cascade/
+[css-custom-props-browser-support]: https://caniuse.com/css-variables
+[css-custom-props-polyfill]: https://github.com/nuxodin/ie11CustomProperties
+[css-custom-props-support]: https://stackoverflow.com/a/38012166
+[css-custom-props-theming]: https://csswizardry.com/2016/10/pragmatic-practical-progressive-theming-with-custom-properties/
+[css-custom-props-gotcha]: https://adactio.com/journal/16993
