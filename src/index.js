@@ -98,6 +98,7 @@ metalsmith(process.cwd())
           require('rehype-hreflang'),
           require('./rehype/well-known-urls'),
           require('./rehype/code-blocks'),
+          require('./rehype/normalize-whitespace'),
           function() {
             return require('rehype-highlight')({ ignoreMissing: true });
           },

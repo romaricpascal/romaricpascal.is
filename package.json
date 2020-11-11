@@ -56,6 +56,7 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "dedent": "^0.7.0",
     "hast-util-select": "^4.0.0",
     "hast-util-to-string": "^1.0.4",
     "hastscript": "^6.0.0",
