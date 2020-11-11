@@ -8,11 +8,6 @@ ogDescription:
 draft: true
 ---
 <style class="d--none">
-  .demo {
-    display: table;
-    width: auto;
-  }
-
   .demo-content {
     background-color: #fbe1ce;
     padding: 2rem;
@@ -22,7 +17,7 @@ draft: true
 
 Let's look into a button. One sticks out of the page thanks to some drop shadow, making it appear pressable. On hover (or focus), we'll have it stick out a bit more and when active, get pressed closer to the page. Like this one:
 
-<div class="demo demo--shallow">
+<div class="demo demo--shallow demo--centered">
   <div class="demo-content">
     <button class="button button--with-elevation button--with-elevation__elevate">
       The final result
@@ -53,7 +48,7 @@ To start with, we'll need a button so quickly make one. Nothing fancy, just a cu
   }
 </style>
 
-<div class="demo demo--shallow">
+<div class="demo demo--shallow demo--centered">
   <div class="demo-content">
     <button class="button">I do nothing</button>
   </div>
@@ -97,7 +92,7 @@ By introducing a custom `--elevation` property, we can tweak just the value we n
   }
 </style>
 
-<div class="demo demo--shallow">
+<div class="demo demo--shallow demo--centered">
   <div class="demo-content">
     <button class="button button--with-adjustable-shadows">My shadow changes</button>
   </div>
@@ -118,7 +113,7 @@ With `calc` we can reuse it to compute how much we need to translate the button.
   }
 </style>
 
-<div class="demo demo--shallow">
+<div class="demo demo--shallow demo--centered">
   <div class="demo-content">
     <button class="button button--with-adjustable-shadows button--with-translation">My shadow changes and I translate</button>
   </div>
@@ -154,7 +149,7 @@ We can push this further by introducing two other properties that'll let us set 
   }
 </style>
 
-<div class="demo demo--shallow">
+<div class="demo demo--shallow demo--centered">
   <div class="demo-content">
     <button class="button button--with-adjustable-shadows button--with-translation">My shadow still changes and I translate</button>
     <br><br>
@@ -194,7 +189,7 @@ By introducing a new custom property to store each of the shadows, we can help t
   }
 </style>
 
-<div class="demo demo--shallow">
+<div class="demo demo--shallow demo--centered">
   <div class="demo-content">
     <button class="button button--secondary button--with-adjustable-shadows button--with-translation">I lost my drop shadow</button>
     <br><br>
@@ -244,7 +239,7 @@ So far, each new behaviour has been brought by different classes, the ones comin
   }
 </style>
 
-<div class="demo demo--shallow">
+<div class="demo demo--shallow demo--centered">
   <div class="demo-content">
     <button class="button button--fancy">All in one class!</button>
   </div>
@@ -288,10 +283,10 @@ Much tidier! That said, there's a last bit of flexibility that can be added by s
     box-shadow: var(--shadow-inset), var(--shadow-elevation);
   }
 </style>
-<details>
-  <summary>Badge styling</summary>
+<details class="column--expanded">
+  <summary class="code">Badge styling</summary>
 
-  <style class="code-block">
+  <style>
 .button--with-badge {
   position: relative;
 }
@@ -315,7 +310,7 @@ Much tidier! That said, there's a last bit of flexibility that can be added by s
 
 </details>
 
-<div class="demo demo--shallow">
+<div class="demo demo--shallow demo--centered">
   <div class="demo-content">
     <button class="button button--with-badge button--secondary button--with-elevation button--with-elevation__elevate">
       <span>Text of the button</span>

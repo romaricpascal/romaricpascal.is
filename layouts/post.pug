@@ -2,7 +2,7 @@ extends site
 
 block contents
   h1= title
-  time.margin-top--0(datetime=date.toISOString())
+  time.d--block.margin-top--0(datetime=date.toISOString())
     = get(dateFormats,i18n.language)(date)
   != contents
   

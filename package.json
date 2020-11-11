@@ -80,7 +80,8 @@
     "remark-hreflang": "https://github.com/tzi/remark-hreflang.git",
     "remark-rehype": "^7.0.0",
     "remark-slug": "^6.0.0",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "unist-util-visit": "^2.0.3"
   },
   "ava": {
     "files": [

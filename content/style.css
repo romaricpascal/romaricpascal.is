@@ -64,7 +64,8 @@ a:hover {
 code,
 kbd,
 script,
-style {
+style,
+.code {
   font-family: monospace;
   font-size: 1.2em;
   background-color: #eeeeee;
@@ -113,16 +114,12 @@ legend {
 }
 
 pre > code,
-main > script,
-main > style,
-.code-block,
 .hljs {
   display: block;
   padding: 0.5rem;
   background-color: #1D273A;
   color: #fafafa;
   overflow: auto;
-  white-space: pre;
 }
 
 main {
@@ -131,7 +128,7 @@ main {
 }
 
 main > * {
-  display: block;
+  /* display: block; */
   width: calc(100% - 3rem);
   max-width: 40rem;
   margin-left: auto;
@@ -473,6 +470,11 @@ h6 [href^="#"]:focus {
   height: calc(100% - 1.5rem);
 }
 
+.demo--centered {
+  display: table;
+  width: auto;
+}
+
 .demo--narrow::before,
 .demo--narrow > div {
   max-width: 25%;
@@ -725,6 +727,10 @@ h6 [href^="#"]:focus {
 
 .text-align--center {
   text-align: center !important;
+}
+
+.d--block {
+  display: block;
 }
 
 .d--none {
