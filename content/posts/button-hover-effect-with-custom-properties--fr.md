@@ -1,6 +1,6 @@
 ---
 title: Effets de survol avec les propriétés personnalisées CSS
-slug: effet-survol-proprietes-personalisees-css
+slug: effet-survol-proprietes-personnalisees-css
 date: 2020-11-11
 type: post
 layout: post.pug
@@ -320,8 +320,14 @@ Les enfants de l'élément auquel s'applique la classe auront eux aussi accès �
 
 <div class="demo demo--shallow demo--centered">
   <div class="demo-content">
+    <button class="button button--secondary button--fancy button--with-badge">
+      <span>Mon badge bouge, mais sans ombre!</span>
+      <span class="button--with-badge__badge">Argh!</span>
+    </button>
+    <br>
+    <br>
     <button class="button button--with-badge button--secondary button--with-elevation button--with-elevation__elevate">
-      <span>Regarde mon badge!</span>
+      <span>Regarde mon badge, il fait les deux!</span>
       <span class="button--with-badge__badge button--with-elevation__elevate">Ta-da!</span>
     </button>
   </div>

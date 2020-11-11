@@ -316,9 +316,15 @@ Because child elements will also get the values of the custom properties, we can
 
 <div class="demo demo--shallow demo--centered">
   <div class="demo-content">
+    <button class="button button--secondary button--fancy button--with-badge">
+      <span>My badge moves, but no shadow!</span>
+      <span class="button--with-badge__badge">Argh!</span>
+    </button>
+    <br>
+    <br>
     <button class="button button--with-badge button--secondary button--with-elevation button--with-elevation__elevate">
-      <span>Text of the button</span>
-      <span class="button--with-badge__badge button--with-elevation__elevate">boom!</span>
+      <span>Look at mine, it does both!</span>
+      <span class="button--with-badge__badge button--with-elevation__elevate">Ta-da!</span>
     </button>
   </div>
 </div>
