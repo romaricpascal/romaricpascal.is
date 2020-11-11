@@ -751,7 +751,7 @@ summary {
   cursor: pointer;
 }
 
-details pre code {
+.hljs pre code {
   padding: 0;
 }
 
