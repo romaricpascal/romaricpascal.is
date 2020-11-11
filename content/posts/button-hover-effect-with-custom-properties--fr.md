@@ -1,5 +1,6 @@
 ---
 title: Effets de survol avec les propriétés personnalisées CSS
+slug: effet-survol-proprietes-personalisees-css
 date: 2020-11-11
 type: post
 layout: post.pug
