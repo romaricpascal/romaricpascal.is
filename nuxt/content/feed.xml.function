@@ -1,0 +1,26 @@
+---
+layout: false
+---
+const RSS = require('rss');
+
+const posts = [...(this.groups.byLanguageByType[this.i18n.language]['post'] || [])].sort(function(a, b) {
+  return b.date - a.date
+})
+
+const feed = new RSS({
+  title: this.siteTitle,
+  site_url: this.siteUrl,
+  feed_url: `${this.siteUrl}${this.outputUrl}`,
+  author: 'hello@romaricpascal.is',
+  language: this.i18n.language
+})
+
+posts.forEach(post => {
+  feed.item({
+    title: post.title,
+    url: `${this.siteUrl}${post.outputUrl}`,
+    date: post.date
+  })
+})
+
+return feed.xml().replace(/<lastBuildDate>.*<\/lastBuildDate>/, `<lastBuildDate>${posts[0].date.toUTCString()}</lastBuildDate>`);
