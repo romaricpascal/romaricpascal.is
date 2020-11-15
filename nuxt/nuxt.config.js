@@ -1,3 +1,5 @@
+import { detectLanguage } from './lib/content/detectLanguage'
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -40,5 +42,16 @@ export default {
   content: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    extractCSS: true,
+  },
+
+  hooks: {
+    'content:file:beforeInsert'(document) {
+      const languageInfo = detectLanguage(document.path, {
+        languages: ['en', 'fr'],
+      })
+      document.i18n = languageInfo
+    },
+  },
 }
