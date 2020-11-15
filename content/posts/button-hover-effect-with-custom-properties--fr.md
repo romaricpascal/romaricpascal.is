@@ -246,7 +246,7 @@ Jusqu'ici, chaque nouveau comportement était apporté par une classe différent
 
 <div class="demo demo--shallow demo--centered">
   <div class="demo-content">
-    <button class="button button--fancy">All in one class!</button>
+    <button class="button button--fancy">En une classe!</button>
   </div>
 </div>
 
