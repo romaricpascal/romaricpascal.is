@@ -36,6 +36,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    'nuxt-i18n',
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
@@ -52,6 +53,14 @@ export default {
         languages: ['en', 'fr'],
       })
       document.i18n = languageInfo
+    },
+  },
+
+  i18n: {
+    locales: ['en', 'fr'],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
     },
   },
 }

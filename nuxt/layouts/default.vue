@@ -4,9 +4,15 @@
     <header class="site-header container">
       <nav aria-labelledby="site-navigation-label">
         <h2 id="site-navigation-label" hidden>Site</h2>
-        <a class="link-reversed brand" href="/">Romaric Pascal</a>
-        <a href="/posts">All posts</a>
-        <a href="/me">About me</a>
+        <nuxt-link
+          class="link-reversed brand no-active"
+          :to="localePath('/')"
+          :active-class="null"
+        >
+          Romaric Pascal
+        </nuxt-link>
+        <nuxt-link :to="localePath('/posts')">All posts</nuxt-link>
+        <nuxt-link :to="localePath('/me')">About me</nuxt-link>
         <a href="mailto:hello@romaricpascal.is">Contact</a>
       </nav>
       <LanguageSwitcher />
