@@ -1,15 +1,14 @@
 <template>
   <div>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header
-      class="site-header container"
-      aria-labelledby="site-navigation-label"
-    >
-      <h2 id="site-navigation-label" hidden>Site</h2>
-      <a class="link-reversed brand" href="/">Romaric Pascal</a>
-      <a href="/posts">All posts</a>
-      <a href="/me">About me</a>
-      <a href="mailto:hello@romaricpascal.is">Contact</a>
+    <header class="site-header container">
+      <nav aria-labelledby="site-navigation-label">
+        <h2 id="site-navigation-label" hidden>Site</h2>
+        <a class="link-reversed brand" href="/">Romaric Pascal</a>
+        <a href="/posts">All posts</a>
+        <a href="/me">About me</a>
+        <a href="mailto:hello@romaricpascal.is">Contact</a>
+      </nav>
       <LanguageSwitcher />
     </header>
     <main id="#main" class="prose">
