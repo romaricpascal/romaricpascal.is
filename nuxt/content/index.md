@@ -1,7 +1,7 @@
 ---
 noForHireCTA: true
 ---
-Hi, I'm Romaric!
+Hi, I'm Romaric
 ===
 
 <strong>I make websites</strong>. Currently, I'm remaking this one. Pardon the mess and the bare design. Hopefully it won't be like that for too long.
@@ -16,4 +16,3 @@ But... I came to see some lettering
 ---
 
 For now, this new version will focus on web technologies. The lettering images won't disappear, though. If you were looking for pretty pictures of texts, you can find them on the [old version of the site](https://old.romaricpascal.is).
-

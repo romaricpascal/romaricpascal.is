@@ -1,3 +1,4 @@
+import { dirname, join } from 'path'
 import { detectLanguage } from './lib/content/detectLanguage'
 
 export default {
@@ -52,15 +53,30 @@ export default {
       const languageInfo = detectLanguage(document.path, {
         languages: ['en', 'fr'],
       })
-      document.i18n = languageInfo
+      Object.assign(document, languageInfo)
+
+      document.route = join(dirname(document.path), document.slug)
+        .replace(/^\//, '')
+        .replace(/index$/, '')
     },
   },
 
   i18n: {
-    locales: ['en', 'fr'],
+    locales: [
+      {
+        code: 'en',
+        iso: 'en',
+      },
+      { code: 'fr', iso: 'fr' },
+    ],
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en',
+    },
+    seo: true,
+    vuex: {
+      syncLocale: true,
+      setRouteParams: true,
     },
   },
 }

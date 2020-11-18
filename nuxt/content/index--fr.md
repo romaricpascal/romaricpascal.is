@@ -1,7 +1,8 @@
 ---
 noForHireCTA: true
+slug: index
 ---
-Bonjour, je suis Romaric!
+Bonjour, je suis Romaric
 ===
 
 <strong>Je crée des sites web</strong>. En ce moment, je reconstruit celui-ci. Désolé pour le désordre et le design très minimaliste. J'espère que ça ne durera pas trop longtemps.
