@@ -2,10 +2,6 @@
 title: About me
 noForHireCTA: true
 ---
-
-About me
-===
-
 <div>
 
 <img src="/media/me.png" alt="" class="avatar no-border" role="presentation">
@@ -138,7 +134,7 @@ On a more technical level, this project included:
 - Styling the components with CSS
 - Integrating a Vue editor to pick sections and configure their options with Rails form in the admin
 
-Live at 
+Live at
 
 <p class="tech-list">Rails, HTML (HAML), CSS (SASS, PostCSS), JavaScript (Vue, Vanilla), tooling (Webpack)</p>
 
@@ -162,7 +158,6 @@ On ecommerce sites like [Good Sixty], [Patternbank][patternbank-studio] or [Roug
 </article>
 
 ### Before Nov. 2017
-
 
 - Jan. 2016 - Nov. 2017: Independent lettering artist
 - Jan. 2012 - Dec. 2016: Independent front-end developer and web designer - Works included building a JavaScript UI for [HP Labs' Loom][hpe-loom].
