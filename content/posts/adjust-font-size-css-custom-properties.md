@@ -38,7 +38,7 @@ By multiplying the `font-size` expressed in `rem` we'll make them scale appropri
 
 Technically we should scale the absolute font-sizes too (`px`, `pt`, `cm` and whatnot), but as they should be expressed in `rem` so they scale accessibly for people that need the base font-size tweaked, we'll leave them out. It'll be easier to spot issues.
 
-```
+```css
 font-size: calc(1rem * var(--font-size-scale));
 ```
 
