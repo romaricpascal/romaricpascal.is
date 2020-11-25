@@ -1,5 +1,11 @@
 <template>
-  <nuxt-content :document="doc" />
+  <div>
+    <h1 v-if="doc.title">{{ doc.title }}</h1>
+    <time v-if="doc.type === 'post'" :datetime="doc.date.toISOString()">{{
+      $dt(doc.date)
+    }}</time>
+    <nuxt-content :document="doc" />
+  </div>
 </template>
 
 <script>
@@ -15,7 +21,9 @@ export default {
       .fetch()
 
     const doc = results[0]
-
+    if (doc.date) {
+      doc.date = new Date(doc.date)
+    }
     const translations = await $content({ deep: true })
       .where({ key: doc.key })
       .fetch()

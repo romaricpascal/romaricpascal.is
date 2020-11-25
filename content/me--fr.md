@@ -3,9 +3,6 @@ title: À propos
 slug: a-propos
 noForHireCTA: true
 ---
-A propos
-===
-
 <div>
 
 <img src="/media/me.png" alt="" class="avatar no-border" role="presentation">

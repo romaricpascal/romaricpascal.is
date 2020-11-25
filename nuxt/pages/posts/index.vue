@@ -15,9 +15,9 @@
     <ul class="post-list">
       <li v-for="post in posts" class="post-list-item">
         <h2>
-          <a href="#">
+          <nuxt-link :to="localePath(`/${post.route}`)">
             {{ post.title }}
-          </a>
+          </nuxt-link>
         </h2>
         <time :datetime="post.date.toISOString()">{{ $dt(post.date) }}</time>
       </li>
@@ -38,6 +38,7 @@ export default {
       .fetch()
 
     posts.forEach((post) => (post.date = new Date(post.date)))
+    console.log(posts)
     return { posts }
   },
 }
