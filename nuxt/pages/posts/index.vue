@@ -12,6 +12,33 @@
 <template>
   <div>
     <h1>{{ $t('heading') }}</h1>
-    <p>Todo</p>
+    <ul class="post-list">
+      <li v-for="post in posts" class="post-list-item">
+        <h2>
+          <a href="#">
+            {{ post.title }}
+          </a>
+        </h2>
+        <time :datetime="post.date.toISOString()">{{ $dt(post.date) }}</time>
+      </li>
+    </ul>
   </div>
 </template>
+
+<script>
+export default {
+  async asyncData({ $content, store }) {
+    const locale = store.state.i18n.locale
+
+    const posts = await $content('posts')
+      .where({
+        language: locale,
+      })
+      .sortBy('date', 'desc')
+      .fetch()
+
+    posts.forEach((post) => (post.date = new Date(post.date)))
+    return { posts }
+  },
+}
+</script>
