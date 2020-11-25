@@ -1,4 +1,5 @@
 import { dirname, join } from 'path'
+import highlightjs from 'highlight.js'
 import { detectLanguage } from './lib/content/detectLanguage'
 
 export default {
@@ -41,7 +42,33 @@ export default {
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
-  content: { liveEdit: false },
+  content: {
+    liveEdit: false,
+    markdown: {
+      // remarkPlugins: ['remark-hreflang'],
+      rehypePlugins(plugins) {
+        return [
+          ...plugins,
+          './rehype/well-known-urls',
+          './rehype/code-blocks',
+          './rehype/format-code',
+        ]
+      },
+      highlighter(rawCode, lang) {
+        let highlightedCode
+        try {
+          highlightedCode = highlightjs.highlight(lang, rawCode).value
+        } catch (e) {
+          highlightedCode = highlightjs.highlight('plaintext', rawCode).value
+        }
+
+        // We need to create a wrapper, because
+        // the returned code from highlight.js
+        // is only the highlighted code.
+        return `<pre><code class="hljs language-${lang}">${highlightedCode}</code></pre>`
+      },
+    },
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
