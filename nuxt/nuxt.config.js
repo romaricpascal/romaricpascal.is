@@ -20,7 +20,7 @@ export default {
   css: ['~/assets/style.css', '~/assets/nord.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/formatDate.js'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -37,12 +37,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    [
-      'nuxt-i18n',
-      {
-        vueI18nLoader: true,
-      },
-    ],
+    'nuxt-i18n',
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
@@ -76,8 +71,26 @@ export default {
       { code: 'fr', iso: 'fr', name: 'Français' },
     ],
     defaultLocale: 'en',
+    vueI18nLoader: true,
     vueI18n: {
       fallbackLocale: 'en',
+      dateTimeFormats: {
+        'en-gb': {
+          // Require 'en-gb' here so that date is in the right order
+          short: {
+            year: 'numeric',
+            month: 'short',
+            day: '2-digit',
+          },
+        },
+        fr: {
+          short: {
+            year: 'numeric',
+            month: 'short',
+            day: '2-digit',
+          },
+        },
+      },
     },
     seo: true,
     vuex: {
