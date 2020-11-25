@@ -2,19 +2,7 @@
   <div>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header container">
-      <nav aria-labelledby="site-navigation-label">
-        <h2 id="site-navigation-label" hidden>Site</h2>
-        <nuxt-link
-          class="link-reversed brand no-active"
-          :to="localePath('/')"
-          :active-class="null"
-        >
-          Romaric Pascal
-        </nuxt-link>
-        <nuxt-link :to="localePath('/posts')">All posts</nuxt-link>
-        <nuxt-link :to="localePath('/me')">About me</nuxt-link>
-        <a href="mailto:hello@romaricpascal.is">Contact</a>
-      </nav>
+      <Navigation />
       <LanguageSwitcher />
     </header>
     <main id="#main" class="prose">
