@@ -28,10 +28,10 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
+    process.env.NODE_ENV === 'production' ? '@nuxtjs/eslint-module' : null,
     // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module',
-  ],
+    process.env.NODE_ENV === 'production' ? '@nuxtjs/stylelint-module' : null,
+  ].filter(Boolean),
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
