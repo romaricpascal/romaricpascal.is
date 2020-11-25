@@ -37,7 +37,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    'nuxt-i18n',
+    [
+      'nuxt-i18n',
+      {
+        vueI18nLoader: true,
+      },
+    ],
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
@@ -66,8 +71,9 @@ export default {
       {
         code: 'en',
         iso: 'en',
+        name: 'English',
       },
-      { code: 'fr', iso: 'fr' },
+      { code: 'fr', iso: 'fr', name: 'Français' },
     ],
     defaultLocale: 'en',
     vueI18n: {
