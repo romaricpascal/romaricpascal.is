@@ -5,7 +5,7 @@
       <Navigation />
       <LanguageSwitcher />
     </header>
-    <main id="#main" class="prose">
+    <main id="main" class="prose">
       <Nuxt />
     </main>
   </div>
