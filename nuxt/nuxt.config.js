@@ -1,5 +1,4 @@
 import { dirname, join } from 'path'
-import highlightjs from 'highlight.js'
 import { detectLanguage } from './lib/content/detectLanguage'
 
 export default {
@@ -18,7 +17,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ['~/assets/style.css', '~/assets/nord.css'],
+  css: ['~/assets/nord.css', '~/assets/style.css'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: ['~/plugins/formatDate.js'],
@@ -45,27 +44,21 @@ export default {
   content: {
     liveEdit: false,
     markdown: {
-      // remarkPlugins: ['remark-hreflang'],
+      remarkPlugins(plugins) {
+        return ['remark-hreflang', ...plugins]
+      },
       rehypePlugins(plugins) {
         return [
           ...plugins,
           './rehype/well-known-urls',
           './rehype/code-blocks',
           './rehype/format-code',
+          'rehype-hreflang',
+          ['rehype-highlight', { ignoreMissing: true }],
         ]
       },
       highlighter(rawCode, lang) {
-        let highlightedCode
-        try {
-          highlightedCode = highlightjs.highlight(lang, rawCode).value
-        } catch (e) {
-          highlightedCode = highlightjs.highlight('plaintext', rawCode).value
-        }
-
-        // We need to create a wrapper, because
-        // the returned code from highlight.js
-        // is only the highlighted code.
-        return `<pre><code class="hljs language-${lang}">${highlightedCode}</code></pre>`
+        return rawCode
       },
     },
   },
