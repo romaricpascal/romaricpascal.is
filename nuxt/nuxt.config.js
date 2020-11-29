@@ -2,6 +2,7 @@ import { dirname, join } from 'path'
 import rehype from 'rehype'
 import { detectLanguage } from './lib/content/detectLanguage'
 import removeNuxt from './rehype/remove-nuxt'
+import unwrap, { DEFAULT_SELECTOR } from './rehype/hast-util-unwrap'
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
@@ -84,7 +85,12 @@ export default {
     'render:route'(url, result, context) {
       // if (process.env.NODE_ENV === 'production') {
       if (result.html) {
-        const res = rehype().use(removeNuxt).processSync(result.html)
+        const res = rehype()
+          .use(removeNuxt)
+          .use(unwrap, {
+            selector: `${DEFAULT_SELECTOR},.nuxt-content, #__nuxt, #__layout`,
+          })
+          .processSync(result.html)
         result.html = res.contents
       }
       // }

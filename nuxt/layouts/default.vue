@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <Fragment>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header container">
       <Navigation />
@@ -8,5 +8,5 @@
     <main id="main" class="prose">
       <Nuxt />
     </main>
-  </div>
+  </Fragment>
 </template>
