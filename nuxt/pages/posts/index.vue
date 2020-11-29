@@ -38,8 +38,12 @@ export default {
       .fetch()
 
     posts.forEach((post) => (post.date = new Date(post.date)))
-    console.log(posts)
     return { posts }
+  },
+  head() {
+    return {
+      title: [this.$t('heading'), 'Romaric Pascal'].filter(Boolean).join(' | '),
+    }
   },
 }
 </script>
