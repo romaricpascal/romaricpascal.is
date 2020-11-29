@@ -3,6 +3,7 @@ import rehype from 'rehype'
 import { detectLanguage } from './lib/content/detectLanguage'
 import removeNuxt from './rehype/remove-nuxt'
 import unwrap, { DEFAULT_SELECTOR } from './rehype/hast-util-unwrap'
+import stripComments from './rehype/strip-comments'
 
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
@@ -90,6 +91,7 @@ export default {
           .use(unwrap, {
             selector: `${DEFAULT_SELECTOR},.nuxt-content, #__nuxt, #__layout`,
           })
+          .use(stripComments)
           .processSync(result.html)
         result.html = res.contents
       }
