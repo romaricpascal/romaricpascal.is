@@ -42,5 +42,10 @@ export default {
 
     return { doc }
   },
+  head() {
+    return {
+      title: [this.doc.title, 'Romaric Pascal'].filter(Boolean).join(' | '),
+    }
+  },
 }
 </script>
