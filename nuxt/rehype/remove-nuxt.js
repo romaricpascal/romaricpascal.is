@@ -1,5 +1,13 @@
 import remove from 'unist-util-remove'
+import visit from 'unist-util-visit'
 const { matches } = require('hast-util-select')
+
+const NUXT_DATA_ATTRS = [
+  'dataNHead',
+  'dataNHeadSsr',
+  'dataHid',
+  'dataServerRendered',
+]
 
 export default function () {
   return function (tree) {
@@ -8,6 +16,16 @@ export default function () {
       (node, index, parent) =>
         matches('script, link', node) &&
         (isNuxtScript(node) || isNuxtData(node))
+    )
+
+    visit(
+      tree,
+      (node) =>
+        node.properties &&
+        NUXT_DATA_ATTRS.some((attr) => node.properties[attr]),
+      (node) => {
+        NUXT_DATA_ATTRS.forEach((attr) => delete node.properties[attr])
+      }
     )
   }
 }
