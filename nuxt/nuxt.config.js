@@ -1,4 +1,5 @@
 import { dirname, join } from 'path'
+import { title } from 'process'
 import rehype from 'rehype'
 import { detectLanguage } from './lib/content/detectLanguage'
 import removeNuxt from './rehype/remove-nuxt'
@@ -11,7 +12,12 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'romaricpascal.is',
+    titleTemplate: (titleChunk) => {
+      if (titleChunk) {
+        return `${titleChunk} | Romaric Pascal`
+      }
+      return 'Romaric Pascal'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
