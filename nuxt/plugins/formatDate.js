@@ -6,7 +6,6 @@
  */
 export default (context, inject) => {
   inject('dt', function (date, format = 'short', locale = this.$i18n.locale) {
-    console.log(locale)
     return this.$d(date, 'short', locale === 'en' ? 'en-gb' : locale)
   })
 }
