@@ -1,5 +1,4 @@
 import { dirname, join } from 'path'
-import { title } from 'process'
 import rehype from 'rehype'
 import { detectLanguage } from './lib/content/detectLanguage'
 import removeNuxt from './rehype/remove-nuxt'

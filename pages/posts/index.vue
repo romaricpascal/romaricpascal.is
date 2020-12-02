@@ -13,7 +13,7 @@
   <div>
     <h1>{{ $t('heading') }}</h1>
     <ul class="post-list">
-      <li v-for="post in posts" class="post-list-item">
+      <li v-for="(post, index) in posts" :key="index" class="post-list-item">
         <h2>
           <nuxt-link :to="localePath(`/${post.route}`)">
             {{ post.title }}
