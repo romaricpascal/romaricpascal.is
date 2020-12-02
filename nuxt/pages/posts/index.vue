@@ -42,7 +42,7 @@ export default {
   },
   head() {
     return {
-      title: [this.$t('heading'), 'Romaric Pascal'].filter(Boolean).join(' | '),
+      title: this.$t('heading'),
     }
   },
 }
