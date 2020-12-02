@@ -10,9 +10,6 @@ html{
 
 body {
   min-height: 100%;
-}
-
-body {
   line-height: 1.5;
 
   /* System font stack from https://css-tricks.com/snippets/css/system-font-stack/ */

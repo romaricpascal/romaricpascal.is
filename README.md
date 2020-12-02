@@ -1,15 +1,20 @@
-romaricpascal.is
-===
+# romaricpascal.is
 
-Code and content (for now) for the upcoming version of https://romaricpascal.is.
+## Build Setup
 
-The current version is utterly outdated (2+ years), both in its content and its code. A good occasion to tear everything to the ground and rebuild from scratch. Inspired by [Frank Chimero](https://frankchimero.com/blog/2019/redesign/), I'll publish in-progress version of the site as it evolves, and document my decisions & learnings through articles. Both a way to remember how I got there and to spread the best practices I know. The focus will be more on development than design, in a first part at least.
+```bash
+# install dependencies
+$ npm install
 
-There will be mistakes, there will be wanderings, there will be backtracking, but it should be a fun journey of at least two main stages:
+# serve with hot reload at localhost:3000
+$ npm run dev
 
-1. Build multilingual functionalities for a JavaScript static site generator.
-2. Implement a new design and contents for the site
+# build for production and launch server
+$ npm run build
+$ npm run start
 
-Already my brain calls for a third one, but lets see how things go with the first two:
+# generate static project
+$ npm run generate
+```
 
-3. Create an admin tool for the content.
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
