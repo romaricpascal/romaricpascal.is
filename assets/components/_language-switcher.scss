@@ -1,0 +1,10 @@
+.language-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -0.25rem;
+}
+
+.language-switcher > * {
+  margin: 0.25rem;
+}

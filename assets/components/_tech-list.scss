@@ -1,0 +1,22 @@
+.tech-list {
+  font-style: italic;
+  display: table;
+  margin-left: auto;
+  text-align: right;
+  margin-right: -1.25rem;
+  padding: 0.25rem 0.5rem 0.5rem;
+  background: linear-gradient(#e0e0e0, #e0e0e0);
+  background-repeat: no-repeat;
+  background-size: 100% calc(100% - 0.25rem);
+  position: relative;
+}
+
+.tech-list::after {
+  content: '';
+  position: absolute;
+  border: solid 0.25rem #e0e0e0;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  bottom: -0.25rem; /* From bottom due to padding, shifted half-height to position correctly */
+  right: 0;
+}

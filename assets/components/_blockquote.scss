@@ -1,0 +1,41 @@
+blockquote,
+.note {
+  padding: 1rem;
+  font-size: 1.125rem;
+  border: solid 0.125rem;
+}
+
+blockquote p:first-child::before {
+  content: open-quote;
+}
+
+blockquote p:nth-last-child(2)::after {
+  content: close-quote
+}
+
+blockquote cite {
+  font-size: 1rem;
+  display: table;
+  margin-left: auto;
+  text-align: right;
+  border: solid 2px;
+  padding: 0.25rem 0.5rem;
+  margin-right: -1.5rem;
+  background: white;
+  position: relative;
+}
+
+blockquote cite::after {
+  content: '';
+  position: absolute;
+  border: solid 0.25rem;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  top: 100%;
+  right: 0;
+}
+
+blockquote a,
+blockquote a:visited {
+  color: inherit;
+}

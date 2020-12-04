@@ -77,6 +77,7 @@ Use Sass to make things manageable
 
 %font-family--B {
   font-family: Font family B, fallback-font;
+
   --font-size-scale: 1.45;
 }
 
