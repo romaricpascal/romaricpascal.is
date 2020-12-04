@@ -1,0 +1,31 @@
+@use "sass:list";
+
+// Based on SASS documentation
+// https://sass-lang.com/documentation/values/functions
+// TODO: Support negative indices
+@function remove-at($list, $indices) {
+  
+  $separator: list.separator($list);
+  $bracketed: list.is-bracketed($list);
+  $new-list: if($bracketed, [], ());
+  $i: 0;
+  @each $element in $list {
+    $i: $i + 1;
+    @if (not list.index($indices, $i)) {
+      $new-list: list.append($new-list, $element, $separator: $separator);
+    }
+  }
+  @return $new-list;
+}
+
+@function remove-values($list, $values) {
+  $separator: list.separator($list);
+  $bracketed: list.is-bracketed($list);
+  $new-list: if($bracketed, [], ());
+  @each $element in $list {
+    @if (not list.index($values, $element)) {
+      $new-list: list.append($new-list, $element, $separator: $separator);
+    }
+  }
+  @return $new-list;
+}

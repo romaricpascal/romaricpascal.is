@@ -1,0 +1,27 @@
+@import '~highlight.js/scss/nord.scss';
+
+pre > code,
+.hljs {
+  display: block;
+  padding: 1.5rem;
+  background-color: #1D273A;
+  color: #fafafa;
+  overflow: auto;
+  outline: 0;
+}
+
+.hljs pre code {
+  padding: 0;
+}
+
+/* HighlightJS theme tweak */
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #8E9CB7;
+}
+
+.hljs-number {
+  color: #C291B6;
+}

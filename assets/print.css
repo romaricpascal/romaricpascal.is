@@ -24,10 +24,10 @@ a[href^='#']::after {
   overflow-wrap: word-break
 }
 
-h1 a,
-h2 a {
-  display: none;
+h1, h2, h3, h4, h5, h6 {
+  break-after: avoid;
 }
+
 
 .avatar {
   filter: grayscale(100%)
@@ -50,10 +50,6 @@ blockquote {
   position: relative;
   border: solid 0.125rem #1D273A;
   color: #1D273A;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  break-after: avoid;
 }
 
 /* blockquote {

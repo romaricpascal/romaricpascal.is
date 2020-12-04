@@ -1,0 +1,75 @@
+.demo {
+  * {
+    margin: 0;
+  }
+
+  > * {
+    padding: 0.125rem;
+    border: solid 2px;
+  }
+
+  &:not(.demo--shallow) {
+    position: relative;
+    width: 70%;
+    max-width: 30rem;
+
+    &::after {
+      content: '';
+      display: block;
+      padding-top: 75%;
+    }
+
+    > * {
+      position: absolute;
+      top: 1.5rem;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: calc(100% - 1.5rem);
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 1.5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background: currentColor;
+  }
+}
+
+.demo--centered {
+  display: table;
+  width: auto;
+}
+
+.demo--narrow::before,
+.demo--narrow > div {
+  max-width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-element {
+  border: solid 0.125rem;
+}
+
+.demo-element-filled {
+  background: currentColor;
+}
+
+.demo-element-striped {
+  /* https://css-tricks.com/why-do-we-have-repeating-linear-gradient-anyway/ */
+  background:  repeating-linear-gradient(-45deg,
+      currentColor, currentColor 0.125rem /* lines */,
+      white calc(0.125rem + 1px), white 0.5rem /* space between */
+  ) 50% no-repeat;
+}
+
+.interactive {
+  border: solid 2px;
+  padding: 1rem;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black ;
+}

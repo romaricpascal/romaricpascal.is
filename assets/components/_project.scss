@@ -1,0 +1,134 @@
+$project-headings: h2, h3, h4 !default;
+
+.project {
+  background: linear-gradient(#f0f0f0, #f0f0f0);
+  background-position-x: 0%;
+  background-position-y: 0%;
+  padding: 0.75rem;
+  background-repeat: no-repeat;
+  background-size: 100% calc(100% - 1.5rem);
+  background-position: bottom;
+
+  #{$project-headings} {
+    background: #1D273A;
+    color: #fafafa;
+    margin-left: -1.25rem;
+    margin-top: -0.5rem;
+
+    /* Irregular vertical padding to cater
+      for the presence of a link in the heading
+      for most projects */
+    padding: 0.3125rem 0.75rem 0.4375rem;
+    display: table;
+    font-size: 1.125rem;
+    font-weight: normal;
+    position: relative;
+
+    & + * {
+      margin-top: 1.5rem;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      border: solid 0.25rem #1D273A;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      top: 100%;
+      left: 0;
+    }
+
+    a {
+
+      &, &:visited {
+        color: inherit;
+      }
+
+      &:focus {
+        outline-offset: calc(0.5rem + 2px);
+      }
+    }
+
+    &:focus-within {
+      outline: solid 2px #1D273A;
+      outline-offset: 2px;
+
+      a:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+.project--not-linked {
+  #{$project-headings} {
+    /* Shift padding to bottom to handle the lack of underline */
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
+}
+
+.project--side {
+  background-image: linear-gradient(#fafafa,#fafafa), linear-gradient(#1D273A,#1D273A);
+  background-size: calc(100% - 4px) calc(100% - 1.5rem - 4px), 100% calc(100% - 1.5rem);
+  background-position: bottom 2px left 2px, bottom left;
+  padding-bottom: 1rem;
+
+  #{$project-headings} {
+    background: #fafafa;
+    color: #1D273A;
+    border: solid 2px;
+    font:inherit;
+    padding-bottom: 0.375rem;
+
+    & + * {
+      margin-top: 0.75rem;
+    }
+  }
+}
+
+.project--reversed {
+  background-image: linear-gradient(#1D273A,#1D273A), linear-gradient(#fafafa,#fafafa);
+  color: #fafafa;
+  background-size: calc(100% - 4px) calc(100% - 1.625rem - 4px), 100% calc(100% - 1.625rem);
+  background-position: bottom 2px left 2px, bottom left;
+
+  /* Add a bit of padding due to the darkness of the color */
+  padding: 1rem;
+
+  #{$project-headings} {
+    margin-left: -1.5rem;
+    background: #1D273A;
+    color: inherit;
+    border: solid 0.125rem #fafafa;
+    font-size: 1.125rem;
+
+    /* Remove borders on the left and bottom
+      rather than setting them to transparent
+      to avoid 45deg. angles where they join */
+    border-left: 0;
+    border-bottom: 0;
+
+    /* Add them back as padding */
+    padding-bottom: calc(0.375rem + 0.125rem);
+    padding-left: calc(0.5rem + 0.125rem);
+
+    /* Draw an extra border at the bottom-right
+      that'll join the side of the project */
+    background-image: linear-gradient(#fafafa,#fafafa);
+    background-repeat: no-repeat;
+    background-size: calc(100% - 0.5rem) 2px;
+    background-position: bottom right
+  }
+
+  a {
+    &, &:visited {
+      color: inherit;
+      outline-color: #fafafa;
+    }
+  }
+}
+
+.project--ends-with-block {
+  padding-bottom: 1.75rem;
+}
