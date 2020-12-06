@@ -28,7 +28,6 @@ I like John Gruber's summmarization of what the web is (thanks HTeuMeuLeu). It c
 
 ### HTTP
 
-
 Servers are ready to listen for clients to request documents, usually on port 80.
 
 Clients can take various form, but the ones you're probably most familiar with are browsers. You're probably using one to read this document right now.
@@ -44,6 +43,7 @@ BODY
 ```
 
 Response format:
+
 ```
 VERSION STATUS-CODE REASON PHRASE
 HEADERS
@@ -84,7 +84,8 @@ Needs to be as semantically rich as possible.
 HTML already provides a lot of semantics on its own.
 ARIA comes to enhance them when needed.
 
-### Other concerns of the markup
+### Other responsibilities of the markup
+
 Aside from semantics, the markup plays a role in:
 
 - hooking CSS for styling
@@ -109,8 +110,14 @@ It's a list of rules that describe which styling rules to apply to which element
 }
 ```
 
+Selector give the reason why the rule applies. Properties define what gets applied. Combining selectors allows to define more complex reasons. There's usually a limit past which the reason for applying the rules becomes the wrong reason. 6 selectors already allow you to express: I'm X (but not Y) and the child/descendant of A (but not B) and I'm a (direct) sibling of C (but not D).This is already a pretty complex reason to have some styles and maybe it's easier to have your template/JavaScript compress it to "I'm something else" by setting specific classes or attributes.
+
+TODO: Find back the graph with the technical names of each part, esp. when selectors compound
+
 #### The Cascade
+
 #### Different selectors and when to use them
+
 #### General principles
 
 - naming scheme (BEM is nice)
@@ -118,14 +125,16 @@ It's a list of rules that describe which styling rules to apply to which element
 - controlling isolation
   - use selectors to express "why"
   - OOCSS to split concerns and not fit everything in the same selector
+  - finding reusable patterns
   - media queries
   - `@supports`
   - nesting, or limitations of (don't describe HTML structure in CSS)
 - design tokens
-  - colors
+  - colors (for bg, text, borders...)
   - typography (scales, loading)
   - spacing
   - icons?
+  - shadows
 - code structure (ITCSS, or a lighter 'abstract', 'generic', 'components')
 - utility classes
 - loading (render blocking, media queries...)
@@ -157,15 +166,43 @@ JavaScript
   - Timers
   - TODO: Grow the list
 
+## The accessibility tree
+
+What gets in there and how?
+
+- elements themselves: `hidden`, `aria-hidden`, `disabled`, `display: none`, `visibility:hidden`...
+- their labels: label from HTML (content, `for`, `alt`, `<caption>`...), `aria-label`, `aria-labelledby`...
+- other stuff (`aria-describedby`, `roledesc`...)
+
 Components
 ---
 
 ### Text content
 
-HTML: '<p>', '<ul>','<ol>','<dl>'
+- HTML: `<p>`, `<ul>`,`<ol>`,`<dl>`, `<blockquote>`
+
+### Appearance
+
+- Text & background colors (incl. WCAG contrast)
+- Borders
+  - color
+  - `border-image`
+  - drawing shapes
+- Gradients
+  - shapes
+- Shadows
+
+### Typography
+
+- CSS: Font families map (grouping of font-family,font-weight and font-style)
+- Font size and lineheight
+- Uppercase and letter spacing
+- Cancelling ascenders and descenders whitespace
 
 ### Structuring content
+
 #### Landmarks
+
 - Semantics
 - Labelling
 - Fixed header
@@ -174,35 +211,49 @@ HTML: '<p>', '<ul>','<ol>','<dl>'
   - headroom.js (how accessible is that?)
 - Navigations
   - Responsive (full or partial overlay, enhanced to work without JS)
-  - Drawer that pushes the content
-  - Dropdowns
-#### Headings
-- Button in headings
-#### CSS
-  - Spacing & rythm classes
-  - Heading styles and classes
-  - Responsive typo (usually more for headings)
-  - Sticky footer
-#### Layout techniques
-  - CSS grid
-  - Flexbox
-  - Fab four
-  - position: `sticky`
-  - Sticky sidebar (with JS)
+  - Drawer that pushes the content - meh
+  - Dropdowns - requires ARIA disclosure pattern
 
+#### Headings
+
+- Button in headings
+
+#### CSS
+
+- Spacing & rythm classes
+- Heading styles and classes
+- Responsive typo (usually more for headings)
+- Sticky footer
+
+#### Layout techniques
+
+- CSS grid
+- Flexbox
+- Fab four
+- position: `sticky`
+- Sticky sidebar (with JS)
+- z-indices
+- Floating
+  - `shape-outside`
 
 ### Actions
-#### Links
-#### Buttons
+
+#### Links & Buttons
+
 #### CSS
- - button reset
- - invisible & discreet links (when hover/focus supported by parent)
- - link stylings
- - button stylings
+
+- contrast rules (text, as well as graphic)
+- button reset
+- invisible & discreet links (when hover/focus supported by parent)
+- link stylings
+- button stylings
 
 ### Images & Multimedia
+
 #### Images
+
 ##### `<img>`
+
 - Basic
 - Responsive
 - Multi-format
@@ -210,23 +261,32 @@ HTML: '<p>', '<ul>','<ol>','<dl>'
 - JS: Lazy loading (on scroll, or other events)
 - Template: Data structure for easy image embedding
 - Template: Data structure for tracking image size
+
 ##### `<svg>`
+
 - Inline
 - SVG sprite
 - CSS: Styling
 - Workflow: Preparing SVG
 - Template: Embedding SVG
+
 ##### `background-image`
+
 - Basic
 - Responsive
+
 #### Videos
+
 - `<video>`
 - Youtube/Vimeo
 - JS players (videoJS/plyr)
+
 #### Audio
+
 TODO: Research
 
 ### Forms
+
 - Different types of fields
 - Labeling (fieldsets & fields), incl. with buttons
 - Error and hint association
@@ -247,16 +307,19 @@ TODO: Research
   - Drag'n'drop
 
 ### Tables
+
 - Markup
 - Responsiveness
-- Forms in tables?
+- Forms in tables? ARIA grid
 
 ### Embed
+
 - Iframes
   - JS
 - Object
 
 ### Overlays
+
 - CSS `position: absolute/fixed` + different ways of pinning the object (inside, outside, on 1 to 4 blocks, how margins work with it...)
 - dropdowns
 - drawers
@@ -266,6 +329,7 @@ TODO: Research
 - ARIA `haspopup`?
 
 ### Scrolling
+
 - Horizontal & vertical overflow
 - Smooth scrolling
 - Scroll into view
@@ -279,14 +343,6 @@ TODO: Research
 - Animating with JS
   - Parallax
 
-### The accessibility tree
-
-What gets in there and how?
-
-- elements themselves: `hidden`, `aria-hidden`, `disabled`, `display: none`, `visibility:hidden`...
-- their labels: label from HTML (content, `for`, `alt`, `<caption>`...), `aria-label`, `aria-labelledby`...
-- other stuff (`aria-describedby`, `roledesc`...)
-
 ### Focus
 
 - Use focusable elements
@@ -297,8 +353,28 @@ What gets in there and how?
 - CSS: `focus`
 - CSS: `focus-within`
 - CSS: `focus-visible`
+- CSS Appearance: WCAG 2.2 Focus rules
+- Visibility when tabbing/reverse tabbing and overlays (fixed, sticky or absolute)
 
 ### ARIA widgets
+
+Frequently used:
+
+- Disclosure
+- Tabs
+- What else?
+
+The rest
+
+### Maps
+
+TBD
+
+### Charts
+
+TBD
+
+### 3D
 
 TBD
 
@@ -319,9 +395,9 @@ Workflow
 
 How to make sure to cover most bases when implementing front-end?
 
-- UI Flows (Basecamp's shorthand:https://signalvnoise.com/posts/1926-a-shorthand-for-designing-ui-flows)
+- UI Flows (Basecamp's shorthand:<https://signalvnoise.com/posts/1926-a-shorthand-for-designing-ui-flows>)
 - Breakdown each screen into components containing components... with for each:
-  - 9 states when applicable: https://medium.com/swlh/the-nine-states-of-design-5bfe9b3d6d85
+  - 9 states when applicable: <https://medium.com/swlh/the-nine-states-of-design-5bfe9b3d6d85>
   - Content:
     - semantics
     - source (hard coded or from data)
@@ -329,7 +405,7 @@ How to make sure to cover most bases when implementing front-end?
   - Styling
   - Responsiveness
   - Triggered interaction
-- For interactions, breakdown: https://github.com/rhumaric/thoughts-and-drafts/blob/master/interacting-with-a-web-page.md (this might highlight new components)
+- For interactions, breakdown: <https://github.com/rhumaric/thoughts-and-drafts/blob/master/interacting-with-a-web-page.md> (this might highlight new components)
 
 There will be missing pieces when design is first handed over. Ask questions, discuss ;) There'll also be missing pieces revealed when implementing. Same :)
 
@@ -339,12 +415,13 @@ Values
 TBD, but TL;DR:
 
 - Respect the user (accessibility, performance, respect their attention, their privacy, make it easy to leave...)!
-- Respect the platform: Use what it gives you, and if your JS breaks some of its default behaviour, make sure you compensage for it.
+- Respect the platform: Use what it gives you, and if your JS breaks some of its default behaviour, make sure you compensate for it.
 
 Checklists
 ---
+
 frontendchecklist.io
-https://checklists.opquast.com/fr/
+<https://checklists.opquast.com/fr/>
 
 Tooling
 ---
@@ -366,9 +443,11 @@ Husky + lint-staged
 - UI: Cypress.io
 
 ### CSS
+
 SASS + PostCSS (handy plugins list)
 
 ### JavaScript
+
 - Nothing
 - Minifying (terser, uglifyjs)
 - Bundling & code splitting (webpack, rollup, parcel)
