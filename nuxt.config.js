@@ -5,6 +5,18 @@ import removeNuxt from './rehype/remove-nuxt'
 import unwrap, { DEFAULT_SELECTOR } from './rehype/hast-util-unwrap'
 import stripComments from './rehype/strip-comments'
 
+const LOCALES = {
+  locales: [
+    {
+      code: 'en',
+      iso: 'en',
+      name: 'English',
+    },
+    { code: 'fr', iso: 'fr', name: 'Français' },
+  ],
+  defaultLocale: 'en',
+}
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -47,6 +59,7 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     'nuxt-i18n',
+    '@nuxtjs/feed',
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
@@ -105,15 +118,7 @@ export default {
   },
 
   i18n: {
-    locales: [
-      {
-        code: 'en',
-        iso: 'en',
-        name: 'English',
-      },
-      { code: 'fr', iso: 'fr', name: 'Français' },
-    ],
-    defaultLocale: 'en',
+    ...LOCALES,
     vueI18nLoader: true,
     vueI18n: {
       fallbackLocale: 'en',
@@ -141,4 +146,68 @@ export default {
       setRouteParams: true,
     },
   },
+
+  feed() {
+    const baseUrl = 'https://romaricpascal.is'
+    const feedFormats = {
+      rss: { type: 'rss2', file: 'feed.xml' },
+      json: { type: 'json1', file: 'feed.json' },
+    }
+    const feedDescriptions = {
+      en: 'Thoughts about front-end development (mostly)',
+      fr: "Pensées sur l'intégration web (en gros)",
+    }
+    const { $content } = require('@nuxt/content')
+
+    const feeds = LOCALES.locales.map(createFeeds).flat()
+    return feeds
+
+    function createFeeds(locale) {
+      return Object.values(feedFormats).map(({ file, type }) => ({
+        path: i18nRoute(file, { locale: locale.code }),
+        type,
+        create: createFeedArticles(locale.code),
+      }))
+    }
+
+    function createFeedArticles(localeCode) {
+      return async function create(feed) {
+        feed.options = {
+          title: 'Romaric Pascal',
+          author: 'Romaric Pascal <hello@romaricpascal.is>',
+          description: feedDescriptions[localeCode],
+          link: baseUrl,
+          language: localeCode,
+        }
+        const articles = await $content('posts')
+          .where({
+            language: localeCode,
+          })
+          .sortBy('date', 'desc')
+          .limit(20)
+          .fetch()
+
+        articles.forEach((article) => {
+          const url = `${baseUrl}/${i18nRoute(article.route, {
+            locale: localeCode,
+          })}`
+
+          feed.addItem({
+            title: article.title,
+            id: url,
+            link: url,
+            date: new Date(article.date),
+          })
+        })
+      }
+    }
+  },
+}
+
+function i18nRoute(path, { locale }) {
+  if (locale !== LOCALES.defaultLocale) {
+    return `${locale}/${path}`
+  }
+
+  return path
 }
