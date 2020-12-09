@@ -150,9 +150,7 @@ export default {
 
       document.route = join(dirname(document.path), document.slug)
         .replace(/^\//, '')
-        .replace(/index$/, '')
-
-      // console.log('\n', document.route, document.path, document.slug, '\n')
+        .replace(/index$/, '__INDEX__')
     },
   },
 

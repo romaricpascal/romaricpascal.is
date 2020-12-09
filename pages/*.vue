@@ -24,9 +24,14 @@ export default {
   async asyncData({ $content, store, route, params, redirect }) {
     const locale = store.state.i18n.locale
 
+    const routes = [
+      params.pathMatch, // Either match the exact path
+      `${params.pathMatch}/__INDEX__`, // Or an index page for that path
+      `__INDEX__`, // Or the route path
+    ]
     const results = await $content({ deep: true })
       .where({
-        route: params.pathMatch || '',
+        route: { $in: routes },
         language: locale,
       })
       .fetch()
@@ -43,7 +48,7 @@ export default {
       const pathTranslations = {}
       translations.forEach((translatedDocument) => {
         pathTranslations[translatedDocument.language] = {
-          pathMatch: translatedDocument.route,
+          pathMatch: translatedDocument.route.replace('__INDEX__', ''),
         }
       })
 
