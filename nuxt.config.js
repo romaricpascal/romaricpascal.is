@@ -32,8 +32,39 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+      { name: 'msapplication-TileColor', content: '#111111' },
+      {
+        name: 'msapplication-config',
+        content: '/media/favicons/browserconfig.xml',
+      },
+      { name: 'theme-color', content: '#ffffff' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/media/favicons/apple-touch-icon.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/media/favicons/favicon-32x32.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/media/favicons/favicon-16x16.png',
+      },
+      { rel: 'manifest', href: '/media/favicons/site.webmanifest' },
+      {
+        rel: 'mask-icon',
+        href: '/media/favicons/safari-pinned-tab.svg',
+        color: '#111111',
+      },
+      { rel: 'shortcut icon', href: '/media/favicons/favicon.ico' },
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
