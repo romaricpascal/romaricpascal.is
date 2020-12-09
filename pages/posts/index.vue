@@ -26,7 +26,10 @@
 </template>
 
 <script>
+import head from '~/mixins/head'
+
 export default {
+  mixins: [head],
   async asyncData({ $content, store }) {
     const locale = store.state.i18n.locale
 
@@ -40,9 +43,11 @@ export default {
     posts.forEach((post) => (post.date = new Date(post.date)))
     return { posts }
   },
-  head() {
+  data() {
     return {
-      title: this.$t('heading'),
+      headData: {
+        title: this.$t('heading'),
+      },
     }
   },
 }

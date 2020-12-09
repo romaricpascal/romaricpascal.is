@@ -2,6 +2,13 @@ import { dirname, join } from 'path'
 import querystring from 'querystring'
 import { detectLanguage } from './lib/content/detectLanguage'
 
+const SITE_URL = 'https://romaricpascal.is'
+const SITE_TITLE = 'Romaric Pascal'
+const FEED_DESCRIPTIONS = {
+  en: 'Thoughts about front-end development (mostly)',
+  fr: "Pensées sur l'intégration web (en gros)",
+}
+
 const LOCALES = {
   locales: [
     {
@@ -32,6 +39,16 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+
+      // Social metadata
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: SITE_TITLE, hid: 'ogTitle' },
+      { property: 'og:description', content: '', hid: 'ogDescription' },
+      { property: 'og:image', content: `${SITE_URL}/media/meta.png` },
+      { property: 'twitter:card', content: 'summary' },
+      { property: 'twitter:creator', content: 'romaricpascal' },
+
+      // Favicon stuff
       { name: 'msapplication-TileColor', content: '#111111' },
       {
         name: 'msapplication-config',
@@ -190,6 +207,14 @@ export default {
     vueI18nLoader: true,
     vueI18n: {
       fallbackLocale: 'en',
+      messages: {
+        en: {
+          siteDescription: 'Thoughts about front-end development (mostly)',
+        },
+        fr: {
+          siteDescription: "Pensées sur l'intégration web (en gros)",
+        },
+      },
       dateTimeFormats: {
         'en-gb': {
           // Require 'en-gb' here so that date is in the right order
@@ -216,14 +241,10 @@ export default {
   },
 
   feed() {
-    const baseUrl = 'https://romaricpascal.is'
+    const baseUrl = SITE_URL
     const feedFormats = {
       rss: { type: 'rss2', file: 'feed.xml' },
       json: { type: 'json1', file: 'feed.json' },
-    }
-    const feedDescriptions = {
-      en: 'Thoughts about front-end development (mostly)',
-      fr: "Pensées sur l'intégration web (en gros)",
     }
     const { $content } = require('@nuxt/content')
 
@@ -243,7 +264,7 @@ export default {
         feed.options = {
           title: 'Romaric Pascal',
           author: 'Romaric Pascal <hello@romaricpascal.is>',
-          description: feedDescriptions[localeCode],
+          description: FEED_DESCRIPTIONS[localeCode],
           link: baseUrl,
           language: localeCode,
         }

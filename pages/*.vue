@@ -16,11 +16,13 @@
 
 <script>
 import Page404 from './404'
+import head from '~/mixins/head'
 
 export default {
   components: {
     Page404,
   },
+  mixins: [head],
   async asyncData({ $content, store, route, params, redirect }) {
     const locale = store.state.i18n.locale
 
@@ -62,10 +64,13 @@ export default {
 
     return { doc }
   },
-  head() {
-    return {
-      title: this.doc ? this.doc.title : 'Not found',
-    }
+  computed: {
+    headData() {
+      return {
+        title: this.doc ? this.doc.title : 'Not found',
+        description: this.doc?.ogDescription,
+      }
+    },
   },
 }
 </script>
