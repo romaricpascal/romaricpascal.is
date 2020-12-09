@@ -1,6 +1,6 @@
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
-SITE_PATH=site
+SITE_PATH=dist
 WORK_DIR=/tmp/deploy
 DEPLOY_ID=romaricpascal.is-`date '+%y%m%d%H%M%S'`
 ARCHIVE_PATH="$WORK_DIR/$DEPLOY_ID.tar.gz"
