@@ -126,18 +126,6 @@ ul, ol {
   font-size: 1.2rem;
 }
 
-.link-discreet {
-  color: inherit;
-}
-
-.link-reversed {
-  text-decoration: none;
-}
-
-.link-reversed:hover {
-  text-decoration: underline;
-}
-
 .lead {
   font-size: 1.125rem;
 }
@@ -169,6 +157,7 @@ summary {
   cursor: pointer;
 }
 
+@import 'components/links';
 @import 'components/centered-children';
 @import 'components/site-header';
 @import 'components/site-footer';
