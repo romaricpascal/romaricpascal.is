@@ -18,6 +18,8 @@ const LOCALES = {
   defaultLocale: 'en',
 }
 
+const EXTRA_JS = false // { main: ['./assets/main.js'] };
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -97,10 +99,8 @@ export default {
   build: {
     extractCSS: true,
     extend(config, { isClient, isDev }) {
-      if (isClient) {
-        config.entry = Object.assign({}, config.entry || {}, {
-          main: [process.cwd() + '/assets/main.js'],
-        })
+      if (isClient && EXTRA_JS) {
+        config.entry = Object.assign({}, config.entry || {}, EXTRA_JS)
 
         if (isDev) {
           // Thanks Nuxt default config
@@ -149,7 +149,7 @@ export default {
         const res = rehype()
           .use(removeNuxt, {
             ignore: (node) =>
-              /(runtime|main).js/.test(node.properties.src || ''),
+              EXTRA_JS && /(runtime|main).js/.test(node.properties.src || ''),
           })
           .use(unwrap, {
             selector: `${DEFAULT_SELECTOR},.nuxt-content, #__nuxt, #__layout`,
