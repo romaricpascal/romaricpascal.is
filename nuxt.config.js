@@ -139,14 +139,20 @@ export default {
 
   hooks: {
     'content:file:beforeInsert'(document) {
+      const languageCodes = LOCALES.locales.map((l) => l.code)
+      const regexp = new RegExp(`--(${languageCodes.join('|')})$`)
+
       const languageInfo = detectLanguage(document.path, {
-        languages: ['en', 'fr'],
+        languages: languageCodes,
       })
       Object.assign(document, languageInfo)
+      document.slug = document.slug.replace(regexp, '')
 
       document.route = join(dirname(document.path), document.slug)
         .replace(/^\//, '')
         .replace(/index$/, '')
+
+      // console.log('\n', document.route, document.path, document.slug, '\n')
     },
   },
 
