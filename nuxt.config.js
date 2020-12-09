@@ -80,8 +80,15 @@ export default {
           ['rehype-highlight', { ignoreMissing: true }],
         ]
       },
-      highlighter(rawCode, lang) {
-        return rawCode
+      highlighter(rawCode, lang, _, { h, node, u }) {
+        // Simply returning `rawCode` would get any HTML in there parsed
+        // Instead, we need to create the HAST structure
+        // and pass the code as a text node
+        return h(node, 'pre', [
+          h(node, 'code', { className: [`language-${lang}`] }, [
+            u('text', rawCode),
+          ]),
+        ])
       },
     },
   },
