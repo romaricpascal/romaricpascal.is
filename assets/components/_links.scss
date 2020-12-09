@@ -1,0 +1,15 @@
+a {
+  color: #1B697A;
+}
+
+.link-discreet {
+  color: inherit;
+}
+
+.link-reversed {
+  text-decoration: none;
+}
+
+.link-reversed:hover {
+  text-decoration: underline;
+}
