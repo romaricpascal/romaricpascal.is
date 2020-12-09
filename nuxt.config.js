@@ -239,6 +239,22 @@ export default {
       }
     }
   },
+
+  router: {
+    trailingSlash: true,
+    extendRoutes(routes) {
+      // Duplicate the catch all route to create a root route
+      // This will allow the i18n plugin to correctly
+      // create the internationalised route paths
+      const root = routes.find((r) => r.name === '*')
+      routes.splice(routes.length - 1, 0, {
+        ...root,
+        name: '/',
+        path: '/',
+        chunkName: 'pages/index',
+      })
+    },
+  },
 }
 
 function i18nRoute(path, { locale }) {

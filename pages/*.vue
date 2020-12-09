@@ -27,16 +27,21 @@ export default {
     const routes = [
       params.pathMatch, // Either match the exact path
       `${params.pathMatch}/__INDEX__`, // Or an index page for that path
-      `__INDEX__`, // Or the route path
+      `__INDEX__`, // Or the root path
     ]
-    const results = await $content({ deep: true })
-      .where({
-        route: { $in: routes },
-        language: locale,
-      })
-      .fetch()
+    let doc
+    for (const r of routes) {
+      const results = await $content({ deep: true })
+        .where({
+          route: r,
+          language: locale,
+        })
+        .fetch()
 
-    const doc = results[0]
+      doc = results[0]
+      if (doc) break
+    }
+
     if (doc) {
       if (doc.date) {
         doc.date = new Date(doc.date)
