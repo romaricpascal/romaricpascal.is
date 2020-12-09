@@ -1,10 +1,6 @@
 import { dirname, join } from 'path'
 import querystring from 'querystring'
-import rehype from 'rehype'
 import { detectLanguage } from './lib/content/detectLanguage'
-import removeNuxt from './rehype/remove-nuxt'
-import unwrap, { DEFAULT_SELECTOR } from './rehype/hast-util-unwrap'
-import stripComments from './rehype/strip-comments'
 
 const LOCALES = {
   locales: [
@@ -63,6 +59,7 @@ export default {
     '@nuxt/content',
     'nuxt-i18n',
     '@nuxtjs/feed',
+    '~/modules/no-nuxt-client',
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
@@ -92,6 +89,14 @@ export default {
           ]),
         ])
       },
+    },
+  },
+
+  // Remove nuxt client
+  noNuxtClient: {
+    removeNuxt: {
+      ignore: (node) =>
+        EXTRA_JS && /(runtime|main).js/.test(node.properties.src || ''),
     },
   },
 
@@ -142,23 +147,6 @@ export default {
       document.route = join(dirname(document.path), document.slug)
         .replace(/^\//, '')
         .replace(/index$/, '')
-    },
-    'render:route'(url, result, context) {
-      // if (process.env.NODE_ENV === 'production') {
-      if (result.html) {
-        const res = rehype()
-          .use(removeNuxt, {
-            ignore: (node) =>
-              EXTRA_JS && /(runtime|main).js/.test(node.properties.src || ''),
-          })
-          .use(unwrap, {
-            selector: `${DEFAULT_SELECTOR},.nuxt-content, #__nuxt, #__layout`,
-          })
-          .use(stripComments)
-          .processSync(result.html)
-        result.html = res.contents
-      }
-      // }
     },
   },
 
