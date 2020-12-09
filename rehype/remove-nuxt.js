@@ -9,13 +9,14 @@ const NUXT_DATA_ATTRS = [
   'dataServerRendered',
 ]
 
-export default function () {
+export default function ({ ignore = () => {} } = {}) {
   return function (tree) {
     remove(
       tree,
       (node, index, parent) =>
         matches('script, link', node) &&
-        (isNuxtScript(node) || isNuxtData(node))
+        (isNuxtScript(node) || isNuxtData(node)) &&
+        !ignore(node, index, parent)
     )
 
     visit(
