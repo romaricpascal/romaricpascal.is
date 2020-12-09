@@ -1,4 +1,5 @@
 import { dirname, join } from 'path'
+import querystring from 'querystring'
 import rehype from 'rehype'
 import { detectLanguage } from './lib/content/detectLanguage'
 import removeNuxt from './rehype/remove-nuxt'
@@ -88,6 +89,40 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     extractCSS: true,
+    extend(config, { isClient, isDev }) {
+      if (isClient) {
+        config.entry = Object.assign({}, config.entry || {}, {
+          main: [process.cwd() + '/assets/main.js'],
+        })
+
+        if (isDev) {
+          // Thanks Nuxt default config
+          // https://github.com/nuxt/nuxt.js/blob/dev/packages/webpack/src/config/client.js
+          const {
+            options: { router },
+          } = this.buildContext
+
+          const hotMiddlewareClientOptions = {
+            reload: true,
+            timeout: 30000,
+            path: `${router.base}/__webpack_hmr/${config.name}`.replace(
+              /\/\//g,
+              '/'
+            ),
+            name: this.name,
+          }
+
+          const hotMiddlewareClientOptionsStr = querystring.stringify(
+            hotMiddlewareClientOptions
+          )
+
+          config.entry.main.unshift(
+            'eventsource-polyfill',
+            `webpack-hot-middleware/client?${hotMiddlewareClientOptionsStr}`
+          )
+        }
+      }
+    },
   },
 
   hooks: {
@@ -105,7 +140,10 @@ export default {
       // if (process.env.NODE_ENV === 'production') {
       if (result.html) {
         const res = rehype()
-          .use(removeNuxt)
+          .use(removeNuxt, {
+            ignore: (node) =>
+              /(runtime|main).js/.test(node.properties.src || ''),
+          })
           .use(unwrap, {
             selector: `${DEFAULT_SELECTOR},.nuxt-content, #__nuxt, #__layout`,
           })
