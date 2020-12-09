@@ -8,18 +8,23 @@ export default function () {
 
   const options = nuxt.options.noNuxtClient || {}
 
-  nuxt.hook('render:route', remove)
+  nuxt.hook('render:route', async function (url, result) {
+    result.html = await remove(result.html)
+  })
+  nuxt.hook('generate:page', async function (page) {
+    page.html = await remove(page.html)
+  })
 
-  async function remove(url, result, context) {
-    if (result.html) {
-      const res = await rehype()
-        .use(removeNuxt, options.removeNuxt)
-        .use(unwrap, {
-          selector: `${DEFAULT_SELECTOR},.nuxt-content, #__nuxt, #__layout`,
-        })
-        .use(stripComments)
-        .process(result.html)
-      result.html = res.contents
-    }
+  async function remove(html) {
+    if (!html) return html
+
+    const res = await rehype()
+      .use(removeNuxt, options.removeNuxt)
+      .use(unwrap, {
+        selector: `${DEFAULT_SELECTOR},.nuxt-content, #__nuxt, #__layout`,
+      })
+      .use(stripComments)
+      .process(html)
+    return res.contents
   }
 }
