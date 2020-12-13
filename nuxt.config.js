@@ -105,6 +105,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // Paginate before i18n so routes get internationalised as necessary
+    ['~/modules/paginate-routes', { paths: ['/posts/'] }],
     'nuxt-i18n',
     '@nuxtjs/feed',
     '~/modules/no-nuxt-client',
