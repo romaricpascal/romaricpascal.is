@@ -362,6 +362,7 @@ Frequently used:
 
 - Disclosure
 - Tabs
+- Breadcrumbs
 - What else?
 
 The rest
@@ -389,6 +390,26 @@ TBD
 ### Multilingual/Internationalization
 
 TBD
+
+### Typical pages
+
+#### Listings
+
+ - Item actions (have whole item clickable)
+ - Pagination
+ - Filtering
+
+#### Single item
+
+TBD
+
+#### Authentication
+
+TBD
+
+#### Checkouts
+
+ - Stages & progress
 
 Workflow
 ---
