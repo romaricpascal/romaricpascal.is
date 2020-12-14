@@ -180,6 +180,8 @@ Components
 ### Text content
 
 - HTML: `<p>`, `<ul>`,`<ol>`,`<dl>`, `<blockquote>`
+- Split text
+- Drop caps
 
 ### Appearance
 
@@ -274,6 +276,10 @@ Components
 
 - Basic
 - Responsive
+
+#### `<figure>`
+
+TBD
 
 #### Videos
 
