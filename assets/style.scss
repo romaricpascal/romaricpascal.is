@@ -26,14 +26,6 @@ body {
   flex-direction: column;
   min-height: 100%;
 
-  > * + * {
-    margin-top: 2rem;
-  }
-
-  > header {
-    margin-top: 0;
-  }
-
   > main {
     margin-bottom: auto;
     margin-top: auto;
@@ -158,6 +150,7 @@ summary {
 }
 
 @import 'components/links';
+@import 'components/active-link';
 @import 'components/centered-children';
 @import 'components/site-header';
 @import 'components/site-footer';
@@ -170,6 +163,7 @@ summary {
 @import 'components/project';
 @import 'components/tech-list';
 @import 'components/code_highlighting';
+@import 'components/pagination';
 
 @import 'utilities';
 
