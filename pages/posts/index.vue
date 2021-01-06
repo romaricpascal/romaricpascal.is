@@ -67,6 +67,14 @@ export default {
       },
     }
   },
+  created() {
+    this.$store.commit('SET', {
+      prose: false,
+    })
+  },
+  layoutOptions: {
+    prose: false,
+  },
 }
 
 const PER_PAGE = 5
