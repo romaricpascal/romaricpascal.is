@@ -10,7 +10,10 @@
 </i18n>
 
 <template>
-  <nav aria-labelledby="site-navigation-label">
+  <nav
+    aria-labelledby="site-navigation-label"
+    class="show-current-link show-active-link"
+  >
     <h2 id="site-navigation-label" hidden>Site</h2>
     <nuxt-link
       class="link-reversed brand no-active"

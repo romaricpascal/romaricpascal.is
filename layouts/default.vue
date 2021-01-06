@@ -7,7 +7,8 @@
     </header>
     <main
       id="main"
-      class="prose contained-children contained-children--with-automatic-widening"
+      class="contained-children contained-children--with-automatic-widening"
+      :class="{ prose: false }"
     >
       <Nuxt />
     </main>

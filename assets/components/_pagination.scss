@@ -1,0 +1,28 @@
+.page-list {
+  padding:0;
+  list-style-type: none;
+  display: flex;
+  align-items: baseline;
+
+  > * + * {
+    margin-left: 0.5rem;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  a:not([href]) {
+    opacity: 0.75;
+  }
+
+  > * + * {
+    margin-left: 0.5rem;
+  }
+
+  > h2 + * {
+    margin: 0;
+  }
+}

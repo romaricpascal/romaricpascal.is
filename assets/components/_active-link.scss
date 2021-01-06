@@ -1,0 +1,14 @@
+.show-current-link [aria-current],
+.show-active-link .nuxt-link-active,
+.show-exact-active-link .nuxt-link-exact-active{  
+  &:not(.no-active) {
+    text-decoration: none;
+    background: linear-gradient(#1D273A,#1D273A);
+    background-size: 100% 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fafafa;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

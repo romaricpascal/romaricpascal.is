@@ -10,7 +10,7 @@
 </i18n>
 
 <template>
-  <div>
+  <Fragment>
     <h1>{{ $t('heading') }}</h1>
     <ul class="post-list">
       <li v-for="(post, index) in posts" :key="index" class="post-list-item">
@@ -22,7 +22,15 @@
         <time :datetime="post.date.toISOString()">{{ $dt(post.date) }}</time>
       </li>
     </ul>
-  </div>
+    <Pagination
+      class="margin-top--md"
+      :show-list="true"
+      v-bind="pagination"
+      :page="page"
+    >
+      Page {{ page }} / {{ pagination.lastPage }}
+    </Pagination>
+  </Fragment>
 </template>
 
 <script>
@@ -41,14 +49,14 @@ export default {
 
     posts.forEach((post) => (post.date = new Date(post.date)))
 
+    const page = params.page || 1
     const pagination = paginate(posts, {
       page: params.page || 1,
     })
 
-    console.log(pagination)
-
     return {
       posts: posts.slice(pagination.startIndex, pagination.endIndex),
+      page,
       pagination,
     }
   },
