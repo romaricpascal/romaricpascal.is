@@ -21,7 +21,12 @@ $centered-children__wider__max-width: 46rem;
 }
 
 .contained-children--with-automatic-widening {
-  > pre, figure, img, blockquote, style, script {
+  > pre,
+  > figure, 
+  > img, 
+  > blockquote,
+  > style, 
+  > script {
     max-width: $centered-children__wider__max-width;
   }
 }

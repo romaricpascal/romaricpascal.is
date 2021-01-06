@@ -1,0 +1,16 @@
+@supports (mix-blend-mode: screen) {
+
+  .tint-content {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      background: #1d273a;
+      opacity: 1;
+      mix-blend-mode: screen;
+    }
+  }
+}
