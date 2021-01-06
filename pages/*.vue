@@ -4,7 +4,7 @@
       <h1 v-if="doc.title">{{ doc.title }}</h1>
       <time
         v-if="doc.type === 'post'"
-        class="d--block margin-top--0"
+        class="d--block no-margin-top"
         :datetime="doc.date.toISOString()"
         >{{ $dt(doc.date) }}</time
       >
