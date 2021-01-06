@@ -1,5 +1,5 @@
 ---
-title: Hover effects with CSScustom properties
+title: Hover effects with CSS custom properties
 slug: hover-effects-css-custom-properties
 date: 2020-11-11
 type: post
@@ -7,7 +7,6 @@ layout: post.pug
 ogDescription:
   Where a button serves as a pretext
   to explore patterns around CSS custom properties
-draft: true
 ---
 <style class="d--none">
   .demo-content {
@@ -46,7 +45,7 @@ To start with, we'll need a button so let's quickly make one. Nothing fancy, jus
     color: white;
     border: solid 0.125rem white;
     padding: 0.5rem 1rem;
-    box-shadow: 0 0.25rem 0 RGBA(70, 1, 96, 0.7);
+    box-shadow: 0 0.25rem 0 rgba(70, 1, 96, 0.7);
   }
 </style>
 
@@ -66,11 +65,11 @@ To make the button stick out more, or appear pressed, the first part of the effe
 <style>
   .button--with-static-adjustable-shadows:hover,
   .button--with-static-adjustable-shadows:focus {
-    box-shadow: 0 0.375rem 0 RGBA(70, 1, 96, 0.7);
+    box-shadow: 0 0.375rem 0 rgba(70, 1, 96, 0.7);
   }
 
   .button--with-static-adjustable-shadows:active {
-    box-shadow: 0 0.125rem 0 RGBA(70, 1, 96, 0.7);
+    box-shadow: 0 0.125rem 0 rgba(70, 1, 96, 0.7);
   }
 </style>
 
@@ -81,7 +80,8 @@ By introducing a custom `--elevation` property, we can tweak just the value we n
 <style>
   .button--with-adjustable-shadows {
     --elevation: 0.25rem;
-    box-shadow: 0 var(--elevation) 0 RGBA(70, 1, 96, 0.7);
+
+    box-shadow: 0 var(--elevation) 0 rgba(70, 1, 96, 0.7);
   }
 
   .button--with-adjustable-shadows:hover,
@@ -111,6 +111,7 @@ With `calc` we can reuse it to compute how much we need to translate the button.
   .button--with-translation {
     --base-elevation: 0.25rem;
     --elevation: var(--base-elevation);
+
     transform: translateY(calc(var(--base-elevation) - var(--elevation)));
   }
 </style>
@@ -171,18 +172,21 @@ By introducing a new custom property to store the elevation shadow, we can help 
 <style>
   .button--secondary {
     --shadow-inset: inset 0 0 0 0.125rem #460160;
+
     box-shadow: var(--shadow-inset);
     background: white;
     color: #460160;
   }
 
   .button--with-composable-shadow {
-    --shadow-elevation: 0 var(--elevation) 0 RGBA(70, 1, 96, 0.7);
+    --shadow-elevation: 0 var(--elevation) 0 rgba(70, 1, 96, 0.7);
+
     box-shadow: var(--shadow-elevation);
   }
 
   .button--with-composable-transform {
     --transform-elevation: translateY(calc(var(--base-elevation) - var(--elevation)));
+
     transform: var(--transform-elevation);
   }
 
@@ -217,7 +221,7 @@ So far, each new behaviour has been brought by different classes, the ones comin
     --elevation: var(--base-elevation);
 
     /*Variables to help composing the shadow and transform*/
-    --shadow-elevation: 0 var(--elevation) 0 RGBA(70, 1, 96, 0.7);
+    --shadow-elevation: 0 var(--elevation) 0 rgba(70, 1, 96, 0.7);
     --transform-elevation: translateY(calc(var(--base-elevation) - var(--elevation)));
 
     /*The application through CSS properties*/

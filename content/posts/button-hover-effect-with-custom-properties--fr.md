@@ -7,7 +7,6 @@ layout: post.pug
 ogDescription:
   Où un bouton sert de prétexte à explorer différents patterns
   autour des propriétés personnalisées en CSS
-draft: true
 ---
 <style class="d--none">
   .demo-content {
@@ -46,7 +45,7 @@ Pour commencer, il nous faut donc un bouton. Rien de trop extravagant, juste un 
     color: white;
     border: solid 0.125rem white;
     padding: 0.5rem 1rem;
-    box-shadow: 0 0.25rem 0 RGBA(70, 1, 96, 0.7);
+    box-shadow: 0 0.25rem 0 rgba(70, 1, 96, 0.7);
   }
 </style>
 
@@ -66,11 +65,11 @@ Pour faire ressortir le bouton un peu plus, ou le rendre pressé, il faut d'abor
 <style>
   .button--with-static-adjustable-shadows:hover,
   .button--with-static-adjustable-shadows:focus {
-    box-shadow: 0 0.375rem 0 RGBA(70, 1, 96, 0.7);
+    box-shadow: 0 0.375rem 0 rgba(70, 1, 96, 0.7);
   }
 
   .button--with-static-adjustable-shadows:active {
-    box-shadow: 0 0.125rem 0 RGBA(70, 1, 96, 0.7);
+    box-shadow: 0 0.125rem 0 rgba(70, 1, 96, 0.7);
   }
 </style>
 
@@ -81,7 +80,8 @@ En introduisant une propriété `--elevation`, on peu ajuster indépendament ce 
 <style>
   .button--with-adjustable-shadows {
     --elevation: 0.25rem;
-    box-shadow: 0 var(--elevation) 0 RGBA(70, 1, 96, 0.7);
+
+    box-shadow: 0 var(--elevation) 0 rgba(70, 1, 96, 0.7);
   }
 
   .button--with-adjustable-shadows:hover,
@@ -111,6 +111,7 @@ Grâce à `calc`, on peut la réutiliser pour calculer de combien bouger le bout
   .button--with-translation {
     --base-elevation: 0.25rem;
     --elevation: var(--base-elevation);
+
     transform: translateY(calc(var(--base-elevation) - var(--elevation)));
   }
 </style>
@@ -174,18 +175,21 @@ On peut également faire de même pour `transform` qui a le même soucis que `bo
 <style>
   .button--secondary {
     --shadow-inset: inset 0 0 0 0.125rem #460160;
+
     box-shadow: var(--shadow-inset);
     background: white;
     color: #460160;
   }
 
   .button--with-composable-shadow {
-    --shadow-elevation: 0 var(--elevation) 0 RGBA(70, 1, 96, 0.7);
+    --shadow-elevation: 0 var(--elevation) 0 rgba(70, 1, 96, 0.7);
+
     box-shadow: var(--shadow-elevation);
   }
 
   .button--with-composable-transform {
     --transform-elevation: translateY(calc(var(--base-elevation) - var(--elevation)));
+
     transform: var(--transform-elevation);
   }
 
@@ -211,24 +215,24 @@ Jusqu'ici, chaque nouveau comportement était apporté par une classe différent
 
 <style>
   .button--fancy {
-    /*La configuration du pattern*/
+    /* La configuration du pattern */
     --base-elevation: 0.25rem;
     --up-elevation: 0.375rem;
     --down-elevation: 0.125rem;
 
-    /*La propriété qui change `box-shadow` et `transform`*/
+    /* La propriété qui change `box-shadow` et `transform` */
     --elevation: var(--base-elevation);
 
-    /*Des variables pour aider à composer l'ombre et la transformation*/
-    --shadow-elevation: 0 var(--elevation) 0 RGBA(70, 1, 96, 0.7);
+    /* Des variables pour aider à composer l'ombre et la transformation */
+    --shadow-elevation: 0 var(--elevation) 0 rgba(70, 1, 96, 0.7);
     --transform-elevation: translateY(calc(var(--base-elevation) - var(--elevation)));
 
-    /*L'application avec les propriétés CSS*/
+    /* L'application avec les propriétés CSS */
     box-shadow: var(--shadow-elevation);
     transform: var(--transform-elevation);
   }
 
-  /*Les changements pour les différents états*/
+  /* Les changements pour les différents états */
   .button--fancy:hover,
   .button--fancy:focus {
     --elevation: var(--up-elevation);
@@ -238,7 +242,7 @@ Jusqu'ici, chaque nouveau comportement était apporté par une classe différent
     --elevation: var(--down-elevation);
   }
 
-  /*Et n'oublions pas la combinaison avec l'autre bouton*/
+  /* Et n'oublions pas la combinaison avec l'autre bouton */
   .button--secondary.button--fancy {
     box-shadow: var(--shadow-inset), var(--shadow-elevation);
   }
@@ -256,21 +260,22 @@ Les enfants de l'élément auquel s'applique la classe auront eux aussi accès �
 
 <style>
   .button--with-elevation {
-    /*La configuration du pattern*/
+    /* La configuration du pattern */
     --base-elevation: 0.25rem;
     --up-elevation: 0.375rem;
     --down-elevation: 0.125rem;
 
-    /*La propriété qui change `box-shadow` et `transform`*/
+    /* La propriété qui change `box-shadow` et `transform` */
     --elevation: var(--base-elevation);
 
-    /*Des variables pour aider à composer l'ombre et la transformation*/
-    /*Couleur sans transparence pour éviter que les opacités ne se composent*/
+    /* Des variables pour aider à composer l'ombre et la transformation */
+
+    /* Couleur sans transparence pour éviter que les opacités ne se composent */
     --shadow-elevation: 0 var(--elevation) 0 #853D84;
     --transform-elevation: translateY(calc(var(--base-elevation) - var(--elevation)));
   }
 
-  /*Les changements pour les différents états*/
+  /* Les changements pour les différents états */
   .button--with-elevation:hover,
   .button--with-elevation:focus {
     --elevation: var(--up-elevation);
@@ -280,13 +285,13 @@ Les enfants de l'élément auquel s'applique la classe auront eux aussi accès �
     --elevation: var(--down-elevation);
   }
 
-  /*The trigger for actually lifting the button*/
+  /* The trigger for actually lifting the button */
   .button--with-elevation__elevate {
     box-shadow: var(--shadow-elevation);
     transform: var(--transform-elevation);
   }
 
-  /*Et n'oublions pas la combinaison avec l'autre bouton*/
+  /* Et n'oublions pas la combinaison avec l'autre bouton */
   .button--with-elevation__elevate.button--secondary {
     box-shadow: var(--shadow-inset), var(--shadow-elevation);
   }
