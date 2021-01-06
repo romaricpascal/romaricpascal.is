@@ -47,13 +47,13 @@
 <script>
 export default {
   props: {
-    page: String,
-    firstPage: Number,
-    lastPage: Number,
-    startIndex: Number,
-    endIndex: Number,
-    nextPage: Number,
-    previousPage: Number,
+    page: [String, Number],
+    firstPage: [String, Number],
+    lastPage: [String, Number],
+    startIndex: [String, Number],
+    endIndex: [String, Number],
+    nextPage: [String, Number],
+    previousPage: [String, Number],
     showFirstAndLast: {
       type: Boolean,
       default: false,
