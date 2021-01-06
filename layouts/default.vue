@@ -8,7 +8,7 @@
     <main
       id="main"
       class="contained-children contained-children--with-automatic-widening"
-      :class="{ prose: false }"
+      :class="{ prose }"
     >
       <Nuxt />
     </main>
@@ -20,3 +20,21 @@
     </footer>
   </Fragment>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      prose: true,
+      ...this.pageLayoutOptions,
+    }
+  },
+  computed: {
+    pageLayoutOptions() {
+      return (
+        this.$route.matched[0].components.default.options.layoutOptions || {}
+      )
+    },
+  },
+}
+</script>
