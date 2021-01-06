@@ -12,7 +12,7 @@
 <template>
   <Fragment>
     <h1>{{ $t('heading') }}</h1>
-    <ul class="post-list">
+    <ul class="post-list margin-top--sm">
       <li v-for="(post, index) in posts" :key="index" class="post-list-item">
         <h2>
           <nuxt-link :to="localePath(`/${post.route}`)">
