@@ -112,7 +112,7 @@ On peut alors utiliser ces fonctions dans le gabarit `layout/post.pug` pour affi
 
 ```pug
   //- ...
-  time.margin-top--0(datetime=date.toISOString())
+  time.no-margin-top(datetime=date.toISOString())
     = get(dateFormats,i18n.language)(date)
   //- ...
 ```

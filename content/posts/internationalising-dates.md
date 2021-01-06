@@ -111,7 +111,7 @@ The `<time>` tag will provide some semantics to indicate that it's some time dat
 
 ```pug
   //- ...
-  time.margin-top--0(datetime=date.toISOString())
+  time.no-margin-top(datetime=date.toISOString())
     = get(dateFormats,i18n.language)(date)
   //- ...
 ```

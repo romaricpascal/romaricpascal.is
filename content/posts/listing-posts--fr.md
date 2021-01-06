@@ -108,7 +108,7 @@ ul.post-list
       h2
         a(href=post.outputUrl)
           = post.title
-      time.margin-top--0(datetime=date.toISOString())
+      time.no-margin-top(datetime=date.toISOString())
         = get(dateFormats,i18n.language)(post.date)
 ```
 
