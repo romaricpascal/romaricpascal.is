@@ -41,7 +41,9 @@ export default {
   mixins: [head],
   async asyncData({ $content, store, params }) {
     const locale = store.state.i18n.locale
-    const posts = await $content('posts')
+    const now = new Date()
+
+    let posts = await $content('posts')
       .where({
         language: locale,
       })
@@ -49,6 +51,14 @@ export default {
       .fetch()
 
     posts.forEach((post) => (post.date = new Date(post.date)))
+
+    // Filter out drafts and future posts
+    // unless we're in dev, where the writing happens
+    if (process.env.NODE_ENV !== 'development') {
+      posts = posts
+        .filter((post) => !post.draft)
+        .filter((post) => post.date < now)
+    }
 
     const page = params.page || 1
     const pagination = paginate(posts, {
@@ -67,11 +77,6 @@ export default {
         title: this.$t('heading'),
       },
     }
-  },
-  created() {
-    this.$store.commit('SET', {
-      prose: false,
-    })
   },
   layoutOptions: {
     prose: false,
