@@ -19,24 +19,27 @@
 .post-list-item {
   position: relative;
   z-index: 0;
-}
 
-.post-list-item a::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
+  time {
+    display: block;
+  }
 
-.post-list-item:focus-within {
-  outline: solid 2px #1D273A;
-  outline-offset: 2px;
-}
+  a::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  &:focus-within {
+    outline: solid 2px #1D273A;
+    outline-offset: 2px;
 
-.post-list-item:focus-within a {
-  outline: none;
+    :focus {
+      outline: none;
+    }
+  }
 }
