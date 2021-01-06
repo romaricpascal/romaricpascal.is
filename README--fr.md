@@ -1,17 +1,42 @@
 romaricpascal.is
 ===
 
-Code et contenu pour la nouvell version de https://romaricpascal.is.
+Code et contenu de [mon site personnel](https://romaricpascal.is).
 
-La version actuelle est completement depasee (plus de deux ans), a la fois dans son contenu et son code. Une bonne occasion de passer a tout autre chose en repartant de zero.
+Développement
+---
 
-Inspire par [Frank Chimero](https://frankchimero.com/blog/2019/redesign/), je vais publier le site au fur et a mesure de sa construction, et documenter mes decisions et lecons par des articles. Un bon moyen de retrouver pourquoi les choses ont ete faites ainsi, et de diffuser les bonnes pratiques que j'utilise. Le focus sera plus sur l'aspect developement que le dgesign, en tout cas dans un premier temps.
+La version actuelle utilise [NuxtJS](https://nuxtjs.org/)
 
-Il y aura des erreurs, des egarements et des demi-tours, mais ca devrait etre une aventure sympa, avec au moins deux grandes etapes:
+```sh
+npm install
 
-1. Ajouter des fonctionalites multilangues a un generateur de site statique JavaScript
-2. Implementer un nouveau design et les nouveaux contenus pour le site
+npm run dev
+```
 
-Deja mon cerveau est attire par une troisieme, mais voyons deja comment les deux premieres se passent:
+Production
+---
 
-3. Creer un outil d'administration pour le contenu
+La commande `generate` de Nuxt crée une version de production dans le dossier `dist`.
+
+```sh
+npm run generate
+```
+
+Il est ensuite possible de la servir localement avec `npx serve dist` ou de la déployer sur une machine distante.
+
+## Vérifier les liens
+
+`wget` est super utile pour vérifier que tous les liens pointent vers un contenu existant, avec son option `--spider`. Seul bémol, il télécharge chaque page dans un dossier qu'il faut supprimer une fois la commande terminée.
+
+```sh
+wget --spider --recursive --no-verbose localhost:3000 && rm -r localhost:3000
+```
+
+## Deploiement
+
+Le script `deploy.sh` à la racine du repository copie le site sur un serveur distant et le décompresse dans le dossier approprié (en faisant une sauvegarde du dossier précédant, au cas où).
+
+```sh
+./deploy user@example.com destination_folder
+```

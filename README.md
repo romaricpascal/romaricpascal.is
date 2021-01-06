@@ -1,20 +1,41 @@
-# romaricpascal.is
+romaricpascal.is
+===
 
-## Build Setup
+Code and content of [my personal site](https://romaricpascal.is).
 
-```bash
-# install dependencies
-$ npm install
+## Development
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+Current version is built with [NuxtJS](https://nuxtjs.org/)
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+```sh
+npm install
 
-# generate static project
-$ npm run generate
+npm run dev
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+### Production build
+
+Nuxt's `generate` command creates a production build of the site in the `dist` folder.
+
+```sh
+npm run generate
+```
+
+The site can then be served locally with `npx serve dist` or deployed to a remote server.
+
+## Checking for broken links
+
+`wget` proves super handy for checking broken links, with its `--spider` option.
+Only downside is that is downloads each page in a folder that needs to be cleaned up afterwards.
+
+```sh
+wget --spider --recursive --no-verbose localhost:3000 && rm -r localhost:3000
+```
+
+## Deployment
+
+The `deploy.sh` script at the root of the repository will SCP the site to a remote server and unpack it in the appropriate folder (making a backup of the previous one).
+
+```sh
+./deploy user@example.com destination_folder
+```
