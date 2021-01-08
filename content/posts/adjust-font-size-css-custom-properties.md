@@ -3,7 +3,8 @@ title: Adjust font size with CSS custom properties
 date: 2021-01-06
 type: post
 layout: post.pug
-draft: true
+description:
+  Waiting for `font-size-adjust`, custom properties provide a way to tweak the size of fonts loaded on the page.
 ---
 As I was setting up a custom font on a side project, I realised that it was making the text much smaller than the default `sans-serif` used as a fallback.
 

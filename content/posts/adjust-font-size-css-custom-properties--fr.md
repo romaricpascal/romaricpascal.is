@@ -4,7 +4,8 @@ slug: ajuster-taille-police-proprietes-personalisees-css
 date: 2021-01-06
 type: post
 layout: post.pug
-draft: true
+description:
+  En attendant `font-size-adjust`, les propriétés personalisées permettent d'ajuster la taille des polices chargées par la page.
 ---
 Lors de l'ajout d'une police spécifique pour un projet, je me suis rendu compte qu'elle rendait le texte bien plus petit que le faisait son fallback `sans-serif`.
 
