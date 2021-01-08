@@ -36,7 +36,7 @@ La propriété rend également le code plus expressif. Elle décrit "cette polic
 
 C'est bien beau, mais [le support n'est malheureusement pas encore au rendez-vous][mdn-font-size-adjust]. Firefox l'a implémentée depuis un moment déjà, mais Blink la garde derrière l'option <span lang="en">"Experimental web platform features"</span> et [Webkit n'a personne d'assigné au ticket (en)][webkit-font-size-adjust].
 
-En attendant, on peut utiliser les propriétés personalisées pour arriver plus ou moins au même résultat.
+En attendant, on peut utiliser les propriétés personalisées pour arriver à quelque chose de proche.
 
 [css-fonts-level-3]: https://drafts.csswg.org/css-fonts-3/
 [css-fonts-level-3-font-size-adjust]: https://drafts.csswg.org/css-fonts-3/#font-size-adjust-prop
@@ -76,7 +76,7 @@ function loadFonts() {
   var font = new FontFace(
     // Un nom différent de celui original de la police évite
     // de rendre le texte avec la police installée sur le poste
-    // de l'utilisateur (ce que l'on ne peut pas détecter)
+    // de l'utilisateur (indétectable) qui afficherait le texte trop petit
     'Remote-Bariol',
     // Mais on peut quand même charger la police locale grâce à la fonction `local`
     "local(Bariol), url(fonts/bariol_regular-webfont.woff2) format('woff2'), url(fonts/bariol_regular-webfont.woff) format('woff')"
@@ -97,39 +97,45 @@ function loadFonts() {
 [javascript-everywhere]: https://kryogenix.org/code/browser/everyonehasjs.html
 [mdn-font-face]: https://developer.mozilla.org/en-US/docs/Web/API/FontFace
 
-Adjusting the font-size with custom properties
+Ajuster la taille de police avec les propriétés personalisées
 ---
 
-Now we know when the font is loaded, we can tackle the CSS. Sorry for the wait!
+Maintenant que l'on sait quand la police est chargée, on peut s'attaquer au CSS. Enfin! (désolé pour l'attente).
 
-### Configuring the scaling
+### Configurer la mise à l'échelle
 
-With a custom `--font-size-scale` property, we can express a similar concept to `font-size-adjust`. Once the font is loaded rules setting the `font-family` property to the "problematic" font will adjust its value as needed.
+Avec une propriété `--font-size-scale`, on va exprimer la même idée que `font-size-adjust`: une valeur pour mettre à l'échelle la valeur définie par `font-size`. Une fois la police chargée, les règles qui appliquent `font-family` avec la police "problématique" changeront sa valeur comme nécessaire.
 
 ```css
 :root {
   /* 
-    Scaling will happen through multiplication (spoiler!)
-    so we'll initialise it to 1
+    La mise à l'échelle se fait par multiplication (spoiler!)
+    donc on initialise la propriété a 1
   */
   --font-size-scale: 1;
 
   /* 
-    As the scaling factor for specific fonts
-    will likely be applied in more than one place,
-    it's worth storing them in their own properties
+    Comme le facteur sera sûrement appliqué
+    dans différentes règles, on peut utiliser
+    une propriété clairement nommée pour stocker
+    l'ajustement
   */
   --font-size-scale--bariol: 1.25;
 
-  /* --font-size-scale--another-font: 0.75; */
+  /* 
+    Et définir autant de propriétés que necessaire
+    si plusieurs polices demandent un ajustement
+    --font-size-scale--another-font: 0.75; 
+  */
 }
 
 .font-family--bariol,
 h1,
 .h1 {
   /* 
-    Use the custom name to avoid picking up installed fonts
-    without detecting their loading
+    On utilise le nom défini lors du chargement
+    pour éviter de se retrouver avec la police
+    locale sans le savoir
   */
   font-family: Remote-Bariol, sans-serif;
 }
@@ -138,14 +144,14 @@ h1,
 .font-loaded--bariol h1,
 .font-loaded--bariol .h1 {
   /*
-    Apply a different scale for the font
-    once loaded
+    Pour tous ces sélécteurs qui appliquent la police,
+    on ajuste la variable une fois la police chargée.
   */
   --font-size-scale: var(--font-size-scale--bariol, 1);
 }
 ```
 
-But we also need to take care of rules setting a `font-family` that does not need scaling. Child elements will inherit the custom property value from their parents. If font stacks that do not need scaling don't reset the factor to `1`, they'll get blown up or shrunk when they didn't need to.
+Mais il faut aussi prendre en compte les règles qui appliquent des polices qui n'ont pas besoin de mise à l'échelle. Les éléments enfants vont hériter de la valeur de la propriété `--font-size-scale` de leurs parents. Si les règles appliquant des polices qui ne doivent pas mises à l'échelle ne remettent pas la valeur à `1`, le texte sera aggrandi ou rétréci inutilement.
 
 ```css
 .font-family--does-not-need-scaling {
@@ -155,14 +161,15 @@ But we also need to take care of rules setting a `font-family` that does not nee
 }
 ```
 
-### Applying the scaling
+### Appliquer la mise à l'échelle
 
-Now each `font-family` is accompanied by its corresponding `--font-size-scale`,
-we can start using the property to adjust the font size. First step is replacing all the `font-size` properties set in `rem` with the scaling computation.
+Chaque changement de `font-family` est maintenant accompagné d'une déclarations `--font-size-scale`. On va donc pouvoir s'en servir pour ajuster la taille de police.
 
-We'll also want to scale the font-size of the `<body>` element too. Not the `<html>` one as it'd affect the value of all `rem` lengths, possibly used for spacing and what not.
+Première chose à faire: remplacer toutes les déclarations `font-size` en `rem` avec le calcul de mise à l'échelle. Il faudra également en rajouter une initiale sur l'élément `<body>` pour permettre à la taille du texte d'être ajustée globalement. Attention, pas sur l'élément `<html>`, car celà affecterait toutes les autres dimensions déclarées en `rem`, par exemple pour l'espacement.
 
-Technically, we'd also want to apply the same computation to absolute units, like `px`. But `rem`s should be preferred to allow users to set the font-size they need via user stylesheets, so we'll leave them out. This'll have the nice side effect of revealling poor choices of unit.
+Techniquement, il faudrait aussi appliquer la mise à l'échelle aux unités absolues, comme `px`. L'unité `rem` étant préférable pour permettre aux utilisateurs d'appliquer la taille de police dont ils ont besoin avec une feuille de style utilisateur, on ne va pas toucher aux unités absolues. Celà permettra de révéler des choix d'unités malencontreux.
+
+Pour ce qui est des `em` et autre unités relatives à la taille de police "locale" (`ex`,`ch`), on en parlera juste après.
 
 ```css
 body {
@@ -174,9 +181,11 @@ h1 {
 }
 ```
 
-### Reverting the scaling
+### Compenser la mise à l'échelle
 
-Avoiding to touch the font-size of the `<html>` element, safeguarded any length expressed in `rem`. Tweaking the `font-size` of elements will change any length set in `em`, `ch`, `ex`, though, as well as relative or unitless `line-height`. To match `font-size-adjust`, properties using `em` and unitless `line-height` will need to run the inverse computation to be scaled back to their proper value.
+En évitant de toucher à la taille de police du `<html>`, on n'affecte pas les dimensions exprimées en `rem`. Par contre, celles exprimées en `em`, `ch`, `ex`, ainsi que la propriété `line-height` vont être impactées.
+
+Pour reproduire le même comportement que `font-size-adjust`, les propriétés utilisant `em` et les `line-height` sans unités vont devoir appliquer un calcul inverse pour conserver la bonne valeur.
 
 ```css
 h1 {
@@ -186,25 +195,34 @@ h1 {
 }
 ```
 
-Tooling up
+La propriété `font-size`, lorsqu'elle est exprimée en `em`, demande un fonctionnement un peu différent:
+
+- si le texte défini en `em` est de la même police que l'élément ancêtre auquel se rapportent les `em`, il faudra laisser la taille en `em` telle quelle, la mise à l'échelle est déja appliquée
+- s'ils sont de polices différentes, il faudra appliquer un calcul légérement différent pour tenir en compte de l'échelle des deux polices:
+
+  ```css
+  font-size: calc(1em / var(--font-size-scale--font-of-ancestor, 1) * var(--font-size-scale, 1))
+  ```
+
+S'outiller un peu
 ---
 
-Handling all this manually is doable, but cumbersome and error prone. [SASS]
-can aleviate a bit of the burden in two ways.
+Gérer tout ça a la main, c'est jouable, mais pas très fun et on peut rapidement faire des erreurs. [Sass (en)][sass] permet de réduire un peu le travail de deux façons.
 
-### Tracking which selectors need to get the `--font-size-scale` property
+### Suivre quelles règles ont besoin de `--font-size-scale`
 
-There'll likely be more than one selector setting the problematic `font-family`. Placeholder classes and `@extend` can help spread the application of `font-family` and the `--font-size-scale` properties once the font is loaded.
+Il y aura surement plus d'un sélecteur qui appliqueront une police ayant besoin de mise à l'échelle, et ils seront rarement dans le même fichier. Facile donc d'en oublier quelques un lors qu'on va rajouter `--font-size-scale`.
+
+Avec `@extend` et des [sélecteurs "placeholders" (en)][sass-placeholder-selectors], Sass peut s'en charger pour nous.
 
 ```scss
-// The placeholder class will "collect" all the selectors
-// applying the font-family
+// Le sélecteur "placeholder" va collecter
+// les sélecteurs qui appliquent la `font-family`
 %font-family--bariol {
   font-family: Remote-Bariol, sans-serif;
 }
 
-// Instead of applying the `font-family` property
-// rules use `@extend`
+// Il sera utilisé à la place de la déclaration `font-family`
 .font-family--bariol {
   @extend %font-family--bariol;
 }
@@ -215,8 +233,8 @@ h1,
 }
 
 .font-loaded--bariol {
-  // This'll output all the selectors "collected" by the placeholder class.
-  // Even those written after. Here it'll generate:
+  // Cette règle va inscrire chaque sélecteur collecté par le placeholder.
+  // Même ceux écrits après. Ici, il créera:
   //   .font-loaded--bariol .font-family--bariol,
   //   .font-loaded--bariol h1,
   //   .font-loaded--bariol .h1
@@ -226,21 +244,25 @@ h1,
 }
 ```
 
-### Helping write lenghts that get scaled
+### Aider à écrire les calculs de mise à l'échelle
 
-A function like the following one could also help with applying the scaling (use with caution, it's very lightly tested):
+Pas qu'elles soient très compliquées en soient, les formules de mise à l'échelle ne sont pas très pratiques à écrire. Une fonction Sass permet de donner un peu de légéreté et de lisibilité au code (attention, code pas trop testé, à utiliser à vos risques et périls):
 
 ```scss
-@function font-size-scalable($value) {
-  // Scale rems
-  @if (unit($value) == rem) {
-    @return #{"calc(#{$value} * var(--font-size-scale, 1))"};
-  } 
-  // Revert scaling for ems, chs, exs and unitless
-  @if (unit($value) == em or unit($value) == "") {
-    @return #{"calc(#{$value} / var(--font-size-scale, 1))"};
-  }
-  @return $value;
+@function font-size-scalable($value, $scale-back-factor: null) {
+    // Pour mettre à l'échelle les `rem`
+    @if (unit($value) == rem) {
+        @return #{"calc(#{$value} * var(--font-size-scale, 1))"};
+    }
+    // Pour les tailles de police en `em`
+    @if ($scale-back-factor) {
+        @return #{"calc(#{$value} / #{$scale-back-factor} * var(--font-size-scale, 1))"};
+    }
+    // Pour les autres propriétés en `em` ou sans unités
+    @if (unit($value) == em or unit($value) == "") {
+        @return #{"calc(#{$value} / var(--font-size-scale, 1))"};
+    }
+    @return $value;
 }
 
 body {
@@ -252,16 +274,21 @@ h1 {
   line-height: font-size-scalable(1.5);
   padding: font-size-scalable(0.75em);
 }
+
+.font-size-in-em-needing-adjustment {
+    font-size: font-size-scalable(1em, var(--font-size-scale--font-of-parent,1));
+}
 ```
 
-There's still room for forgetting to use the placeholder or the function, but that's already less `calc` formulas to write manually, and no list of selector to keep track of.
+Ça laisse encore de la place pour oublier d'utiliser le placeholder ou la fonction, mais c'est déja moins de `calc` à écrire à la main et surtout plus de liste de sélecteurs à garder en tête.
 
-Ultimately, a [PostCSS] plugin would be ideal to reduce the burden even more:
+Au final, le mieux serait sûrement un plugin [PostCSS (en)][postcss] qui:
 
-- pick up automatically the use of `rem` lengths for `font-size` (and `font`) to scale them, and the use of `em` lengths and unitless `line-height` to scale them down
-- track the use of `font-family` (and `font`) to automatically generate extra selectors for setting `--font-size-scale` once the font is loaded
+- détecterait automatiquement l'usage de `font-size` (et `font`) en `rem` pour le les mettre à l'échelle, et celui de dimensions en `em` sur d'autres propriétés (ainsi que `line-height` sans unités) pour compenser celle-ci
+- suivrait quelles règles appliquent `font-family` (et `font`) pour générer automatiquement les propriétés `--font-size-scale` appropriées.
 
-That's its own bulk of work, though... maybe one day ;) In the meantime, it's SASS or manually writing the right properties. Oh, and there's always the option to tweak the font files too. But that means having them at hand and their license allowing such tampering, which is not always the case.
+Tout un projet, donc... peut-être un jour ;) En attentant, ça restera à la main, ou avec SASS. Il reste aussi la possibilité d'éditer les fichiers de la police. Mais il faut pour cela les avoir sous la main et que leur license permette de telles modifications, ce qui n'est pas forcément le cas.
 
 [PostCSS]: https://postcss.org
-[SASS]: https://sass-lang.com
+[Sass]: https://sass-lang.com
+[sass-placeholder-selectors]: https://sass-lang.com/documentation/style-rules/placeholder-selectors

@@ -34,7 +34,7 @@ It also makes the code more expressive. The property describes "this font render
 
 Only hiccup, [support is widespread there yet][mdn-font-size-adjust]. Firefox has been supporting it for a while, but Blink browsers hold it behind the "Experimental web platform features" flag and [Webkit has no one assigned to the issue][webkit-font-size-adjust].
 
-In the meantime, we can use CSS custom properties to express that we need to scale the font.
+In the meantime, we can use CSS custom properties to get something close.
 
 [css-fonts-level-3]: https://drafts.csswg.org/css-fonts-3/
 [css-fonts-level-3-font-size-adjust]: https://drafts.csswg.org/css-fonts-3/#font-size-adjust-prop
@@ -119,7 +119,12 @@ With a custom `--font-size-scale` property, we can express a similar concept to 
   */
   --font-size-scale--bariol: 1.25;
 
-  /* --font-size-scale--another-font: 0.75; */
+  /* 
+    And we can create as many properties
+    to store scaling factors as there are
+    fonts needing adjustments
+    --font-size-scale--another-font: 0.75; 
+  */
 }
 
 .font-family--bariol,
@@ -162,6 +167,8 @@ We'll also want to scale the font-size of the `<body>` element too. Not the `<ht
 
 Technically, we'd also want to apply the same computation to absolute units, like `px`. But `rem`s should be preferred to allow users to set the font-size they need via user stylesheets, so we'll leave them out. This'll have the nice side effect of revealling poor choices of unit.
 
+There's also `em`s and the other units relative to the "local" font size (`ex`,`ch`), but we'll talk about them right after.
+
 ```css
 body {
   font-size: calc(1rem * var(--font-size-scale, 1));
@@ -183,6 +190,15 @@ h1 {
   padding: calc(1.2em / var(--font-size-scale, 1));
 }
 ```
+
+When it's `font-size` that's expressed in `em`, things are a little different:
+
+- if the text set in `em` has the same font as the ancestor element the `em` refer to, we'll need to leave the size in `em` as is. The scaling is already applied.
+- if they're different, it's another computation that needs applying, to account for the scaling needed by both the font of the element and the ancestor the `em` refer to:
+
+  ```css
+  font-size: calc(1em / var(--font-size-scale--font-of-ancestor, 1) * var(--font-size-scale, 1))
+  ```
 
 Tooling up
 ---
@@ -229,16 +245,20 @@ h1,
 A function like the following one could also help with applying the scaling (use with caution, it's very lightly tested):
 
 ```scss
-@function font-size-scalable($value) {
-  // Scale rems
-  @if (unit($value) == rem) {
-    @return #{"calc(#{$value} * var(--font-size-scale, 1))"};
-  } 
-  // Revert scaling for ems, chs, exs and unitless
-  @if (unit($value) == em or unit($value) == "") {
-    @return #{"calc(#{$value} / var(--font-size-scale, 1))"};
-  }
-  @return $value;
+@function font-size-scalable($value, $scale-back-factor: null) {
+    // For scaling the `rem`
+    @if (unit($value) == rem) {
+        @return #{"calc(#{$value} * var(--font-size-scale, 1))"};
+    }
+    // For scaling back `em` for `font-size`
+    @if ($scale-back-factor) {
+        @return #{"calc(#{$value} / #{$scale-back-factor} * var(--font-size-scale, 1))"};
+    }
+    // For other properties in `em` or unitless
+    @if (unit($value) == em or unit($value) == "") {
+        @return #{"calc(#{$value} / var(--font-size-scale, 1))"};
+    }
+    @return $value;
 }
 
 body {
@@ -249,6 +269,10 @@ h1 {
   font-size: font-size-scalable(2rem);
   line-height: font-size-scalable(1.5);
   padding: font-size-scalable(0.75em);
+}
+
+.font-size-in-em-needing-adjustment {
+    font-size: font-size-scalable(1em, var(--font-size-scale--font-of-parent,1));
 }
 ```
 
